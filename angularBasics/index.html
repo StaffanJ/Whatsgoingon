@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="style/mainStyle.css">
+	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+
+
+</head>
+<body ng-controller="MainController">
+<!--EventHeader-->
+<div class="eventHeader"></div>
+<!--End eventHeader-->
+<div class="container"><!--Container-->
+	<div class="row"><!--Row-->
+	<div class="col-xs-12 col-sm-4 col-md-3"><!--Sidebar-->
+		<div class="Information">
+				<h4 class="discreet">Information</h4>
+				<ul class="quickInfo">
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-time event-desc" aria-hidden="true"></span> 
+						<p>{{events.time}} </p>
+					</li>
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-user event-desc" aria-hidden="true"></span>
+						<p>{{events.age}} </p>
+					</li>
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-calendar event-desc" aria-hidden="true"></span>
+						<p>{{events.date | date:'dd/MMM/yy'}} </p>
+					</li>
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-usd event-desc" aria-hidden="true"></span>
+						<p>{{events.cost }}kr</p>
+					</li>
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-map-marker event-desc" aria-hidden="true"></span>
+						<a href="http://maps.google.com/?q={{events.address}}">
+						{{ events.address}}</a> 
+					</li>
+					<li class="event-desc-list">
+						<span class="glyphicon glyphicon-modal-window event-desc" aria-hidden="true"></span>
+						<a href="{{events.event_page}}">Evenemangets webbplats</a> 
+					</li>
+				</ul>
+				<p class="annons">Annons</p>
+				<img class="reklamSmall" src="images/reklamSmall.jpg"/>
+		</div>
+	</div><!--End sidebar-->
+	  <div class="clearfix visible-xs-block"></div>
+
+  		<div class="col-xs-12 col-sm-7 col-md-8"><!--Main container-->
+  			<h1 class="event-title">{{events.title}}</h1>
+			<p class="event-body">{{events.body}}</p>
+
+			<ul class="list-inline filter">
+				<li ng-repeat="filter in filters">
+				<a>#{{filter.hash}}</a>
+				</li>
+			</ul>
+
+  		</div><!--End main container-->
+	</div><!--End row-->
+</div>
+<div class="container-fluid">
+<div class="liknande">
+<div class="container">
+
+	<div class="row">
+	  	<div class="col-xs-12 col-sm-12 col-md-12"><!--next lvl-->
+	  	<h1>Linkande events</h1>
+	  	<div class="col-xs-12 col-sm-4 col-md-4 reminds" ng-repeat="remind in reminds">
+	  	<div class="padding">
+	  		<h2 class="remindsHeader">{{remind.title}}</h2>
+	  		<p class="remindsBody">{{remind.body | limitTo: 150}}...</p>
+	  		<button type="submit" class="btn btn-default">Läs mer</button>
+	  		<ul class="list-inline remind-info">
+	  			<li><span class="glyphicon glyphicon-user event-desc" aria-hidden="true"></span> {{remind.age}}</li>
+	  			<li><span class="glyphicon glyphicon-calendar event-desc" aria-hidden="true"></span>{{remind.date | date:'M/d'}}</li>
+	  			<li><span class="glyphicon glyphicon-usd event-desc" aria-hidden="true"></span>{{remind.cost}}</li>
+	  		</ul>
+	  	</div>
+	  	</div>
+		</div>
+	</div>
+	<img class="reklamLarge" src="images/reklamLarge.jpg"/>
+
+</div>
+</div>
+</div><!--End Container-->
+
+
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/maincontroller.js"></script>
+<style type="text/css">
+	.eventHeader{
+	  	background: url(../{{events.img}}) no-repeat center center; 
+	  	-webkit-background-size: cover;
+	  	   -moz-background-size: cover;
+	  		 -o-background-size: cover;
+	  			background-size: cover;
+	}
+</style>
+</body>
+</html>
