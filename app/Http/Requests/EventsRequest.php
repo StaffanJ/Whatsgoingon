@@ -31,9 +31,17 @@ class EventsRequest extends Request
             'cost' => 'required',
             'address' => 'required',
             'date' => 'required',
-            'event_page' => 'required'
+            'event_page' => 'required',
+            'tag_list' => 'required',
+            'city_id' => 'required'
         ];
     }
+
+    /**
+     * Get the customized messages that apply to the request.
+     *
+     * @return array
+     */
 
     public function messages()
     {
@@ -45,7 +53,9 @@ class EventsRequest extends Request
             'cost.required' => 'Det behöver vara en kostnad för eventetn, om det är gratis låt det stå 0.',
             'address.required' => 'Det måste finnas en adress för eventet.',
             'date.required' => 'Det behöver finnas ett datum för eventet.',
-            'event_page.required' => 'Det behöver finnas en sida för eventet.'
+            'event_page.required' => 'Det behöver finnas en sida för eventet.',
+            'tag_list.required' => 'Det behöver finnas några taggar för eventet',
+            'city_id.required' => 'Det behöver finnas en stad för eventet'
         ];
     }
 }

@@ -5,7 +5,7 @@
 
 	<hr/>
 
-{!! Form::model($event = new \App\Event, ['url' => 'events']) !!}
+{!! Form::model($event = new \App\Event, ['action' => ['EventController@store']]) !!}
 
 	@include('events.form', ['submitBtn' => 'Add Event'])
 

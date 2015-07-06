@@ -11,20 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// HOME PAGE ===================================  
+// we dont need to use Laravel Blade 
+// we will return a PHP file that will hold all of our Angular content
+// see the "Where to Place Angular Files" below to see ideas on how to structure your app return  
+Route::get('/', function() {   
+    return view('index'); // will return app/views/index.php 
 });
 
-Route::get('tags/{tags}', 'TagsController@show');
+// API ROUTES ==================================  
+Route::group(array('prefix' => 'api'), function() {
 
-// Authentication routes
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+	Route::get('/', 'EventController@index');
 
-// Registration routes
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+	Route::get('{city}', 'EventController@city');
+	Route::get('{city}/tags/{tags}', 'TagsController@show');
 
-//Resource routes for events
-Route::resource('events', 'EventController');
+	// Authentication routes
+	Route::get('auth/login', 'Auth\AuthController@getLogin');
+	Route::post('auth/login', 'Auth\AuthController@postLogin');
+	Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+	// Registration routes
+	Route::get('auth/register', 'Auth\AuthController@getRegister');
+	Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+	//Resource routes for events
+	Route::resource('events', 'EventController');
+	Route::get('{city}/{id}', 'EventController@show');
+	Route::get('events/{events}/report', 'EventController@report');
+	Route::post('events/{events}/reportPost', 'EventController@postReport');
+
+	//To display the json data comment out {city} route (don't know why).
+	Route::get('json', 'EventController@json');
+
+});

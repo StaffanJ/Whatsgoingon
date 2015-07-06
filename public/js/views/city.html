@@ -1,0 +1,7 @@
+<div ng-repeat="event in events">
+<h3>{{event.title}}</h3>
+<div class="body">{{event.body}}</div>
+
+<p class="body">{{ event.date.date | dateToISO | date:'fullDate'}}</p>
+
+</div>

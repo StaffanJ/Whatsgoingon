@@ -16,6 +16,8 @@ class MakeEvents extends Migration
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('city_id')->unsigned();
+            $table->integer('flag_id')->unsigned();
             $table->string('title');
             $table->string('body');
             $table->string('img');
@@ -25,10 +27,7 @@ class MakeEvents extends Migration
             $table->string('event_page');
             $table->timestamp('date');
             $table->string('address');
-            $table->integer('city_id')->unsigned();
-            $table->integer('flag_id')->unsigned();
             $table->timestamps();
-            $table->timestamp('published_at');
         });
     }
 

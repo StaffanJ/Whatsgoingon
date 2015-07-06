@@ -5,17 +5,18 @@
 <article>
 
 	<p>{{$event->body}}</p>
-	<p>Published {{$event->published_at->diffForHumans()}}</p>
+	<p>Published {{$event->date->diffForHumans()}}</p>
+
+		<p>City: {!! link_to_action('EventController@city', $event->city['name'], [$event->city['name']]) !!}</p>
 
 
 	@unless($event->tags->isEmpty())
-	<p>Tags:</p>
-	<ul>
-		@foreach($event->tags as $tag)
-			<li>{!! link_to_action('TagsController@show', $tag->name, [$tag->name]) !!}</li>
-		@endforeach
-	</ul>
-
+		<p>Tags:</p>
+		<ul>
+			@foreach($event->tags as $tag)
+				<li>{!! link_to_action('TagsController@show', $tag->name, [$event->city['name'], $tag->name]) !!}</li>
+			@endforeach
+		</ul>
 	@endunless
 
 	@if(!Auth::user())

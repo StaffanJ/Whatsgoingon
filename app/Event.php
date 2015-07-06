@@ -29,36 +29,14 @@ class Event extends Model
 	    'cost',
 	    'address',
 	    'date',
-	    'event_page'
+	    'event_page',
+        'city_id',
+        'flag_id'
 	];
 
     //Makes this row Carbon timestamp.
 
     protected $dates = ['date'];
-
-    /**
-    * The connection between the tags and events
-    *
-    */
-    
-    public function tags(){
-
-        return $this->belongsToMany('App\Tag')->withTimestamps();
-        
-    }
-
-
-    /**
-    * Returning date as a Carbon instance
-    *
-    * @return Published_at attribute as Carbon
-    * @param  $date
-    */
-    
-    public function getPublishedAtAttribute($date)
-    {
-        return new Carbon($date);
-    }
 
     /**
     * Returning time as a Carbon instance.
@@ -80,13 +58,14 @@ class Event extends Model
     }
 
     /**
-    * Gets the newest event.
+    * Get the newest event.
     *
     */
 
     public function scopePublished($query){
-        $query->where('published_at', '<=', Carbon::now());
+        $query->where('date', '<=', Carbon::now());
     }
+    
     /**
     * Tells us the user how this event belongs to.
     *
@@ -98,9 +77,49 @@ class Event extends Model
     
     }
 
+    /**
+    * The connection between the event and it's flag.
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function flag()
+    {
+        return $this->belongsToMany('App\Flag')->withTimestamps();
+    }
+
+    /**
+    * The connection between the tags and events
+    *
+    */
+    
+    public function tags(){
+
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+        
+    }
+
+    /**
+    * The connection between the city and events
+    *
+    */
+
+    public function city(){
+
+        return $this->belongsTo('App\City');
+
+    }
+
     public function getTagListAttribute(){
 
-        return $this->tags->lists('id');
+        return $this->tags->lists('id')->toArray();
+    
+    }
+
+    public function getFlagStatusAttribute(){
+
+        return $this->flag->lists('user_id')->toArray();
     
     }
 

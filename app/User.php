@@ -55,4 +55,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Event');
     
     }
+
+    /**
+    * Tells us who flagged the event.
+    *
+    */
+
+    public function flag(){
+
+        return $this->hasMany('App\Flag');
+    
+    }
 }

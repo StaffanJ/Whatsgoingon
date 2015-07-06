@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\Tag;
+use App\Flag;
+use App\City;
 use App\Event;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Requests\EventsRequest;
+use App\Http\Requests\ReportRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Routing\RepsonseFactory;
 
 class EventController extends Controller
 {
@@ -23,9 +27,11 @@ class EventController extends Controller
 	public function index()
    	{
 
-   		$events = Event::latest('published_at')->get();
+   		$cities = City::get();
 
-    	return view('events.index', compact('events'));
+    	return response()->json($cities);
+
+        //return view('events.index', compact('cities'));
     }
 
     /**
@@ -39,7 +45,9 @@ class EventController extends Controller
 
         $tags = Tag::lists('name', 'id');
 
-    	return view('events.create', compact('tags'));
+        $cities = City::lists('name', 'id');
+
+    	return view('events.create', compact('tags', 'cities'));
     }
 
     /**
@@ -49,10 +57,24 @@ class EventController extends Controller
     * @param  $event
     */
     
-    public function show(Event $event){
-        
-        return view('events.show', compact('event'));
-        
+    public function show($city, $id)
+    {
+
+        $event = Event::findOrFail($id);
+
+        return response()->json($event);
+
+        if($event->city_id === $city->id){
+
+            return view('events.show', compact('event'));
+
+        }else{
+
+            $url = action('EventController@show', [$event->city['name'], $event->id]);
+
+            return redirect($url);
+        }
+
     }
 
     /**
@@ -66,7 +88,7 @@ class EventController extends Controller
     {
         $this->createEvent($request);
 
-        return redirect('events');
+        return redirect('/');
     }
 
     /**
@@ -76,38 +98,124 @@ class EventController extends Controller
     * @param  array
     */
     
-    public function edit(Event $event){
+    public function edit(Event $event)
+    {
 
         $tags = Tag::lists('name', 'id');
 
-        return view('events.edit', compact('event', 'tags'));
+        $cities = City::lists('name', 'id');
+
+        return view('events.edit', compact('event', 'tags', 'cities'));
 
     }
 
     /**
-    * An updated item in the database.
+    * A method to update items in the database.
     *
-    * @return void
+    * @return An updated item
     * @param  array  
     */
     
     public function update(Event $event, EventsRequest $request)
     {
+
         $event->update($request->all());
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        return redirect('events');
+        return redirect('/');
 
     }
 
-    private function syncTags(Event $event, array $tags){
+    /**
+    * A method for reporting events
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function report(Event $event)
+    {
+
+        //Kolla upp om det finns någon förbättring för identifierande av information och att de ska kunna ha möjlighet att ta bort sin report.
+
+        foreach ($event->flag_status as $key => $user) {
+            if(Auth::user()->id === $event->flag_status[$key]){
+                return redirect('/');
+            }
+        }
+
+        return view('events.report', compact('event'));
+    }
+
+    /**
+    * The post method for reporting
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function postReport(ReportRequest $request, Event $event)
+    {
+
+        if($event->flag->count() >= 5){
+            dd('Fuck to many reports');
+        }else{
+            dd('Yay we made it');
+        }
+
+        $report = Auth::user()->flag()->create($request->all());
+
+        $event->flag()->attach($report->id);
+
+        return redirect('/');
+    }
+
+    /**
+    * View to print out JSON data
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function json()
+    {
+
+        $events = Event::latest('date')->get();
+
+        dd($events);
+
+        return response()->json($events);
+    
+    }
+
+    /**
+    * Displaying events in the selected city
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function city(City $city)
+    {
+
+        $events = $city->event()->published()->get();
+
+        return response()->json($events);
+
+        //return view('events.city', compact('events'));
+    
+    }
+
+    private function syncTags(Event $event, array $tags)
+    {
 
         $event->tags()->sync($tags);
 
     }
 
-    private function createEvent(EventsRequest $request){
+    private function createEvent(EventsRequest $request)
+    {
 
         $event = Auth::user()->events()->create($request->all());
 

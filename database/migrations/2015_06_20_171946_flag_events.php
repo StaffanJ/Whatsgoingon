@@ -12,12 +12,21 @@ class FlagEvents extends Migration
      */
     public function up()
     {
-        Schema::create('flag_event', function(Blueprint $table)
+        Schema::create('flag', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('event_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('description');
-            $table->integer('counter');
+            $table->timestamps();
+        });
+
+        Schema::create('event_flag', function(Blueprint $table)
+        {
+            $table->integer('event_id')->unsigned()->index();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+
+            $table->integer('flag_id')->unsigned()->index();
+            $table->foreign('flag_id')->references('id')->on('flag')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +38,7 @@ class FlagEvents extends Migration
      */
     public function down()
     {
-        Schema::drop('flag_event');
+        Schema::drop('flag');
+        Schema::drop('event_flag');
     }
 }

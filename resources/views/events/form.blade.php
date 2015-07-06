@@ -6,9 +6,6 @@
 	{!! Form::label('body',  'Förklarande text om eventet:') !!}
 	{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 
-	{!! Form::label('published_at', 'Published On:') !!}
-	{!! Form::input('date', 'published_at', $event->published_at->format('Y-m-d'), ['class' => 'form-control']) !!}
-
 	{!! Form::label('image', 'Bild:') !!}
 	{!! Form::file('image', ['class' => 'form-control']) !!}
 
@@ -30,6 +27,9 @@
 	{!! Form::label('event_page', 'Evenemangets webbplats:') !!}
 	{!! Form::text('event_page', null, ['class' => 'form-control']) !!}
 
+	{!! Form::label('city',  'Stad:') !!}
+	{!! Form::select('city_id', $cities, null, ['id' => 'city_id', 'class' => 'form-control']) !!}
+
 	{!! Form::label('tag_list',  'Tags:') !!}
 	{!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
 
@@ -39,7 +39,7 @@
 
 @section('footer')
 	<script>
-	  $('#tag_list').select2({
+	  $('#tag_list, #city_list').select2({
 	  	placeholder: 'Choose a tag',
 	  });
 	</script>

@@ -38,6 +38,12 @@ class RouteServiceProvider extends ServiceProvider
 
         });
 
+        $router->bind('city', function($name){
+            
+            return \App\City::where('name', $name)->firstOrFail();
+
+        });
+
     }
 
     /**
