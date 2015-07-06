@@ -1,6 +1,7 @@
 var wgo = angular.module('wgo', ['ngRoute']);
 
-wgo.config(function ($routeProvider){
+wgo.config(function($routeProvider, $locationProvider){
+	
 	$routeProvider
 		.when('/', {
 			controller: 'IndexController',
@@ -13,6 +14,12 @@ wgo.config(function ($routeProvider){
 		.otherwise({
 			redirectTo:'/'
 		});
+
+	$locationProvider.html5Mode({
+	  enabled: true,
+	  requireBase: false
+	});
+
 });
 
 wgo.filter('dateToISO', function() {
