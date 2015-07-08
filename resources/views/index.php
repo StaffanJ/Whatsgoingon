@@ -5,6 +5,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
     <style>
         body        { padding-top:30px; }
         form        { padding-bottom:20px; }
@@ -15,6 +16,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="js/angular/angular.min.js"></script> <!-- load angular -->
     <script src="js/angular/angular-route/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
     
     <!-- ANGULAR -->
     <!-- all angular resources will be loaded from the /public folder -->

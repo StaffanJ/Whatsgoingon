@@ -55,8 +55,8 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
-        $scope.form = data;
-        console.log(data);
+        $scope.tags = data.tags;
+        $scope.cities = data.cities;
     }).error(function(err){
         console.log(err)
     });
