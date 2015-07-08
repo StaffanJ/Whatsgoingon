@@ -1,6 +1,8 @@
-<!doctype html> <html lang="sv"> <head> <meta charset="UTF-8"> 
+<!doctype html> <html lang="sv" ng-app="wgo"> 
+<head> 
+<meta charset="UTF-8"> 
 
-<title>Laravel and Angular Comment System</title>
+<title>What's Going On!</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
@@ -29,7 +31,7 @@
 
 </head> 
 <!-- declare our angular app and controller --> 
-<body class="container" ng-app="wgo">
+<body class="container">
 <div ng-view></div>
 </body> 
 </html>

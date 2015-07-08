@@ -49,7 +49,7 @@ class EventController extends Controller
 
         return response()->json(['tags' => $tags, 'cities' => $cities]);
 
-    	return view('events.create', compact('tags', 'cities'));
+    	//return view('events.create', compact('tags', 'cities'));
     }
 
     /**
