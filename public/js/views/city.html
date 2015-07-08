@@ -1,3 +1,17 @@
+<div class="main-menu">
+  <a href="#" class="back-button menu-button">
+  <span class="glyphicon glyphicon-arrow-left"></span></a>
+  <h1 class="wgo-heading">What's going on</h1>
+  <a href="#" class="open-menu-button menu-button">
+  <span class="glyphicon glyphicon-align-justify"></span></a>
+</div>
+<div class="event-main-header">
+
+<h2 class="event-main-heading">{{city}}</h2>
+</div>
+
+
+<div class="container">
 Sök efter event: <input ng-model="query">
         Sortera:
         <select ng-model="orderProp">
@@ -8,12 +22,11 @@ Sök efter event: <input ng-model="query">
           <option value="cost">Biligast</option>
           <option value="-cost">Dyrast</option>
         </select>
-<div class="container">
   <div class="events">
     <div class="event-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
     <img ng-src="{{event.img}}"/>
     <h2 class="event-header">{{event.title}}</h2>
-    <p class="event-body">{{event.body}}</p>
+    <p class="event-body">{{event.body | limitTo : 155 }}{{event.body > 155 ? '' : '...'}}</p>
 
     <ul class="list-inline event-card-info">
         <li>
@@ -22,7 +35,7 @@ Sök efter event: <input ng-model="query">
         </li>
         <li>
           <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-          {{ event.cost }} kr
+          {{ event.cost }}kr
         </li>
         <li>
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -34,3 +47,9 @@ Sök efter event: <input ng-model="query">
   </div>
 </div>
 
+<style>
+  .event-main-header{
+    background-image: url('img/stockholm.jpg');
+    width: 100%;
+  }
+</style>

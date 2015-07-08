@@ -7,12 +7,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <!--Varför har vi detta?
     <style>
         body        { padding-top:30px; }
         form        { padding-bottom:20px; }
         .comment    { padding-bottom:20px; }
     </style>
+    -->
     
     <!-- JS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -31,7 +34,7 @@
 
 </head> 
 <!-- declare our angular app and controller --> 
-<body class="container">
+<body><!--Tog bort -->
 <div ng-view></div>
 </body> 
 </html>

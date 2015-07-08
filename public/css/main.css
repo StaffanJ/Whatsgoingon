@@ -4,6 +4,46 @@
    url(../fonts/ttchocolates-regular-webfont.eot); /* IE */
 }
 
+.main-menu{
+	height: 55px;
+	background: white;
+}
+
+.wgo-heading{
+	color:#0e99a2;
+	text-align: center;
+}
+
+.menu-button{
+	font-size: 30px;
+	line-height: 55px;
+	color: #0e99a2;
+}
+.back-button{
+	float: left;
+	margin-left: 30px;
+	font-size: 40px;
+}
+.open-menu-button{
+	float: right;
+	margin-right: 30px;
+}
+.event-main-header{
+	height: 70vh;
+	margin-top: -20px;
+	background: no-repeat center center; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	text-align: center;
+}
+.event-main-heading{
+  	text-align: center;
+  	line-height: 50vh;
+  	color:white;
+}
+
 .events{
 	margin: 0 auto;
 	width: 1120px
@@ -15,7 +55,7 @@
 	border: thin #9e9e9e solid;
 	padding: 10px;
 	display: inline-block;
-	margin: 0 0 40px 20px;
+	margin: 0 0 40px 20px; /*Gör om med flex*/
 	position: relative;
 	font-family: TTChocolates;
 }
@@ -28,6 +68,10 @@
 .event-card img{
 	width: 100%;
 	margin-bottom: 15px;
+}
+
+.event-header:first-letter{ 
+    text-transform: uppercase;
 }
 
 .event-card-button{
