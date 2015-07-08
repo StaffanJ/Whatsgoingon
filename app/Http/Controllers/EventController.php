@@ -62,9 +62,10 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
-        return response()->json($event);
 
         if($event->city_id === $city->id){
+    
+            return response()->json($event);
 
             return view('events.show', compact('event'));
 

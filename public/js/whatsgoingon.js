@@ -11,14 +11,17 @@ wgo.config(function($routeProvider, $locationProvider){
 			controller: 'CityController',
 			templateUrl: 'js/views/city.html'
 		})
+		.when('/:city/:id', {
+			controller: 'CityEvents',
+			templateUrl: 'js/views/event.html'
+		})
 		.otherwise({
 			redirectTo:'/'
 		});
 
-	$locationProvider.html5Mode({
-	  enabled: true,
-	  requireBase: false
-	});
+
+
+	
 
 });
 

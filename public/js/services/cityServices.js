@@ -25,3 +25,19 @@ wgo.factory('Events', ['$http', function($http) {
     });*/
 
 }]);
+wgo.factory('Event', ['$http', function($http) {
+
+    return {
+        // get all the cities
+        get : function(route) {
+            console.log(route.city + '/' + route.id);
+            return $http.get('api/' + route.city + '/' + route.id);
+        }
+    }
+
+    /*return $http.get('api/Stockholm')
+    .success(function(data){
+        return data;
+    });*/
+
+}]);
