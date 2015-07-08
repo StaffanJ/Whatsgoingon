@@ -1,13 +1,5 @@
 var wgo = angular.module('wgo', ['ngRoute']);
 
-wgo.directive('commentForm',function(){
-    return {
-        restrict: 'EA',
-        replace: 'true',
-        templateURL: 'api/events/create'
-    }
-});
-
 wgo.config(function($routeProvider, $locationProvider){
 	
 	$routeProvider
@@ -19,6 +11,10 @@ wgo.config(function($routeProvider, $locationProvider){
 			controller: 'CityController',
 			templateUrl: 'js/views/city.html'
 		})
+		.when('/events/create', {
+			controller: 'CreateController',
+			templateUrl: 'js/views/create.html'
+		})
 		.when('/:city/:id', {
 			controller: 'CityEvents',
 			templateUrl: 'js/views/event.html'
@@ -27,9 +23,9 @@ wgo.config(function($routeProvider, $locationProvider){
 			controller: 'TagController',
 			templateUrl: 'js/views/tag.html'
 		})
-		/*.otherwise({
+		.otherwise({
 			redirectTo:'/'
-		});*/
+		});
 });
 
 wgo.filter('dateToISO', function() {

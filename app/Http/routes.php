@@ -22,6 +22,8 @@ Route::get('/', function() {
 
 // API ROUTES ==================================  
 Route::group(array('prefix' => 'api'), function() {
+	
+	Route::resource('events', 'EventController');
 
 	Route::get('/', 'EventController@index');
 
@@ -38,7 +40,6 @@ Route::group(array('prefix' => 'api'), function() {
 	Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 	//Resource routes for events
-	Route::resource('events', 'EventController');
 	Route::get('{city}/{id}', 'EventController@show');
 	Route::get('events/{events}/report', 'EventController@report');
 	Route::post('events/{events}/reportPost', 'EventController@postReport');

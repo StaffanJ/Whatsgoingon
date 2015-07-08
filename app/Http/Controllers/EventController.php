@@ -42,10 +42,12 @@ class EventController extends Controller
     
 	public function create()
     {
+        
+        $tags = Tag::get();
 
-        $tags = Tag::lists('name', 'id');
+        $cities = City::get();
 
-        $cities = City::lists('name', 'id');
+        return response()->json(['tags' => $tags, 'cities' => $cities]);
 
     	return view('events.create', compact('tags', 'cities'));
     }
