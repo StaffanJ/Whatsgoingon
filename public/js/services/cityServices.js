@@ -19,25 +19,37 @@ wgo.factory('Events', ['$http', function($http) {
         }
     }
 
-    /*return $http.get('api/Stockholm')
-    .success(function(data){
-        return data;
-    });*/
-
 }]);
+
 wgo.factory('Event', ['$http', function($http) {
 
     return {
         // get all the cities
         get : function(route) {
-            console.log(route.city + '/' + route.id);
             return $http.get('api/' + route.city + '/' + route.id);
         }
     }
 
-    /*return $http.get('api/Stockholm')
-    .success(function(data){
-        return data;
-    });*/
+}]);
+
+wgo.factory('Tag', ['$http', function($http) {
+
+    return {
+        // get all the cities
+        get : function(route) {
+            return $http.get('api/' + route.city + '/tags/' + route.tag);
+        }
+    }
+
+}]);
+
+wgo.factory('Create', ['$http', function($http) {
+
+    return {
+        // get all the cities
+        get : function(route) {
+            return $http.get('api/events/create');
+        }
+    }
 
 }]);

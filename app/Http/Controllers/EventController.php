@@ -62,10 +62,14 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
+        $tags = $event->tags;
+
+        return response()->json(['event' => $event, 'tags' => $tags]);
+
 
         if($event->city_id === $city->id){
     
-            return response()->json($event);
+            return response()->json($event, $tags);
 
             return view('events.show', compact('event'));
 

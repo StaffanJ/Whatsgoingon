@@ -1,1 +1,5 @@
 <p>{{ event.title }}</p>
+
+<ul ng-repeat="tag in tags">
+	<a href="#/{{routeParams.city}}/tags/{{tag.name}}"><li>{{tag.name}}</li></a>
+</ul>
