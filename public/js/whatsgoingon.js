@@ -7,6 +7,10 @@ wgo.config(function($routeProvider, $locationProvider){
 			controller: 'IndexController',
 			templateUrl: 'js/views/home.html'
 		})
+		.when('/login', {
+			controller : 'LoginController',
+			templateUrl : 'js/views/login.html'
+		})
 		.when('/:city', {
 			controller: 'CityController',
 			templateUrl: 'js/views/city.html'

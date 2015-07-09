@@ -1,9 +1,27 @@
 wgo.controller('IndexController', ['$scope', '$http', 'City', function($scope, $http, City){
 
-	City.get()
+    City.get()
     .success(function(data) {
         $scope.cities = data;
     });
+
+}]);
+
+wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, $http, Login){
+
+    // function to handle submitting the form
+    // Save an Event ================
+    $scope.login = function() {
+
+        // save the event. pass in event data from the form
+        // use the function we created in our service
+        Login.poop($scope.loginData)
+            .success(function(data) {
+                console.log(data);
+            }).error(function(data) {
+                $('body').append(data);
+            });
+    };
 
 }]);
 
@@ -18,7 +36,7 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
         console.log(err);
     });
 
-    $scope.orderProp = 'date';
+    $scope.orderProp = 'date.date';
 
 }]);
 
@@ -55,10 +73,25 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
+        $scope.date = new Date();
         $scope.tags = data.tags;
         $scope.cities = data.cities;
     }).error(function(err){
         console.log(err)
     });
+
+    // function to handle submitting the form
+    // Save an Event ================
+    $scope.submitComment = function() {
+
+        // save the event. pass in event data from the form
+        // use the function we created in our service
+        Create.save($scope.eventData)
+            .success(function(data) {
+                console.log(data);
+            }).error(function(data) {
+                $('body').append(data);
+            });
+    };
 
 }]);

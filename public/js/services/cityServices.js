@@ -9,6 +9,22 @@ wgo.factory('City', ['$http', function($http) {
 
 }]);
 
+wgo.factory('Login', ['$http', function($http) {
+
+    return {
+        // get all the cities
+        poop : function(loginCredentials) {
+            return $http({
+                method: 'POST',
+                url: 'api/auth/login',
+                headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+                data: $.param(loginCredentials)
+            });
+        }
+    }
+
+}]);
+
 wgo.factory('Events', ['$http', function($http) {
 
     return {
@@ -49,6 +65,15 @@ wgo.factory('Create', ['$http', function($http) {
         // get all the cities
         get : function(route) {
             return $http.get('api/events/create');
+        },
+
+        save : function(eventData) {
+             return $http({
+                method: 'POST',
+                url: 'api/events',
+                headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+                data: $.param(eventData)
+            });
         }
     }
 
