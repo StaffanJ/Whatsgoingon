@@ -1,6 +1,8 @@
 <!doctype html> <html lang="sv" ng-app="wgo"> 
 <head> 
 <meta charset="UTF-8"> 
+<meta name="fragment" content="!" /><!--Google search crawling-->
+
 
 <title>What's Going On!</title>
 
@@ -36,5 +38,16 @@
 <!-- declare our angular app and controller --> 
 <body><!--Tog bort -->
 <div ng-view></div>
+
+<div class="footer-top"></div>
+<footer>
+    <div class="container">
+        <ul>
+            <li>Random li</li>
+            <li>Random li</li>
+            <li>Random li</li>
+            <li>Random li</li>
+        </ul>
+    </div>
 </body> 
 </html>

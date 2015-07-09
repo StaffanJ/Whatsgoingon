@@ -28,7 +28,7 @@
 
 .wgo-heading{
 	margin: 0 auto;
-	font-family: Helena;
+	height: 55px;
 }
 
 .right-menu{
@@ -51,7 +51,7 @@
 	margin-top: -20px;
 	text-align: center;
  	margin-bottom: 30px;	
-	background: no-repeat center center; 
+	background: no-repeat center center fixed; 
   		 -webkit-background-size: cover;
   			-moz-background-size: cover;
   			  -o-background-size: cover;
@@ -92,23 +92,45 @@
 }
 
 .events{
-	display: flex;
+   	display: -webkit-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+  	display: -moz-box;
+  	display: flex;
 	margin: 0 auto;
-	width: 1120px
+	width: 1120px;
+	-webkit-flex-flow: row wrap;
+	-webkit-justify-content: space-around; 
+  	justify-content: space-around; 
 }
 
 .event-card{
 	background: white;
-	-webkit-flex: initial;
-          flex: initial;
   	width: 300px;
   	min-width: 300px;
 	border: thin #9e9e9e solid;
 	padding: 10px;
+	margin-bottom: 40px;
 	display: inline-block;
-	margin: 0 0 40px 20px; /*Gör om med flex*/
 	position: relative;
 	font-family: TTChocolates;
+}
+
+.event-header{
+	position: relative;
+}
+.event-header:after{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom:0;
+	width: 30px;
+	height: 3px;
+	background: #0e99a2;
+}
+
+.event-header:first-letter{ 
+    text-transform: uppercase;
 }
 
 .event-card p{
@@ -120,10 +142,6 @@
 .event-card img{
 	width: 100%;
 	margin-bottom: 15px;
-}
-
-.event-header:first-letter{ 
-    text-transform: uppercase;
 }
 
 .event-card-button{
@@ -146,24 +164,29 @@
 	color:#9e9e9e;
 }
 
+.footer-top{
+	width: 100%;
+	height: 72px;
+	margin-top: 50px;
+	background: url(../img/footerImage.png);
+}
+
+footer{
+	background:#0e99a2;
+	margin:0; 
+	padding: 0;
+	color:#fff;
+	font-size: TTChocolates;
+	font-size: 1.1em;
+}
 @media screen and (max-width: 1200px) {
 	.events{
-		margin: 0 auto;
-		width: 750px
+		width: 100%;
 	}
 }
 
-@media screen and (max-width: 750px) {
-	.events{
-		margin: 0 auto;
-		width: 350px
-	}
-	.event-card{
-		margin: 0 0 40px 0;
-	}
-	.event-card p{
-		margin-bottom: 15px;
-	}
+@media screen and (max-width: 646px) {
+
 	.event-card-button{
 		width: 90%;
 		display: block;
@@ -171,6 +194,9 @@
 		margin: 10px auto 5px auto;
  		float: none;
  		border-radius: 6px;
+	}
+	.event-search{
+		width: 70%;
 	}
 }
 

@@ -5,8 +5,7 @@
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
   </div>
 
-  <h1 class="wgo-heading">What's going on</h1>
-
+ <img src="img/wgo-heading-text.png" class="wgo-heading"/>
   <div class="right-menu">
     <a href="#" class="open-menu-button menu-button">
     <span class="glyphicon glyphicon-align-justify"></span></a>
@@ -16,8 +15,8 @@
 
 <div class="event-main-header">
 
-<h2 class="event-main-heading">{{city}}</h2>
-<input type="text" ng-model="query" class="event-search" placeholder="Sök efter event">
+  <h2 class="event-main-heading">{{city}}</h2>
+  <input type="text" ng-model="query" class="event-search" placeholder="Sök efter event">
 
 </div>
 
@@ -43,7 +42,7 @@
     <ul class="list-inline event-card-info">
         <li>
           <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-          {{ event.date.date | dateToISO | date:'shortDate'}}
+          {{ event.date | dateToISO | date:'shortDate'}}
         </li>
         <li>
           <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
@@ -61,7 +60,7 @@
 
 <style>
   .event-main-header{
-    background-image: url('img/stockholm.jpg');
+    background-image: url('img/gothenburg.jpg');
     width: 100%;
   }
 </style>
