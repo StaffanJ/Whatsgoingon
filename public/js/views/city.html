@@ -1,27 +1,39 @@
 <div class="main-menu">
-  <a href="#" class="back-button menu-button">
-  <span class="glyphicon glyphicon-arrow-left"></span></a>
+
+  <div class="left-menu">
+    <a href="#" class="back-button menu-button">
+    <span class="glyphicon glyphicon-arrow-left"></span></a> 
+  </div>
+
   <h1 class="wgo-heading">What's going on</h1>
-  <a href="#" class="open-menu-button menu-button">
-  <span class="glyphicon glyphicon-align-justify"></span></a>
+
+  <div class="right-menu">
+    <a href="#" class="open-menu-button menu-button">
+    <span class="glyphicon glyphicon-align-justify"></span></a>
+  </div>
 </div>
+
+
 <div class="event-main-header">
 
 <h2 class="event-main-heading">{{city}}</h2>
+<input type="text" ng-model="query" class="event-search" placeholder="Sök efter event">
+
 </div>
 
 
 <div class="container">
-Sök efter event: <input ng-model="query">
-        Sortera:
-        <select ng-model="orderProp">
-          <option value="title">Bokstavsordning</option>
-          <option value="date.date">Snarast</option>
-          <option value="age">Yngst</option>
-          <option value="-age">Äldst</option>
-          <option value="cost">Biligast</option>
-          <option value="-cost">Dyrast</option>
-        </select>
+  <div class="sortering">
+    <span class="sorterings-span">Sortera:</span>
+      <select class="filter-select" ng-model="orderProp">
+        <option value="title">Bokstavsordning</option>
+        <option value="date.date">Snarast</option>
+        <option value="age">Yngst</option>
+        <option value="-age">Äldst</option>
+        <option value="cost">Biligast</option>
+        <option value="-cost">Dyrast</option>
+      </select>
+  </div>
   <div class="events">
     <div class="event-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
     <img ng-src="{{event.img}}"/>

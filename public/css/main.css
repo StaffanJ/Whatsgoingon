@@ -3,55 +3,106 @@
    src: url(../fonts/ttchocolates-regular-webfont.ttf),
    url(../fonts/ttchocolates-regular-webfont.eot); /* IE */
 }
+@font-face{
+   font-family: Helena;
+   src: url(../fonts/helena-webfont.ttf),
+   url(../fonts/helena-webfont.eot); /* IE */
+}
+
+
 
 .main-menu{
 	height: 55px;
-	background: white;
+	background: #f2f2f2;
+	display: flex;
 }
 
+.left-menu,
+.right-menu,
 .wgo-heading{
 	color:#0e99a2;
-	text-align: center;
+	display: inline-block;
+	line-height: 60px;
+}
+
+
+.wgo-heading{
+	margin: 0 auto;
+	font-family: Helena;
+}
+
+.right-menu{
+	color:#0e99a2;
+	margin-right: 20px;
+	line-height: 60px;
 }
 
 .menu-button{
-	font-size: 30px;
-	line-height: 55px;
-	color: #0e99a2;
+	color:#0e99a2;
+	font-size: 2em;
 }
 .back-button{
-	float: left;
-	margin-left: 30px;
-	font-size: 40px;
+	margin-left: 20px;
+	font-size: 2.5em;
 }
-.open-menu-button{
-	float: right;
-	margin-right: 30px;
-}
+
 .event-main-header{
 	height: 70vh;
 	margin-top: -20px;
+	text-align: center;
+ 	margin-bottom: 30px;	
 	background: no-repeat center center; 
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-  	text-align: center;
+  		 -webkit-background-size: cover;
+  			-moz-background-size: cover;
+  			  -o-background-size: cover;
+  				 background-size: cover;
 }
+
 .event-main-heading{
-  	text-align: center;
   	line-height: 50vh;
   	color:white;
+  	font-family: Helena;
+  	font-size: 5em;
+}
+
+.event-search{
+	width: 500px;
+	height: 20px;
+	font-size: 1.2em;
+	padding: 20px;
+	color:#9e9e9e;
+}
+
+.sortering{
+	display: block;
+	margin:0 auto;
+	line-height: 30px;
+	font-family: TTChocolates;
+	width: 300px;
+}
+.sortering span{
+	font-size: 1.4em; 
+	margin-right:10px; 
+}
+.filter-select{
+	width: 200px;
+	height: 30px;
+	font-size: 1.3em;
+  	margin-bottom: 30px;	
 }
 
 .events{
+	display: flex;
 	margin: 0 auto;
 	width: 1120px
-
 }
+
 .event-card{
 	background: white;
-	width: 300px;
+	-webkit-flex: initial;
+          flex: initial;
+  	width: 300px;
+  	min-width: 300px;
 	border: thin #9e9e9e solid;
 	padding: 10px;
 	display: inline-block;
@@ -59,6 +110,7 @@
 	position: relative;
 	font-family: TTChocolates;
 }
+
 .event-card p{
 	margin-bottom: 25px;
 	padding: 0 10px;
