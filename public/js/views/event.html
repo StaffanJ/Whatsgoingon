@@ -1,5 +1,36 @@
-<p>{{ event.title }}</p>
+<div class="main-menu">
 
-<ul ng-repeat="tag in tags">
-	<a href="#/{{routeParams.city}}/tags/{{tag.name}}"><li>{{tag.name}}</li></a>
-</ul>
+  <div class="left-menu">
+    <a href="#/" class="back-button menu-button">
+    <span class="glyphicon glyphicon-arrow-left"></span></a> 
+  </div>
+
+ <img src="img/wgo-heading-text.png" class="wgo-heading"/>
+  <div class="right-menu">
+    <a href="#" class="open-menu-button menu-button">
+    <span class="glyphicon glyphicon-align-justify"></span></a>
+  </div>
+</div>
+
+<img ng-src="{{ event.img }}"/>
+
+<div class="container">
+	<div class="event-info">
+		<ul>
+			<li>{{ event.date | dateToISO | date:'shortDate'}}</li>
+			<li>{{ event.cost }}</li>
+			<li>{{ event.age }}</li>
+			<li>{{ event.address }}</li>
+			<li>{{ event.event_page }}</li>
+			<li>{{ event.time }}</li>
+		</ul>
+
+	</div>
+	<div class="event-main">
+		<h1>{{ event.title }}</h1>
+		<p>{{ event.body }}</p>
+		<ul ng-repeat="tag in tags">
+			<a href="#/{{routeParams.city}}/tags/{{tag.name}}"><li>{{tag.name}}</li></a>
+		</ul>
+	</div>
+</p>

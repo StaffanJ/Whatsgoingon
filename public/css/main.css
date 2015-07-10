@@ -9,14 +9,71 @@
    url(../fonts/helena-webfont.eot); /* IE */
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span{
+	font-family: TTChocolates;
+}
 
+p{
+	font-size: 1.2em;
+}
+
+.index-header{
+	width: 100%;
+	background: url(../img/index-header.png) center center no-repeat;
+	height: 550px;
+	margin-top: -20px;
+	 -webkit-background-size: cover;
+		-moz-background-size: cover;
+		  -o-background-size: cover;
+			 background-size: cover;
+}
+
+.city-container{
+	margin: 80px auto;
+	width: 100%;
+}
+
+.city-link{
+	height: 50px;
+	width: 30%;
+	line-height: 50px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	font-size: 1.4em;
+	font-family: TTChocolates;
+	background: #0e99a2;
+	color:white;
+	margin: 0 1.5%;
+}
+.city-link:hover{
+	color:white;
+}
+.headings{
+	margin-top: 80px;
+}
+
+.h1-header{
+	color: white;
+	text-align: center;
+	padding-top: 250px;
+	font-family: Helena;
+	font-size: 5em;
+
+}
 
 .main-menu{
 	height: 55px;
 	background: #f2f2f2;
 	display: flex;
 }
-
 .left-menu,
 .right-menu,
 .wgo-heading{
@@ -24,13 +81,10 @@
 	display: inline-block;
 	line-height: 60px;
 }
-
-
 .wgo-heading{
 	margin: 0 auto;
 	height: 55px;
 }
-
 .right-menu{
 	color:#0e99a2;
 	margin-right: 20px;
@@ -193,6 +247,7 @@ footer{
 		position: static;
 		margin: 10px auto 5px auto;
  		float: none;
+ 		height: 50px;
  		border-radius: 6px;
 	}
 	.event-search{
@@ -200,4 +255,10 @@ footer{
 	}
 }
 
+@media screen and (max-width: 600px) {
+	.city-link{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
 

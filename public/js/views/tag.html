@@ -2,7 +2,7 @@
 <h3>{{event.title}}</h3>
 <div class="body">{{event.body}}</div>
 
-<p class="body">{{ event.date.date | dateToISO | date:'fullDate'}}</p>
+<p class="body">{{ event.date | dateToISO | date:'fullDate'}}</p>
 <a href="#/{{ city }}/{{ event.id }}"><button>Läs mer</button></a>
 
 </div>
