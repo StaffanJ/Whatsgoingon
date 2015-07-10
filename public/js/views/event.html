@@ -15,13 +15,13 @@
 <img ng-src="{{ event.img }}"/>
 
 <div class="container">
-	<div class="event-info">
-		<ul>
+	<div class="event-info-container">
+		<ul class="event-info">
 			<li>{{ event.date | dateToISO | date:'shortDate'}}</li>
 			<li>{{ event.cost }}</li>
 			<li>{{ event.age }}</li>
-			<li>{{ event.address }}</li>
-			<li>{{ event.event_page }}</li>
+			<li><a href="#">{{ event.address }}</a></li>
+			<li><a href="#">{{ event.event_page }}</a></li>
 			<li>{{ event.time }}</li>
 		</ul>
 
@@ -29,8 +29,8 @@
 	<div class="event-main">
 		<h1>{{ event.title }}</h1>
 		<p>{{ event.body }}</p>
-		<ul ng-repeat="tag in tags">
-			<a href="#/{{routeParams.city}}/tags/{{tag.name}}"><li>{{tag.name}}</li></a>
+		<ul class="event-tags" ng-repeat="tag in tags">
+			<li><a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
 		</ul>
 	</div>
 </p>

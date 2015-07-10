@@ -16,6 +16,7 @@ h4,
 h5,
 h6,
 p,
+a, /*Kan strula med span a från bootstrap*/
 span{
 	font-family: TTChocolates;
 }
@@ -225,12 +226,32 @@ p{
 	background: url(../img/footerImage.png);
 }
 
+/*-------------EventPage-------------*/
+.event-info-container{
+	border: thin #9e9e9e solid;
+}
+
+.event-info{
+	list-style: none;
+	font-family: TTChocolates;
+}
+
+.event-tags{
+	list-style: none;
+}
+
+.event-tag{
+	text-decoration: none;
+}
+
+/*-------------Slut på Event page-------------*/
+
 footer{
 	background:#0e99a2;
 	margin:0; 
 	padding: 0;
 	color:#fff;
-	font-size: TTChocolates;
+	font-family: TTChocolates;
 	font-size: 1.1em;
 }
 @media screen and (max-width: 1200px) {
