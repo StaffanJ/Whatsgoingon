@@ -11,26 +11,27 @@
     <span class="glyphicon glyphicon-align-justify"></span></a>
   </div>
 </div>
-
+<div class="event-header"
 <img ng-src="{{ event.img }}"/>
 
 <div class="container">
-	<div class="event-info-container">
-		<ul class="event-info">
-			<li>{{ event.date | dateToISO | date:'shortDate'}}</li>
-			<li>{{ event.cost }}</li>
-			<li>{{ event.age }}</li>
-			<li><a href="#">{{ event.address }}</a></li>
-			<li><a href="#">{{ event.event_page }}</a></li>
-			<li>{{ event.time }}</li>
-		</ul>
-
-	</div>
-	<div class="event-main">
-		<h1>{{ event.title }}</h1>
-		<p>{{ event.body }}</p>
-		<ul class="event-tags" ng-repeat="tag in tags">
-			<li><a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
-		</ul>
+	<div class="row"><!--Row-->
+		<div class="event-info-container col-xs-12 col-sm-4 col-md-3">
+			<ul class="event-info">
+				<li>{{ event.date | dateToISO | date:'shortDate'}}</li>
+				<li>{{ event.cost }}</li>
+				<li>{{ event.age }}</li>
+				<li><a href="#">{{ event.address }}</a></li>
+				<li><a href="#">{{ event.event_page }}</a></li>
+				<li>{{ event.time }}</li>
+			</ul>
+		</div>
+		<div class="event-main col-xs-12 col-sm-8 col-md-9">
+			<h1>{{ event.title }}</h1>
+			<p>{{ event.body }}</p>
+			<ul class="event-tags" ng-repeat="tag in tags">
+				<li><a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
+			</ul>
+		</div>
 	</div>
 </p>

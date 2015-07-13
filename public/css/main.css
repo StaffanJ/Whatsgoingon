@@ -101,7 +101,7 @@ p{
 	font-size: 2.5em;
 }
 
-.event-main-header{
+.events-main-header{
 	height: 70vh;
 	margin-top: -20px;
 	text-align: center;
@@ -113,14 +113,14 @@ p{
   				 background-size: cover;
 }
 
-.event-main-heading{
+.events-main-heading{
   	line-height: 50vh;
   	color:white;
   	font-family: Helena;
   	font-size: 5em;
 }
 
-.event-search{
+.events-search{
 	width: 500px;
 	height: 20px;
 	font-size: 1.2em;
@@ -159,7 +159,7 @@ p{
   	justify-content: space-around; 
 }
 
-.event-card{
+.events-card{
 	background: white;
   	width: 300px;
   	min-width: 300px;
@@ -171,10 +171,10 @@ p{
 	font-family: TTChocolates;
 }
 
-.event-header{
+.events-header{
 	position: relative;
 }
-.event-header:after{
+.events-header:after{
 	content: '';
 	position: absolute;
 	left:0;
@@ -184,22 +184,22 @@ p{
 	background: #0e99a2;
 }
 
-.event-header:first-letter{ 
+.events-header:first-letter{ 
     text-transform: uppercase;
 }
 
-.event-card p{
+.events-card p{
 	margin-bottom: 25px;
 	padding: 0 10px;
 	font-size: 1.2em;
 }
 
-.event-card img{
+.events-card img{
 	width: 100%;
 	margin-bottom: 15px;
 }
 
-.event-card-button{
+.events-card-button{
 	display: inline-block;
 	float: right;
 	width: 70px;
@@ -213,7 +213,7 @@ p{
 	color:white;
 }
 
-.event-card-info{
+.events-card-info{
 	display: inline;
 	margin: 0 0 30px 15px;
 	color:#9e9e9e;
@@ -226,25 +226,25 @@ p{
 	background: url(../img/footerImage.png);
 }
 
-/*-------------EventPage-------------*/
-.event-info-container{
+/*-------------EventsPage-------------*/
+.events-info-container{
 	border: thin #9e9e9e solid;
 }
 
-.event-info{
+.events-info{
 	list-style: none;
 	font-family: TTChocolates;
 }
 
-.event-tags{
+.events-tags{
 	list-style: none;
 }
 
-.event-tag{
+.events-tag{
 	text-decoration: none;
 }
 
-/*-------------Slut på Event page-------------*/
+/*-------------Slut på Events page-------------*/
 
 footer{
 	background:#0e99a2;
@@ -262,7 +262,7 @@ footer{
 
 @media screen and (max-width: 646px) {
 
-	.event-card-button{
+	.events-card-button{
 		width: 90%;
 		display: block;
 		position: static;
@@ -271,7 +271,7 @@ footer{
  		height: 50px;
  		border-radius: 6px;
 	}
-	.event-search{
+	.events-search{
 		width: 70%;
 	}
 }

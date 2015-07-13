@@ -13,10 +13,10 @@
 </div>
 
 
-<div class="event-main-header">
+<div class="events-main-header">
 
-  <h2 class="event-main-heading">{{city}}</h2>
-  <input type="text" ng-model="query" class="event-search" placeholder="Sök efter event">
+  <h2 class="events-main-heading">{{city}}</h2>
+  <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
 
 </div>
 
@@ -34,12 +34,12 @@
       </select>
   </div>
   <div class="events">
-    <div class="event-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
+    <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
     <img ng-src="{{event.img}}"/>
-    <h2 class="event-header">{{event.title}}</h2>
-    <p class="event-body">{{event.body | limitTo : 155 }}{{event.body > 155 ? '' : '...'}}</p>
+    <h2 class="events-header">{{event.title}}</h2>
+    <p class="events-body">{{event.body | limitTo : 155 }}{{event.body > 155 ? '' : '...'}}</p>
 
-    <ul class="list-inline event-card-info">
+    <ul class="list-inline events-card-info">
         <li>
           <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
           {{ event.date | dateToISO | date:'shortDate'}}
@@ -53,13 +53,13 @@
           {{ event.age }}+
         </li>
       </ul>
-      <a href="#/{{ city }}/{{ event.id }}"><button class="event-card-button">Läs mer</button></a>
+      <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
     </div>
   </div>
 </div>
 
 <style>
-  .event-main-header{
+  .events-main-header{
     background-image: url('img/gothenburg.jpg');
     width: 100%;
   }
