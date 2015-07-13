@@ -75,9 +75,6 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     .success(function(data) {
         $scope.tags = data.tags;
         $scope.cities = data.cities;
-        $scope.eventData = {
-            date: new Date()
-        };
     }).error(function(err){
         console.log(err)
     });
@@ -86,8 +83,9 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     // Save an Event ================
     $scope.submitEvent = function() {
 
-        console.log($scope.eventData['date'] = $scope.eventData['date'].toJSON());
-/*
+        $scope.eventData['date'] = $scope.eventData['date'].toLocaleString();
+        $scope.eventData['time'] = $scope.eventData['time'].toLocaleString();
+        
         // save the event. pass in event data from the form
         // use the function we created in our service
         Create.save($scope.eventData)
@@ -95,7 +93,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
                 console.log(data);
             }).error(function(data) {
                 $('body').append(data);
-            });*/
+            });
     };
 
 }]);

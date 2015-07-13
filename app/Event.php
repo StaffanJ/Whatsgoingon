@@ -34,13 +34,23 @@ class Event extends Model
         'flag_id'
 	];
 
-     //Makes this row Carbon timestamp.
+    //Makes this row Carbon timestamp.
 
     protected $dates = ['date'];
 
-    public function setDateAttribute($date){
+    /**
+    * Returning time as a Carbon instance.
+    *
+    * @return Date attribute as Carbon
+    * @param  $date
+    */
+    
+    public function getDateAttribute($date)
+    {
+        return new Carbon($date);    
+    }
 
-        dd($date);
+    public function setDateAttribute($date){
 
         //Carbon::parse($date); //Remove the time and change it to 00:00:00
 

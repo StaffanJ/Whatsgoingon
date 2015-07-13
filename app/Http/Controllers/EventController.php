@@ -93,6 +93,7 @@ class EventController extends Controller
     
     public function store(EventsRequest $request)
     {
+
         $this->createEvent($request);
 
         return redirect('/');
