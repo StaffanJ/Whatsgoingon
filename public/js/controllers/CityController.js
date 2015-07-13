@@ -15,7 +15,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
 
         // save the event. pass in event data from the form
         // use the function we created in our service
-        Login.post($scope.loginData)
+        Login.poop($scope.loginData)
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
@@ -73,21 +73,17 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
+        $scope.date = new Date();
         $scope.tags = data.tags;
         $scope.cities = data.cities;
-        $scope.eventData = {
-            date: new Date()
-        };
     }).error(function(err){
         console.log(err)
     });
 
     // function to handle submitting the form
     // Save an Event ================
-    $scope.submitEvent = function() {
+    $scope.submitComment = function() {
 
-        console.log($scope.eventData['date'] = $scope.eventData['date'].toJSON());
-/*
         // save the event. pass in event data from the form
         // use the function we created in our service
         Create.save($scope.eventData)
@@ -95,7 +91,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
                 console.log(data);
             }).error(function(data) {
                 $('body').append(data);
-            });*/
+            });
     };
 
 }]);

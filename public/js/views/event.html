@@ -47,8 +47,10 @@
 		<div class="event-main col-xs-12 col-sm-8 col-md-9">
 			<h1>{{ event.title }}</h1>
 			<p>{{ event.body }}</p>
-			<ul class="list-inline event-tags">
-				<li><span class="event-span glyphicon glyphicon-tags" aria-hidden="true"></span>
+			<ul ng-hide="!tags.length" class="list-inline event-tags">
+				<li>
+					<span class="event-span glyphicon glyphicon-tags" aria-hidden="true"></span>
+				</li>
 				<li ng-repeat="tag in tags">
 				<a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
 			</ul>
