@@ -1,5 +1,6 @@
 <!doctype html> <html lang="sv" ng-app="wgo"> 
 <head> 
+<meta name="viewport" content="initial-scale=1">
 <meta charset="UTF-8"> 
 <meta name="fragment" content="!" /><!--Google search crawling-->
 

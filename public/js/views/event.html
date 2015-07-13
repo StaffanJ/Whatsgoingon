@@ -15,22 +15,42 @@
 <img ng-src="{{ event.img }}"/>
 
 <div class="container">
-	<div class="row"><!--Row-->
+	<div class="row event-row"><!--Row-->
 		<div class="event-info-container col-xs-12 col-sm-4 col-md-3">
 			<ul class="event-info">
-				<li>{{ event.date | dateToISO | date:'shortDate'}}</li>
-				<li>{{ event.cost }}</li>
-				<li>{{ event.age }}</li>
-				<li><a href="#">{{ event.address }}</a></li>
-				<li><a href="#">{{ event.event_page }}</a></li>
-				<li>{{ event.time }}</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					{{ event.date | dateToISO | date:'shortDate'}}
+				</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-usd" aria-hidden="true"></span>
+					{{ event.cost }} kr
+				</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-user" aria-hidden="true"></span>
+					{{ event.age }} år
+				</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+					<a href="{{ event.address }}">Event adress</a>
+				</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-home" aria-hidden="true"></span>
+					<a href="{{event.event_page}}">Event webbplats</a>
+				</li>
+				<li class="event-list">
+					<span class="event-span glyphicon glyphicon-time" aria-hidden="true"></span>
+					{{ event.time }}
+				</li>
 			</ul>
 		</div>
 		<div class="event-main col-xs-12 col-sm-8 col-md-9">
 			<h1>{{ event.title }}</h1>
 			<p>{{ event.body }}</p>
-			<ul class="event-tags" ng-repeat="tag in tags">
-				<li><a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
+			<ul class="list-inline event-tags">
+				<li><span class="event-span glyphicon glyphicon-tags" aria-hidden="true"></span>
+				<li ng-repeat="tag in tags">
+				<a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
 			</ul>
 		</div>
 	</div>

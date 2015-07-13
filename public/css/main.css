@@ -17,7 +17,9 @@ h5,
 h6,
 p,
 a, /*Kan strula med span a från bootstrap*/
-span{
+span,
+ul,
+li{
 	font-family: TTChocolates;
 }
 
@@ -246,6 +248,24 @@ p{
 
 /*-------------Slut på Events page-------------*/
 
+/*-------------Event page--------------------*/
+.event-row{
+	margin-top: 30px;
+}
+
+.event-info{
+	list-style: none;
+	font-size: 1.3em;
+}
+
+.event-list{
+	margin-top: 10px;
+}
+
+.event-span{
+	margin-right: 10px;
+}
+
 footer{
 	background:#0e99a2;
 	margin:0; 
@@ -260,6 +280,18 @@ footer{
 	}
 }
 
+
+@media screen and (max-width: 767px) {
+
+	.event-list{
+		display: inline-block;
+	}
+	.event-span{
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+}
 @media screen and (max-width: 646px) {
 
 	.events-card-button{
