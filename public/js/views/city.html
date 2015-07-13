@@ -1,15 +1,15 @@
 <div class="main-menu">
 
-  <div class="left-menu">
+  <!-- <div class="left-menu">
     <a href="#/" class="back-button menu-button">
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
-  </div>
+  </div> -->
 
  <img src="img/wgo-heading-text.png" class="wgo-heading"/>
-  <div class="right-menu">
+  <!-- <div class="right-menu">
     <a href="#" class="open-menu-button menu-button">
     <span class="glyphicon glyphicon-align-justify"></span></a>
-  </div>
+  </div> -->
 </div>
 
 
@@ -19,7 +19,6 @@
   <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
 
 </div>
-
 
 <div class="container">
   <div class="sortering">
@@ -46,11 +45,11 @@
         </li>
         <li>
           <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-          {{ event.cost }}kr
+          {{ event.cost | costFilter }}
         </li>
         <li>
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          {{ event.age }}+
+          {{ event.age | ageFilter }}
         </li>
       </ul>
       <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
