@@ -34,6 +34,19 @@ class Event extends Model
         'flag_id'
 	];
 
+     //Makes this row Carbon timestamp.
+
+    protected $dates = ['date'];
+
+    public function setDateAttribute($date){
+
+        dd($date);
+
+        //Carbon::parse($date); //Remove the time and change it to 00:00:00
+
+        $this->attributes['date'] = Carbon::parse($date);
+    }
+
     /**
     * Get the newest event.
     *

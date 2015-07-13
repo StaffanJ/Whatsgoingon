@@ -1,5 +1,5 @@
 <h1>Create a new event!</h1>
-<form ng-submit="submitComment()" accept-charset="UTF-8">
+<form ng-submit="submitEvent()" accept-charset="UTF-8">
 
 	<div class="form-group">
 
@@ -25,7 +25,7 @@
 	<input class="form-control" name="address" ng-model="eventData.address" type="text" id="address">
 
 	<label for="date">Datum:</label>
-	<input class="form-control" name="date" ng-model="eventData.date" type="date" value="{{date | date:'yyyy-MM-dd'}}" id="date">
+	<input class="form-control" name="date" ng-model="eventData.date" type="date" min="{{date.value | date:'yyyy-MM-dd'}}" id="date">
 
 	<label for="event_page">Evenemangets webbplats:</label>
 	<input class="form-control" name="event_page" ng-model="eventData.event_page" type="text" id="event_page">

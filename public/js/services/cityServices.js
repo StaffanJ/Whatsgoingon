@@ -13,7 +13,7 @@ wgo.factory('Login', ['$http', function($http) {
 
     return {
         // get all the cities
-        poop : function(loginCredentials) {
+        post : function(loginCredentials) {
             return $http({
                 method: 'POST',
                 url: 'api/auth/login',
