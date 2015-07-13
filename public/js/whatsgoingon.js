@@ -2,6 +2,7 @@ var wgo = angular.module('wgo', ['ngRoute']);
 
 wgo.config(function($routeProvider, $locationProvider){
 	
+
 	$routeProvider
 		.when('/', {
 			controller: 'IndexController',

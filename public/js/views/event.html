@@ -24,11 +24,11 @@
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-usd" aria-hidden="true"></span>
-					{{ event.cost }} kr
+					{{ event.cost | costFilter }}
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-user" aria-hidden="true"></span>
-					{{ event.age }} år
+					{{ event.age | ageFilter}}
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-map-marker" aria-hidden="true"></span>
