@@ -75,6 +75,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     .success(function(data) {
         $scope.tags = data.tags;
         $scope.cities = data.cities;
+        $scope.date = new Date();
     }).error(function(err){
         console.log(err)
     });
@@ -83,17 +84,24 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     // Save an Event ================
     $scope.submitEvent = function() {
 
-        $scope.eventData['date'] = $scope.eventData['date'].toLocaleString();
-        $scope.eventData['time'] = $scope.eventData['time'].toLocaleString();
-        
-        // save the event. pass in event data from the form
+        /*--------------------------------------------------------------------------
+        Göra så att time och date variablarna kommer in i databasen plus $scope.eventData
+        ----------------------------------------------------------------------------*/
+
+        var time = $('#time').val(),
+        date = $('#date').val();
+
+        console.log(date);
+        //eventData['time'].toLocaleString();
+
+       /* // save the event. pass in event data from the form
         // use the function we created in our service
-        Create.save($scope.eventData)
+        Create.save($scope.eventData, date, time)
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
                 $('body').append(data);
-            });
+            });*/
     };
 
 }]);
