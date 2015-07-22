@@ -15,7 +15,8 @@ class FlagEvents extends Migration
         Schema::create('flag', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('description');
             $table->timestamps();
         });

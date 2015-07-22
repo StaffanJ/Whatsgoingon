@@ -7,6 +7,25 @@ wgo.controller('IndexController', ['$scope', '$http', 'City', function($scope, $
 
 }]);
 
+wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($scope, $http, Register){
+
+    // function to handle submitting the form
+    // Save an Event ================
+    $scope.register = function() {
+        console.log($scope.registerData);
+    // save the event. pass in event data from the form
+    // use the function we created in our service
+        Register.post($scope.registerData)
+            .success(function(data) {
+                console.log(data);
+            }).error(function(data) {
+                console.log(data);
+                $('body').append(data);
+            });
+        };
+
+}]);
+
 wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, $http, Login){
 
     // function to handle submitting the form
