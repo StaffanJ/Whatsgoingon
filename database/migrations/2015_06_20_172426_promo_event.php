@@ -16,7 +16,6 @@ class PromoEvent extends Migration
         {
             $table->increments('id');
             $table->integer('event_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
             $table->timestamps();
         });
     }

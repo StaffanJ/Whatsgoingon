@@ -15,6 +15,7 @@ class EventImage extends Migration
         Schema::create('event_image', function(Blueprint $table)
         {
             $table->increments('id');
+            $table->string('url');
             $table->integer('event_id')->unsigned();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();
