@@ -28,19 +28,19 @@
 	<input class="form-control" name="address" value="{{event.address}}" type="text" id="address">
 
 	<label for="date">Datum:</label>
-	<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
+	<input class="form-control" name="date" value="{{event.date.date | dateToISO | date:'yyyy-MM-dd'}}" type="date" id="date">
 
 	<label for="event_page">Evenemangets webbplats:</label>
 	<input class="form-control" name="event_page" value="{{event.event_page}}" type="text" id="event_page">
 
 	<label for="city">Stad:</label>
 	<select id="city_id" class="form-control" name="city_id">
-	<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+		<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
 	</select>
 
 	<label for="tag_list">Tags:</label>
 	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
-	<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
+		<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
