@@ -1,42 +1,45 @@
 <h1>Create a new event!</h1>
-<form ng-submit="submitEvent()" accept-charset="UTF-8">
+<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
 
 	<div class="form-group">
 
 	<label for="title">Titel:</label>
-	<input class="form-control" name="title" ng-model="eventData.title" type="text" id="title">
+	<input class="form-control" name="title" type="text" id="title">
 
 	<label for="body">Förklarande text om eventet:</label>
-	<textarea class="form-control" name="body" ng-model="eventData.body" cols="50" rows="10" id="body"></textarea>
+	<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
 
 	<label for="image">Bild:</label>
-	<input class="form-control" name="image" ng-model="eventData.image" type="file" id="image">
+	<input class="form-control" name="image" type="file" id="image">
 
 	<label for="age">Åldergräns:</label>
-	<input class="form-control" name="age" ng-model="eventData.age" type="text" id="age">
+	<input class="form-control" name="age" type="text" id="age">
 
-	<label for="time">Tiden som eventet startar:</label>
-	<input class="form-control" name="time" type="time" id="time">
+	<label for="start_time">Tiden som eventet startar:</label>
+	<input class="form-control" name="start_time" type="time" id="time">
+
+	<label for="end_time">Tiden som eventet slutar:</label>
+	<input class="form-control" name="end_time" type="time" id="time">
 
 	<label for="cost">Pris: </label>
-	<input min="0" class="form-control" name="cost" ng-model="eventData.cost" type="number" id="cost">
+	<input min="0" class="form-control" name="cost" type="number" id="cost">
 
 	<label for="address">Addressen för eventet:</label>
-	<input class="form-control" name="address" ng-model="eventData.address" type="text" id="address">
+	<input class="form-control" name="address" type="text" id="address">
 
 	<label for="date">Datum:</label>
 	<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
 
 	<label for="event_page">Evenemangets webbplats:</label>
-	<input class="form-control" name="event_page" ng-model="eventData.event_page" type="text" id="event_page">
+	<input class="form-control" name="event_page" type="text" id="event_page">
 
 	<label for="city">Stad:</label>
-	<select id="city_id" class="form-control" name="city_id" ng-model="eventData.city_id">
+	<select id="city_id" class="form-control" name="city_id">
 	<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
 	</select>
 
 	<label for="tag_list">Tags:</label>
-	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-model="eventData.tag_list">
+	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
 	<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
 	</select>
 

@@ -65,7 +65,6 @@ wgo.controller('CityEvents', ['$scope', '$http', '$routeParams', 'Event', functi
     
     Event.get($routeParams)
     .success(function(data) {
-        console.log(data);
         $scope.event = data.event;
         $scope.tags = data.tags
     }).error(function(err){
@@ -107,20 +106,18 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         Göra så att time och date variablarna kommer in i databasen plus $scope.eventData
         ----------------------------------------------------------------------------*/
 
-        var time = $('#time').val(),
-        date = $('#date').val();
+        var formData = $('#createForm').serialize();
 
-        console.log(date);
         //eventData['time'].toLocaleString();
 
-       /* // save the event. pass in event data from the form
+        // save the event. pass in event data from the form
         // use the function we created in our service
-        Create.save($scope.eventData, date, time)
+        Create.save(formData)
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
                 $('body').append(data);
-            });*/
+        });
     };
 
 }]);

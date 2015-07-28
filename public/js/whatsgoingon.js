@@ -40,7 +40,6 @@ wgo.config(function($routeProvider, $locationProvider){
 wgo.filter('dateToISO', function() {
   return function(input) {
     input = new Date(input).toISOString();
-  	console.log('This is the new date format: ' + input);
     return input;
   };
 });

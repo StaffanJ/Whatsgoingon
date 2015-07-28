@@ -26,7 +26,8 @@ class EventsRequest extends Request
         return [
             'title' => 'required|min:3',
             'body' => 'required',
-            'time' => 'required|min:4',
+            'start_time' => 'required|min:4',
+            'end_time' => 'required|min:4',
             'age' => 'required',
             'cost' => 'required',
             'address' => 'required',
@@ -48,7 +49,8 @@ class EventsRequest extends Request
         return [
             'title.required' => 'Det behövs en titel.',
             'body.required' => 'Skriv en kort förklarande text om eventet.',
-            'time.required' => 'Det behövs en starttid för eventet.',
+            'start_time.required' => 'Det behövs en start tid för eventet.',
+            'end_time.required' => 'Det behövs en slut tid för eventet.',
             'age.required' => 'Det behövs en åldersgräns för eventet, om ni inte har någon åldersgräns låt det stå 0.',
             'cost.required' => 'Det behöver vara en kostnad för eventetn, om det är gratis låt det stå 0.',
             'address.required' => 'Det måste finnas en adress för eventet.',

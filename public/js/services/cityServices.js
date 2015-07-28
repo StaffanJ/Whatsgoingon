@@ -86,13 +86,11 @@ wgo.factory('Create', ['$http', function($http) {
 
         save : function(eventData) {
             console.log(eventData);
-            $date = eventData['date'];
-            $time = eventData['time'];
             return $http({
                 method: 'POST',
                 url: 'api/events',
                 headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
-                data: $.param(eventData)
+                data: eventData
             });
         }
     }
