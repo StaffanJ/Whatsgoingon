@@ -16,13 +16,17 @@ wgo.config(function($routeProvider, $locationProvider){
 			controller : 'RegisterController',
 			templateUrl : 'js/views/register.html'
 		})
+		.when('/create', {
+			controller: 'CreateController',
+			templateUrl: 'js/views/create.html'
+		})
+		.when('/:id/edit', {
+			controller: 'EditController',
+			templateUrl: 'js/views/edit.html'
+		})
 		.when('/:city', {
 			controller: 'CityController',
 			templateUrl: 'js/views/city.html'
-		})
-		.when('/events/create', {
-			controller: 'CreateController',
-			templateUrl: 'js/views/create.html'
 		})
 		.when('/:city/:id', {
 			controller: 'CityEvents',
@@ -39,7 +43,6 @@ wgo.config(function($routeProvider, $locationProvider){
 
 wgo.filter('dateToISO', function() {
   return function(input) {
-    input = new Date(input).toISOString();
-    return input;
+    return Date.parse(input);
   };
 });

@@ -121,3 +121,40 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     };
 
 }]);
+
+wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', function($scope, $http, $routeParams, Edit){
+
+    Edit.get($routeParams)
+    .success(function(data) {
+        console.log(data);
+        $scope.tags = data.tags;
+        $scope.cities = data.cities;
+        $scope.event = data.event;
+        $scope.current_tags = data.current_tags;
+    }).error(function(err){
+        console.log(err)
+    });
+
+    // function to handle submitting the form
+    // Save an Event ================
+    $scope.submitEvent = function() {
+
+        /*--------------------------------------------------------------------------
+        Göra så att time och date variablarna kommer in i databasen plus $scope.eventData
+        ----------------------------------------------------------------------------*/
+
+        var formData = $('#editForm').serialize();
+
+        //eventData['time'].toLocaleString();
+
+        // save the event. pass in event data from the form
+        // use the function we created in our service
+        Edit.save(formData)
+            .success(function(data) {
+                console.log(data);
+            }).error(function(data) {
+                $('body').append(data);
+        });
+    };
+
+}]);

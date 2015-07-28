@@ -1,0 +1,60 @@
+<h1>Create a new event!</h1>
+<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
+
+	<div class="form-group">
+
+	<label for="title">Titel:</label>
+	<input class="form-control" name="title" value="{{event.title}}" type="text" id="title">
+
+	<label for="body">Förklarande text om eventet:</label>
+	<textarea class="form-control" name="body" cols="50" rows="10" id="body">{{event.body}}</textarea>
+
+	<label for="image">Bild:</label>
+	<input class="form-control" name="image" value="" type="file" id="image">
+
+	<label for="age">Åldergräns:</label>
+	<input class="form-control" name="age" value="{{event.age}}" type="text" id="age">
+
+	<label for="start_time">Tiden som eventet startar:</label>
+	<input class="form-control" name="start_time" value="{{event.start_time}}" type="time" id="time">
+
+	<label for="end_time">Tiden som eventet slutar:</label>
+	<input class="form-control" name="end_time" value="{{event.end_time}}" type="time" id="time">
+
+	<label for="cost">Pris: </label>
+	<input min="0" class="form-control" name="cost" value="{{event.cost}}" type="number" id="cost">
+
+	<label for="address">Addressen för eventet:</label>
+	<input class="form-control" name="address" value="{{event.address}}" type="text" id="address">
+
+	<label for="date">Datum:</label>
+	<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
+
+	<label for="event_page">Evenemangets webbplats:</label>
+	<input class="form-control" name="event_page" value="{{event.event_page}}" type="text" id="event_page">
+
+	<label for="city">Stad:</label>
+	<select id="city_id" class="form-control" name="city_id">
+	<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+	</select>
+
+	<label for="tag_list">Tags:</label>
+	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
+	<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
+	</select>
+
+	<input class="btn btn-success form-control" type="submit" value="Add Event">
+
+</div>
+
+
+</form>
+
+
+</div>
+
+<script>
+  $('#tag_list, #city_list').select2({
+  	placeholder: 'Choose a tag',
+  });
+</script>

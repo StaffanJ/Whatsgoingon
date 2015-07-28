@@ -113,7 +113,9 @@ class EventController extends Controller
 
         $cities = City::lists('name', 'id');
 
-        return view('events.edit', compact('event', 'tags', 'cities'));
+        $current_tags = $event->tags->lists('id')->toArray();
+
+        return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities]);
 
     }
 
