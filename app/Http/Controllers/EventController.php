@@ -109,9 +109,9 @@ class EventController extends Controller
     public function edit(Event $event)
     {
 
-        $tags = Tag::lists('name', 'id');
+        $tags = Tag::get();
 
-        $cities = City::lists('name', 'id');
+        $cities = City::get();
 
         $current_tags = $event->tags->lists('id')->toArray();
 

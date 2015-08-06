@@ -1,5 +1,5 @@
 <h1>Create a new event!</h1>
-<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
+<form ng-submit="submitEvent()" accept-charset="UTF-8" id="editForm">
 
 	<div class="form-group">
 
@@ -33,20 +33,18 @@
 	<label for="event_page">Evenemangets webbplats:</label>
 	<input class="form-control" name="event_page" value="{{event.event_page}}" type="text" id="event_page">
 
+
 	<label for="city">Stad:</label>
-	<select id="city_id" class="form-control" name="city_id">
-		<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+	<select id="city_id" class="form-control" name="city_id" ng-options="city.id as city.name for city in cities" ng-model="selected" convert-to-number>
 	</select>
 
 	<label for="tag_list">Tags:</label>
-	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
-		<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
+	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.id as tag.name for tag in tags" ng-model="selected_tags" convert-to-number>
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
 
 </div>
-
 
 </form>
 

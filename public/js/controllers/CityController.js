@@ -102,10 +102,6 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     // Save an Event ================
     $scope.submitEvent = function() {
 
-        /*--------------------------------------------------------------------------
-        Göra så att time och date variablarna kommer in i databasen plus $scope.eventData
-        ----------------------------------------------------------------------------*/
-
         var formData = $('#createForm').serialize();
 
         //eventData['time'].toLocaleString();
@@ -131,6 +127,8 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.cities = data.cities;
         $scope.event = data.event;
         $scope.current_tags = data.current_tags;
+        $scope.selected = data.event.city_id;
+        $scope.selected_tags = data.current_tags;
     }).error(function(err){
         console.log(err)
     });
@@ -140,16 +138,18 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
     $scope.submitEvent = function() {
 
         /*--------------------------------------------------------------------------
-        Göra så att time och date variablarna kommer in i databasen plus $scope.eventData
+        Identifiera varför det blir ett number i de olika selects.
         ----------------------------------------------------------------------------*/
 
         var formData = $('#editForm').serialize();
+
+        console.log(formData);
 
         //eventData['time'].toLocaleString();
 
         // save the event. pass in event data from the form
         // use the function we created in our service
-        Edit.save(formData)
+        Edit.save(formData, $routeParams)
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {

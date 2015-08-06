@@ -105,14 +105,14 @@ wgo.factory('Edit', ['$http', function($http) {
             return $http.get('api/events/' + route.id + '/edit');
         },
 
-        save : function(eventData) {
+        save : function(eventData, route) {
             console.log(eventData);
-            return $http({
-                method: 'POST',
-                url: 'api/events',
+            /*return $http({
+                method: 'PUT',
+                url: 'api/events/' + route.id,
                 headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
                 data: eventData
-            });
+            });*/
         }
     }
 
