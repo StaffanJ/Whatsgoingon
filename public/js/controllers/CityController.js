@@ -94,6 +94,9 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.date = new Date();
+        $scope.selected = data.cities[0].id;
+
+        console.log($scope.selected);
     }).error(function(err){
         console.log(err)
     });
@@ -127,8 +130,18 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.cities = data.cities;
         $scope.event = data.event;
         $scope.current_tags = data.current_tags;
-        $scope.selected = data.event.city_id;
+
+        //Selected elements in the <select> tags.
+        $scope.selected = { id : data.event.city_id };
+
+        $scope.selectedValues = [];
+
         $scope.selected_tags = data.current_tags;
+
+        angular.forEach($scope.selected_tags, function(a, b){
+            $scope.selectedValues.push({ id : a});
+        });
+
     }).error(function(err){
         console.log(err)
     });

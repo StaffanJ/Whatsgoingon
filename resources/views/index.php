@@ -30,10 +30,10 @@
     
     <!-- ANGULAR -->
     <!-- all angular resources will be loaded from the /public folder -->
-        <script src="js/whatsgoingon.js"></script> <!-- load our application -->
-        <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
-        <script src="js/services/cityServices.js"></script> <!-- load our controller -->
-        <script src="js/module/filters.js"></script> <!-- load our controller -->
+    <script src="js/whatsgoingon.js"></script> <!-- load our application -->
+    <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
+    <script src="js/services/cityServices.js"></script> <!-- load our controller -->
+    <script src="js/module/filters.js"></script> <!-- load our controller -->
 
 
         

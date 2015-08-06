@@ -35,14 +35,17 @@
 
 
 	<label for="city">Stad:</label>
-	<select id="city_id" class="form-control" name="city_id" ng-options="city.id as city.name for city in cities" ng-model="selected" convert-to-number>
+	<select id="city_id" class="form-control" name="city_id" ng-options="city.name for city in cities track by city.id" ng-model="selected">
 	</select>
 
 	<label for="tag_list">Tags:</label>
-	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.id as tag.name for tag in tags" ng-model="selected_tags" convert-to-number>
+	<select ui-select2="select2Options" id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.name for tag in tags track by tag.id" ng-model="selectedValues">
+	<option></option>
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
+
+	<p>Chosen Item: {{selectedValues}}</p>  
 
 </div>
 
@@ -52,7 +55,11 @@
 </div>
 
 <script>
-  $('#tag_list, #city_list').select2({
+  $('#city_list').select2({
   	placeholder: 'Choose a tag',
+  });
+  $('#tag_list').select2({
+  	placeholder: 'Choose a tag',
+  	multiple: true
   });
 </script>

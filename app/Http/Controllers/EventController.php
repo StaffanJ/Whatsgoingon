@@ -133,8 +133,6 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        return redirect('/');
-
     }
 
     /**
