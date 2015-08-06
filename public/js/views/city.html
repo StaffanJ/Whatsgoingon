@@ -34,9 +34,9 @@
   </div>
   <div class="events">
     <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
-    <img ng-src="{{event.img}}"/>
+    <img ng-src="{{event.img}}.jpg"/>
     <h2 class="events-header">{{event.title}}</h2>
-    <p class="events-body">{{event.body | limitTo : 155 }}{{event.body > 155 ? '' : '...'}}</p>
+    <p class="events-body">{{event.body | limitTo : 120 }}{{event.body > 120 ? '' : '...'}}</p>
 
     <ul class="list-inline events-card-info">
         <li>

@@ -1,6 +1,40 @@
-<div ng-repeat="event in events">
-<h3>{{event.title}}</h3>
-<div class="body">{{event.body}}</div>
-<a href="#/{{ city }}/{{ event.id }}"><button>Läs mer</button></a>
+<div class="main-menu">
 
+  <!-- <div class="left-menu">
+    <a href="#/" class="back-button menu-button">
+    <span class="glyphicon glyphicon-arrow-left"></span></a> 
+  </div> -->
+
+ <img src="img/wgo-heading-text.png" class="wgo-heading"/>
+  <!-- <div class="right-menu">
+    <a href="#" class="open-menu-button menu-button">
+    <span class="glyphicon glyphicon-align-justify"></span></a>
+  </div> -->
+</div>
+<div class="tag-header">
+<h1>hej</h1>
+</div>
+<div class="events">
+    <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
+    <img ng-src="{{event.img}}.jpg"/>
+    <h2 class="events-header">{{event.title}}</h2>
+    <p class="events-body">{{event.body | limitTo : 120 }}{{event.body > 120 ? '' : '...'}}</p>
+
+    <ul class="list-inline events-card-info">
+        <li>
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          {{ event.date.date | dateToISO | date:'shortDate'}}
+        </li>
+        <li>
+          <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+          {{ event.cost | costFilter }}
+        </li>
+        <li>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          {{ event.age | ageFilter }}
+        </li>
+      </ul>
+      <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
+    </div>
+  </div>
 </div>
