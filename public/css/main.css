@@ -247,14 +247,14 @@ p{
 	background: url(../img/tagImg.jpg);
 }
 
-@media screen and (max-width: 640px) {
+/*@media screen and (max-width: 640px) {
 	.tag-header{
 	background: url(../img/tagImg-small.jpg);
 	}
-}
+}*/
 @media screen and (max-width: 980px) {
 	.tag-header{
-	background: url(../img/tagImg-medium.jpg);
+	background: url(../img/tagImgMedium.jpg);
 	}
 }
 

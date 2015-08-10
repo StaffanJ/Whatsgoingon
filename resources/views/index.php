@@ -42,17 +42,22 @@
 </head> 
 <!-- declare our angular app and controller --> 
 <body><!--Tog bort -->
-<div ng-view></div>
+<div ng-view autoscroll="true"></div>
 
 <div class="footer-top"></div>
 <footer>
     <div class="container">
         <ul>
-            <li>Random li</li>
-            <li>Random li</li>
-            <li>Random li</li>
+            <li>Kontakta oss</li>
+            <li>Föreslå ett event</li>
+            <li>070-111 11 11</li>
             <li>Random li</li>
         </ul>
     </div>
+    <ul>
+        <li>kontakta oss</li>
+        <li>wgo@wgo.wgo</li>
+        <li>staffans gata 127 halmstad sweden</li>
+    </ul>
 </body> 
 </html>
