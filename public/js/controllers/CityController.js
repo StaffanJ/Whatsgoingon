@@ -76,6 +76,7 @@ wgo.controller('CityEvents', ['$scope', '$http', '$routeParams', 'Event', functi
 wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', function($scope, $http, $routeParams, Tag){
 
     $scope.city = $routeParams.city;
+    $scope.tag = $routeParams.tag;
 
     Tag.get($routeParams)
     .success(function(data) {
