@@ -23,14 +23,14 @@ class Event extends Model
 	    'title', 
 	    'body', 
 	    'published_at',
-	    'img',
-	    'age',
-	    'start_time',
+        'age',
+        'start_time',
         'end_time',
-	    'cost',
-	    'address',
-	    'date',
-	    'event_page',
+        'cost',
+        'address',
+        'date',
+        'event_page',
+	    'img_id',
         'city_id',
         'flag_id'
 	];
@@ -64,7 +64,7 @@ class Event extends Model
     */
 
     public function scopePublished($query){
-        $query->where('date', '<=', Carbon::now());
+        $query->where('date', '>=', Carbon::now());
     }
     
     /**
@@ -101,15 +101,15 @@ class Event extends Model
         
     }
 
-    /**
-    * The connection between the images and events
+     /**
+    * The connection between the image and event
     *
     */
-    
-    public function images(){
 
-        return $this->belongsToMany('App\Image')->withTimestamps();
-        
+    public function img(){
+
+        return $this->belongsTo('App\Image');
+
     }
 
     /**

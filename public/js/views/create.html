@@ -10,8 +10,9 @@
 	<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
 
 	<label for="image">Bild:</label>
-	<select id="image_list" class="form-control" name="image_id">
-	<option style="background-image:url({{image.url}})" ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
+	<select id="image_list" class="form-control" name="img_id">
+	<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}
+	</option>
 	</select>
 
 	<label for="age">Åldergräns:</label>
@@ -56,7 +57,17 @@
 </div>
 
 <script>
-  $('#tag_list, #city_list, #image_list').select2({
+  $('#tag_list, #city_list').select2({
   	placeholder: 'Choose a tag',
   });
+
+  $('#image_list').select2({
+  });
 </script>
+
+<style type="text/css">
+	.poop{
+		//background-image:url('{{image.url}}.jpg');
+		color:red;
+	}
+</style>

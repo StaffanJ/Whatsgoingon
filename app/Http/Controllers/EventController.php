@@ -8,8 +8,8 @@ use Auth;
 use App\Tag;
 use App\Flag;
 use App\City;
-use App\Event;
 use App\Image;
+use App\Event;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Requests\EventsRequest;
@@ -68,7 +68,11 @@ class EventController extends Controller
 
         $tags = $event->tags;
 
-        return response()->json(['event' => $event, 'tags' => $tags]);
+        $image = $event->img;
+
+        $city = $event->city;
+
+        return response()->json(['event' => $event, 'tags' => $tags, 'image' => $image, 'city' => $city]);
 
 
         if($event->city_id === $city->id){
@@ -179,24 +183,6 @@ class EventController extends Controller
         $event->flag()->attach($report->id);
 
         return redirect('/');
-    }
-
-    /**
-    * View to print out JSON data
-    *
-    * @return void
-    * @param  array  
-    */
-    
-    public function json()
-    {
-
-        $events = Event::latest('date')->get();
-
-        dd($events);
-
-        return response()->json($events);
-    
     }
 
     /**

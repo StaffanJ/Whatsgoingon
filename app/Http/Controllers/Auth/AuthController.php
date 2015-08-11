@@ -20,7 +20,10 @@ class AuthController extends Controller
     |
     */
 
+    protected $redirectTo = '/api';
+
     use AuthenticatesAndRegistersUsers;
+
 
     /**
      * Create a new authentication controller instance.

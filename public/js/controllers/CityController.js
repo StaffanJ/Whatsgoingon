@@ -38,7 +38,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
-                $('body').append(data);
+                alert('Something went wrong, please try again!')
             });
     };
 
@@ -59,14 +59,15 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 
 }]);
 
-wgo.controller('CityEvents', ['$scope', '$http', '$routeParams', 'Event', function($scope, $http, $routeParams, Event){
+wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', function($scope, $http, $routeParams, Event){
 
     $scope.routeParams = $routeParams;
     
     Event.get($routeParams)
     .success(function(data) {
         $scope.event = data.event;
-        $scope.tags = data.tags
+        $scope.tags = data.tags;
+        console.log(data);
     }).error(function(err){
         console.log(err)
     });

@@ -29,7 +29,7 @@ wgo.config(function($routeProvider, $locationProvider){
 			templateUrl: 'js/views/city.html'
 		})
 		.when('/:city/:id', {
-			controller: 'CityEvents',
+			controller: 'CityEvent',
 			templateUrl: 'js/views/event.html'
 		})
 		.when('/:city/tags/:tag', {

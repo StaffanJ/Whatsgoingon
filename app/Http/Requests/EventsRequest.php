@@ -34,7 +34,8 @@ class EventsRequest extends Request
             'date' => 'required',
             'event_page' => 'required',
             'tag_list' => 'required',
-            'city_id' => 'required'
+            'city_id' => 'required',
+            'img_id' => 'required'
         ];
     }
 
@@ -57,7 +58,8 @@ class EventsRequest extends Request
             'date.required' => 'Det behöver finnas ett datum för eventet.',
             'event_page.required' => 'Det behöver finnas en sida för eventet.',
             'tag_list.required' => 'Det behöver finnas några taggar för eventet',
-            'city_id.required' => 'Det behöver finnas en stad för eventet'
+            'city_id.required' => 'Det behöver finnas en stad för eventet',
+            'city_id.required' => 'Det behöver finnas en bild för eventet'
         ];
     }
 }

@@ -13,24 +13,16 @@ class Image extends Model
      */
     protected $table = 'event_image';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-	    'name',
-	    'url'
-	];
-
 	/**
-    * The connection between the images and events
+    * Connecting the images and events
     *
+    * @return connection to events  
     */
     
-    public function events(){
-
-        return $this->belongsToMany('App\Tag');
+    public function event()
+    {
         
+        return $this->hasMany('App\Event');
+
     }
 }
