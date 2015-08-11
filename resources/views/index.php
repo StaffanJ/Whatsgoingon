@@ -54,10 +54,6 @@
             <li>Random li</li>
         </ul>
     </div>
-    <ul>
-        <li>kontakta oss</li>
-        <li>wgo@wgo.wgo</li>
-        <li>staffans gata 127 halmstad sweden</li>
-    </ul>
+</footer>
 </body> 
 </html>
