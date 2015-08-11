@@ -23,9 +23,10 @@ Route::get('/', function() {
 // API ROUTES ==================================  
 Route::group(array('prefix' => 'api'), function() {
 	
+	Route::get('/', 'EventController@index');
+	
 	Route::resource('events', 'EventController');
 
-	Route::get('/', 'EventController@index');
 
 	Route::get('{city}', 'EventController@city');
 	Route::get('{city}/tags/{tags}', 'TagsController@show');
@@ -43,8 +44,4 @@ Route::group(array('prefix' => 'api'), function() {
 	Route::get('{city}/{id}', 'EventController@show');
 	Route::get('events/{events}/report', 'EventController@report');
 	Route::post('events/{events}/reportPost', 'EventController@postReport');
-
-	//To display the json data comment out {city} route (don't know why).
-	Route::get('json', 'EventController@json');
-
 });
