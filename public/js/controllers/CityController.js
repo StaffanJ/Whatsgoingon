@@ -87,6 +87,9 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', funct
         console.log(err)
     });
 
+    $scope.orderProp = 'date.date';
+
+
 }]);
 
 wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope, $http, Create){

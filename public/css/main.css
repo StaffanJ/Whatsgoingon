@@ -264,9 +264,11 @@ p{
 	line-height: 50vh;
 	color:white;
 	text-shadow:2px 2px 2px black;
-	font-size: 4em;
-	font-family: Helena;
-
+	font-size: 2.8em;
+	font-family: TTChocolates
+}
+.tag-heading span{
+	text-decoration: underline;
 }
 
 .event-header{
@@ -409,6 +411,7 @@ p{
 
 footer{
 	position: relative;
+	min-height: 100px;
 	background:#0e99a2;
 	margin:150px 0 0 0; 
 	padding: 0;
@@ -424,6 +427,10 @@ footer:before{
 	height: 72px;
 	left: 0;top:-72px;
 	background: url(../img/footerImage.png);
+}
+
+.footer-ul{
+	display: inline-block;
 }
 
 @media screen and (max-width: 1200px) {
@@ -467,3 +474,12 @@ footer:before{
 	}
 }
 
+.module-btn{
+	background: #f1665d;
+	border: 1px solid #9b413b;
+	float: right;
+	color:black;
+	padding: 10px;
+	display: inline.block;
+	margin-top: 25px;
+}

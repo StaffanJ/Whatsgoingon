@@ -13,9 +13,22 @@
 </div>
 <div class="tag-header">
 
-<h1 class="tag-heading">{{tag}}</h1>
+<h1 class="tag-heading">Tag - <span>{{tag}}</span></h1>
 </div>
+<div class="container">
+  <div class="sortering">
+    <span class="sorterings-span">Sortera:</span>
+      <select class="filter-select" ng-model="orderProp">
+        <option value="title">Bokstavsordning</option>
+        <option value="date.date">Snarast</option>
+        <option value="age">Yngst</option>
+        <option value="-age">Äldst</option>
+        <option value="cost">Biligast</option>
+        <option value="-cost">Dyrast</option>
+      </select>
+  </div>
 <div class="events">
+
     <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
     <img ng-src="{{event.img}}.jpg"/>
     <h2 class="events-header">{{event.title}}</h2>
