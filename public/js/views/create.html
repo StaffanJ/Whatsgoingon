@@ -10,7 +10,9 @@
 	<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
 
 	<label for="image">Bild:</label>
-	<input class="form-control" name="image" type="file" id="image">
+	<select id="image_list" class="form-control" name="image_id">
+	<option style="background-image:url({{image.url}})" ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
+	</select>
 
 	<label for="age">Åldergräns:</label>
 	<input class="form-control" name="age" type="text" id="age">
@@ -54,7 +56,7 @@
 </div>
 
 <script>
-  $('#tag_list, #city_list').select2({
+  $('#tag_list, #city_list, #image_list').select2({
   	placeholder: 'Choose a tag',
   });
 </script>

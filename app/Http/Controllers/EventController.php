@@ -9,6 +9,7 @@ use App\Tag;
 use App\Flag;
 use App\City;
 use App\Event;
+use App\Image;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Requests\EventsRequest;
@@ -47,9 +48,10 @@ class EventController extends Controller
 
         $cities = City::get();
 
-        return response()->json(['tags' => $tags, 'cities' => $cities]);
+        $images = Image::get();
 
-    	//return view('events.create', compact('tags', 'cities'));
+        return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images]);
+
     }
 
     /**

@@ -102,6 +102,17 @@ class Event extends Model
     }
 
     /**
+    * The connection between the images and events
+    *
+    */
+    
+    public function images(){
+
+        return $this->belongsToMany('App\Image')->withTimestamps();
+        
+    }
+
+    /**
     * The connection between the city and events
     *
     */

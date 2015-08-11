@@ -94,9 +94,9 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.date = new Date();
+        $scope.images = data.images;
         $scope.selected = data.cities[0].id;
 
-        console.log($scope.selected);
     }).error(function(err){
         console.log(err)
     });
