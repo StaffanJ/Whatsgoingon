@@ -176,3 +176,14 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
     };
 
 }]);
+
+wgo.controller('UserEvent', ['$scope', function ($scope){
+    $scope.userSubmitEvent = function(newItem){
+        console.log(newItem);
+        var link = "mailto:"+ 'wallof.kristofer@gmail.com'
+             + "?subject=New%20email " + escape(newItem.title)
+             + "&body=" + escape(newItem.body); 
+
+    window.location.href = link;
+    }
+}]);
