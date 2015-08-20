@@ -53,6 +53,10 @@ p{
 			 background-size: cover;
 }
 
+.modal-content{
+	color:#333;
+}
+
 
 .city-container{
 	margin: 80px auto;

@@ -46,56 +46,51 @@
 <div ng-view autoscroll="true"></div>
 <div class="footer-top"></div>
 
-<footer>
+<footer ng-controller="UserEvent">
     <div class="container">
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title event-tips-header">Event Tips!</h4>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title event-tips-header">Event Tips!</h4>
+                </div>
+                <div class="modal-body event-tips-body">
+                    <p>Fyll i formulären för med information om eventet.</p>
+                    <form ng-submit="userSubmitEvent(newUserEvent)" accept-charset="UTF-8" id="createForm">
+                        <div class="form-group">
+                            <label for="title">Titel:</label>
+                            <input class="form-control" name="title" ng-model="newUserEvent.title" type="text" id="title">
+
+                            <label for="body">Förklarande text om eventet:</label>
+                            <textarea class="form-control" name="body" ng-model="newUserEvent.body" cols="50" rows="10" id="body"></textarea>
+
+                            
+                            <label for="event_page">Evenemangets webbplats:</label>
+                            <input class="form-control" name="event_page" ng-model="newUserEvent.web" type="text" id="event_page">
+                            <label for="city">Stad:</label>
+
+                            <input class="form-control" name="city" ng-model="newUserEvent.city" type="text" id="city">
+               
+                            <input class="btn btn-success form-control" type="submit" value="Add Event">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body event-tips-body">
-          <p>Fyll i formulären för med information om eventet.</p>
-          <form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
-            <div class="form-group">
-            <label for="title">Titel:</label>
-            <input class="form-control" name="title" type="text" id="title">
-
-            <label for="body">Förklarande text om eventet:</label>
-            <textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
-
-            
-            <label for="event_page">Evenemangets webbplats:</label>
-            <input class="form-control" name="event_page" type="text" id="event_page">
-            <label for="city">Stad:</label>
-            <select id="city_id" class="form-control" name="city_id">
-            <option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
-            </select>
-
-            <input class="btn btn-success form-control" type="submit" value="Add Event">
-
-        </div>
-
-
-        </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
     </div>
-  </div>
-        <ul class="footer-ul">
-            <li>Kontakta oss</li>
-            <li>070-111 11 11</li>
-            <li>Random li</li>
-        </ul>
+    <ul class="footer-ul">
+        <li>Kontakta oss</li>
+        <li>070-111 11 11</li>
+        <li>Random li</li>
+    </ul>
         <button type="button" class="module-btn" data-toggle="modal" data-target="#myModal">Föreslå ett event</button>
     </div>
 </footer>
