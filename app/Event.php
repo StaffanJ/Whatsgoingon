@@ -27,12 +27,16 @@ class Event extends Model
         'start_time',
         'end_time',
         'cost',
+        'children_cost',
+        'elderly_cost',
+        'other_cost'
         'address',
         'date',
         'event_page',
 	    'img_id',
         'city_id',
-        'flag_id'
+        'flag_id',
+        'optional_id'
 	];
 
     //Makes this row Carbon timestamp.
@@ -109,6 +113,18 @@ class Event extends Model
     public function img(){
 
         return $this->belongsTo('App\Image');
+
+    }
+
+    /**
+    * The connection between the event and optional pricing 
+    *
+    */
+
+    public function optional_pricing()
+    {
+        
+        return $this->hasOne('App\Optiona_Pricing', 'id');
 
     }
 

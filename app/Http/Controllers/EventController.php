@@ -10,6 +10,7 @@ use App\Flag;
 use App\City;
 use App\Image;
 use App\Event;
+use App\Optional_Pricing;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Requests\EventsRequest;
@@ -50,7 +51,9 @@ class EventController extends Controller
 
         $images = Image::get();
 
-        return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images]);
+        $optional_categories = Optional_Pricing::get();
+
+        return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images, 'optional_categories' => $optional_categories]);
 
     }
 

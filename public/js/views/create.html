@@ -41,6 +41,20 @@
 	<label for="cost">Pris: </label>
 	<input min="0" class="form-control" name="cost" type="number" id="cost">
 
+	<label for="children_cost">Pris för barn: </label>
+	<input min="0" class="form-control" name="children_cost" type="number" id="children_cost">
+
+	<label for="elderly_cost">Pris för äldre: </label>
+	<input min="0" class="form-control" name="elderly_cost" type="number" id="elderly_cost">
+
+	<label for="optional_cost">Pris för andra grupper (t.ex medlemmar eller människor med handikapp): </label>
+	<input min="0" class="form-control" name="optional_cost" type="number" id="optional_cost">
+
+	<label for="optional_selection">Vilken kategori innefaller priset för andra kategorier för? Välj under:</label>
+		<select id="optional_selection" class="form-control" name="optional_selection">
+		<option ng-repeat="optional_category in optional_categories" value="{{optional_category.id}}">{{optional_category.description}}</option>
+	</select>
+
 	<label for="address">Addressen för eventet:</label>
 	<input class="form-control" name="address" type="text" id="address">
 
@@ -51,22 +65,20 @@
 	<input class="form-control" name="event_page" type="text" id="event_page">
 
 	<label for="city">Stad:</label>
-	<select id="city_id" class="form-control" name="city_id">
-	<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+		<select id="city_id" class="form-control" name="city_id">
+		<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
 	</select>
 
 	<label for="tag_list">Tags:</label>
-	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
-	<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
+		<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
+		<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
 
 </div>
 
-
 </form>
-
 
 </div>
 
