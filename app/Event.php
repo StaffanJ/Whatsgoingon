@@ -101,7 +101,7 @@ class Event extends Model
         
     }
 
-     /**
+    /**
     * The connection between the image and event
     *
     */
