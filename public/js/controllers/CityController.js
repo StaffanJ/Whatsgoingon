@@ -64,6 +64,10 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', function($scope, $http, $routeParams, Event){
 
     $scope.routeParams = $routeParams;
+
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
     
     Event.get($routeParams)
     .success(function(data) {
