@@ -121,6 +121,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         $scope.date = new Date();
         $scope.images = data.images;
         $scope.selected = data.cities[0].id;
+        $scope.optional_categories = data.optional_categories;
 
     }).error(function(err){
         console.log(err)
@@ -159,9 +160,11 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.cities = data.cities;
         $scope.event = data.event;
         $scope.current_tags = data.current_tags;
+        $scope.optional_categories = data.optional_categories;
 
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
+        $scope.selected_optional = { id : data.event.optional_id };
 
         $scope.selectedValues = [];
 

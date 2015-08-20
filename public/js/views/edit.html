@@ -38,6 +38,20 @@
 	<label for="cost">Pris: </label>
 	<input min="0" class="form-control" name="cost" value="{{event.cost}}" type="number" id="cost">
 
+	<label for="children_cost">Pris för barn: </label>
+	<input min="0" class="form-control" name="children_cost" type="number" value="{{event.children_cost}}" id="children_cost">
+
+	<label for="elderly_cost">Pris för äldre: </label>
+	<input min="0" class="form-control" name="elderly_cost" type="number" value="{{event.elderly_cost}}" id="elderly_cost">
+
+	<label for="optional_cost">Pris för andra grupper (t.ex medlemmar eller människor med handikapp): </label>
+	<input min="0" class="form-control" name="other_cost" type="number" value="{{event.other_cost}}" id="optional_cost">
+
+	<label for="optional_selection">Vilken kategori innefaller priset för andra kategorier för? Välj under:</label>
+	<select id="tag_list" class="form-control" name="tag_list[]" ng-options="optional_category.description for optional_category in optional_categories track by optional_categories.id" ng-model="selectedValues">
+	<option></option>
+	</select>
+
 	<label for="address">Addressen för eventet:</label>
 	<input class="form-control" name="address" value="{{event.address}}" type="text" id="address">
 
@@ -49,31 +63,23 @@
 
 
 	<label for="city">Stad:</label>
-	<select id="city_id" class="form-control" name="city_id" ng-options="city.name for city in cities track by city.id" ng-model="selected">
+	<select id="city_list" class="form-control" name="city_id" ng-options="city.name for city in cities track by city.id" ng-model="selected">
 	</select>
 
 	<label for="tag_list">Tags:</label>
-	<select ui-select2="select2Options" id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.name for tag in tags track by tag.id" ng-model="selectedValues">
+	<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.name for tag in tags track by tag.id" ng-model="selectedValues">
 	<option></option>
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
 
-	<p>Chosen Item: {{selectedValues}}</p>  
-
 </div>
 
 </form>
 
-
 </div>
 
 <script>
-  $('#city_list').select2({
-  	placeholder: 'Choose a tag',
-  });
-  $('#tag_list').select2({
-  	placeholder: 'Choose a tag',
-  	multiple: true
+  $('#tag_list, #city_list, #image_list, #optional_list').select2({
   });
 </script>

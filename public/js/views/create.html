@@ -24,9 +24,8 @@
 	<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
 
 	<label for="image">Bild:</label>
-	<select id="image_list" class="form-control" name="img_id">
-	<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}
-	</option>
+		<select id="image_list" class="form-control" name="img_id">
+		<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
 	</select>
 
 	<label for="age">Åldergräns:</label>
@@ -48,10 +47,10 @@
 	<input min="0" class="form-control" name="elderly_cost" type="number" id="elderly_cost">
 
 	<label for="optional_cost">Pris för andra grupper (t.ex medlemmar eller människor med handikapp): </label>
-	<input min="0" class="form-control" name="optional_cost" type="number" id="optional_cost">
+	<input min="0" class="form-control" name="other_cost" type="number" id="optional_cost">
 
 	<label for="optional_selection">Vilken kategori innefaller priset för andra kategorier för? Välj under:</label>
-		<select id="optional_selection" class="form-control" name="optional_selection">
+		<select id="optional_list" class="form-control" name="optional_id">
 		<option ng-repeat="optional_category in optional_categories" value="{{optional_category.id}}">{{optional_category.description}}</option>
 	</select>
 
@@ -65,7 +64,7 @@
 	<input class="form-control" name="event_page" type="text" id="event_page">
 
 	<label for="city">Stad:</label>
-		<select id="city_id" class="form-control" name="city_id">
+		<select id="city_list" class="form-control" name="city_id">
 		<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
 	</select>
 
@@ -83,11 +82,8 @@
 </div>
 
 <script>
-  $('#tag_list, #city_list').select2({
+  $('#tag_list, #city_list, #image_list, #optional_list').select2({
   	placeholder: 'Choose a tag',
-  });
-
-  $('#image_list').select2({
   });
 </script>
 

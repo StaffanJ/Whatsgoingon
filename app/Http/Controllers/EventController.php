@@ -124,7 +124,10 @@ class EventController extends Controller
 
         $current_tags = $event->tags->lists('id')->toArray();
 
-        return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities]);
+        $optional_categories = Optional_Pricing::get();
+
+        return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities,  'optional_categories' => 
+        $optional_categories, ]);
 
     }
 

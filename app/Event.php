@@ -29,7 +29,7 @@ class Event extends Model
         'cost',
         'children_cost',
         'elderly_cost',
-        'other_cost'
+        'other_cost',
         'address',
         'date',
         'event_page',
