@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EventImage extends Migration
+class CityImages extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class EventImage extends Migration
      */
     public function up()
     {
-        Schema::create('event_image', function(Blueprint $table)
+        Schema::create('city_image', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('name');
@@ -20,8 +20,8 @@ class EventImage extends Migration
             $table->timestamps();
         });
 
-        Schema::table('events', function($table) {
-           $table->foreign('img_id')->references('id')->on('event_image')->onDelete('cascade');
+        Schema::table('city', function($table) {
+           $table->foreign('img_id')->references('id')->on('city_image')->onDelete('cascade');
        });
     }
 

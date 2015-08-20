@@ -1,7 +1,6 @@
 wgo.factory('City', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function() {
             return $http.get('api');
         }
@@ -12,7 +11,6 @@ wgo.factory('City', ['$http', function($http) {
 wgo.factory('Register', ['$http', function($http) {
 
     return {
-        // get all the cities
         post : function(registerCredentials) {
             console.log(registerCredentials);
             return $http({
@@ -29,7 +27,6 @@ wgo.factory('Register', ['$http', function($http) {
 wgo.factory('Login', ['$http', function($http) {
 
     return {
-        // get all the cities
         post : function(loginCredentials) {
             return $http({
                 method: 'POST',
@@ -45,9 +42,7 @@ wgo.factory('Login', ['$http', function($http) {
 wgo.factory('Events', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function(city) {
-            console.log(city.city);
             return $http.get('api/' + city.city);
         }
     }
@@ -57,7 +52,6 @@ wgo.factory('Events', ['$http', function($http) {
 wgo.factory('Event', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function(route) {
             return $http.get('api/' + route.city + '/' + route.id);
         }
@@ -68,7 +62,6 @@ wgo.factory('Event', ['$http', function($http) {
 wgo.factory('Tag', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function(route) {
             return $http.get('api/' + route.city + '/tags/' + route.tag);
         }
@@ -79,7 +72,6 @@ wgo.factory('Tag', ['$http', function($http) {
 wgo.factory('Create', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function(route) {
             return $http.get('api/events/create');
         },
@@ -100,7 +92,6 @@ wgo.factory('Create', ['$http', function($http) {
 wgo.factory('Edit', ['$http', function($http) {
 
     return {
-        // get all the cities
         get : function(route) {
             return $http.get('api/events/' + route.id + '/edit');
         },
