@@ -222,12 +222,21 @@ class EventController extends Controller
 
     }
 
+    private function syncOptional(Event $event, array $optional)
+    {
+
+        $event->optional_pricing()->sync($optional);
+
+    }
+
     private function createEvent(EventsRequest $request)
     {
 
         $event = Auth::user()->events()->create($request->all());
 
         $this->syncTags($event, $request->input('tag_list'));
+
+        $this->syncOptional($event, $request->input('optional_list, optional_pricing'));
 
         return $event;
 

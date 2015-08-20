@@ -19,9 +19,8 @@ class MakeEvents extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('city_id')->unsigned();
             $table->integer('img_id')->unsigned();
-            $table->integer('optional_id')->unsigned();
             $table->string('title');
-            $table->string('body');
+            $table->string('body', 4000);
             $table->integer('age');
             $table->string('start_time');
             $table->string('end_time');

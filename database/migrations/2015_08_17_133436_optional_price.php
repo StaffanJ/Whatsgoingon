@@ -18,9 +18,18 @@ class OptionalPrice extends Migration
             $table->string('description');
         });
 
-        Schema::table('events', function($table) {
-           $table->foreign('optional_id')->references('id')->on('optional_price')->onDelete('cascade');
-       });
+        Schema::create('event_optional', function(Blueprint $table)
+        {
+            $table->integer('event_id')->unsigned()->index();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+
+            $table->integer('optional_id')->unsigned()->index();
+            $table->foreign('optional_id')->references('id')->on('optional_price')->onDelete('cascade');
+
+            $table->integer('cost');
+
+            $table->timestamps();
+        });
     }
 
     /**

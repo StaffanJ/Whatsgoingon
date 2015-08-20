@@ -18,11 +18,10 @@ class Optional_Pricing extends Model
     *
     */
 
-    public function event()
-    {
-        
-        return $this->hasOne('App\Event');
+    public function events(){
 
+        return $this->belongsToMany('App\Event');
+        
     }
 
 }

@@ -124,7 +124,7 @@ class Event extends Model
     public function optional_pricing()
     {
         
-        return $this->hasOne('App\Optiona_Pricing', 'id');
+        return $this->belongsToMany('App\Optional_Pricing')->withTimestamps();
 
     }
 
