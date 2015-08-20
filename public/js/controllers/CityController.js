@@ -135,18 +135,32 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     // Save an Event ================
     $scope.submitEvent = function() {
 
-        var formData = $('#createForm').serialize();
-
         //eventData['time'].toLocaleString();
+
+        var event_rage_regXp = $('#event_page').val();
+
+        var email = new RegExp('^(http|https)://');
+
+        if (!email.test(event_rage_regXp)) {
+            event_rage_regXp = 'http://' + event_rage_regXp;
+            console.log(event_rage_regXp);   
+        }
+
+        var formData = $('#createForm').serialize();
 
         // save the event. pass in event data from the form
         // use the function we created in our service
-        Create.save(formData)
+        Create.save(formData + '&event_page=' + event_rage_regXp)
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
                 $('body').append(data);
         });
+
+ //
+  
+
+
     };
 
 }]);
