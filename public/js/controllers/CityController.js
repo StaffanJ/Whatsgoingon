@@ -96,7 +96,7 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', funct
     $scope.tag = $routeParams.tag;
 
     $scope.doTheBack = function() {
-      window.history.back();
+        window.history.back();
     };
 
     Tag.get($routeParams)
