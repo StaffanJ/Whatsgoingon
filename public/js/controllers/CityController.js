@@ -23,6 +23,9 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
                 $('body').append(data);
             });
         };
+        $scope.doTheBack = function() {
+      window.history.back();
+    };
 
 }]);
 
@@ -41,12 +44,19 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
                 alert('Something went wrong, please try again!')
             });
     };
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
 
 }]);
 
 wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', 'City' , function($scope, $http, $routeParams, Events, City){
 
     $scope.city = $routeParams.city;
+
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
 
 	Events.get($routeParams)
     .success(function(data) {
@@ -85,6 +95,10 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', funct
     $scope.city = $routeParams.city;
     $scope.tag = $routeParams.tag;
 
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
+
     Tag.get($routeParams)
     .success(function(data) {
         $scope.events = data;
@@ -111,6 +125,10 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     }).error(function(err){
         console.log(err)
     });
+
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
 
     // function to handle submitting the form
     // Save an Event ================
@@ -156,6 +174,10 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
     }).error(function(err){
         console.log(err)
     });
+
+    $scope.doTheBack = function() {
+      window.history.back();
+    };
 
     // function to handle submitting the form
     // Save an Event ================
