@@ -14,12 +14,13 @@ class City extends Migration
     {
         Schema::create('city', function(Blueprint $table){
             $table->increments('id');
+            $table->integer('img_id')->unsigned();
             $table->string('name');
             $table->timestamps();
         });
 
         Schema::table('events', function($table) {
-           $table->foreign('city_id')->references('id')->on('city');
+           $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');
        });
     }
 

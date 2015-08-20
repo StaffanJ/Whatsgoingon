@@ -1,4 +1,4 @@
-wgo.controller('IndexController', ['$scope', '$http', 'City', function($scope, $http, City){
+ wgo.controller('IndexController', ['$scope', '$http', 'City', function($scope, $http, City){
 
     City.get()
     .success(function(data) {
@@ -50,7 +50,9 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 
 	Events.get($routeParams)
     .success(function(data) {
-        $scope.events = data;
+        console.log(data);
+        $scope.events = data.events;
+        $scope.cityImage = data.cityImage;
     }).error(function(err){
         console.log(err);
     });

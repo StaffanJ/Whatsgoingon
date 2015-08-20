@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class City_Image extends Model
 {
-	/**
+    /**
      * The database table used by the model.
      *
      * @var string
      */
-	protected $table = 'city';
+	protected $table = 'city_image';
 
 	/**
 	* Connecting the city and events
@@ -19,18 +19,10 @@ class City extends Model
 	* @return connection to events  
 	*/
 	
-	public function event()
+	public function city()
 	{
 		
-		return $this->hasMany('App\Event');
+		return $this->hasOne('App\City');
 
 	}
-
-	public function city_image()
-	{
-		
-		return $this->hasOne('App\City_Image', 'id');
-
-	}
-
 }

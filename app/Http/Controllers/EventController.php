@@ -197,7 +197,9 @@ class EventController extends Controller
 
         $events = $city->event()->published()->get();
 
-        return response()->json($events);
+        $city_image = $city->city_image;
+
+        return response()->json(['events' => $events, 'cityImage' => $city_image]);
 
         //return view('events.city', compact('events'));
     
