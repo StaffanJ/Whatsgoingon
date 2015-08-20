@@ -1,6 +1,7 @@
 <div class="main-menu">
-  <div class="nav-header" ng-click="doTheBack()">Reverse!</div>
-
+  <div class="back-button" ng-click="doTheBack()">  
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+  </div>
   <!-- <div class="left-menu">
     <a href="#/" class="back-button menu-button">
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
@@ -66,7 +67,7 @@
 
   @media screen and (max-width: 980px){
     .events-main-header{
-      background-image: url('{{city_image.url}}.jpg');
+      background-image: url('{{cityImage.url}}Medium.jpg');
     }
   }
 </style>
