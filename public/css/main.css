@@ -101,13 +101,15 @@ p{
 
 .left-menu,
 .right-menu,
-.wgo-heading{
+.wgo-heading,
+.home-link{
 	color:#0e99a2;
 	display: inline-block;
 	line-height: 60px;
 }
-.wgo-heading{
-	margin: 10px auto 0 auto;
+.wgo-heading,
+.home-link{
+	margin: 0 auto 0 auto;
 	height: 55px;
 }
 .right-menu{
@@ -192,6 +194,7 @@ p{
   	justify-content: space-around; 
 }
 
+
 .events-card{
 	background: white;
   	width: 300px;
@@ -202,6 +205,16 @@ p{
 	display: inline-block;
 	position: relative;
 	font-family: TTChocolates;
+}
+
+@media screen and (max-width: 700px){
+	.events{
+		display: block;
+	}
+	.events-card{
+		display: block;
+		margin: 40px auto 0 auto;
+	}
 }
 
 .events-header{
@@ -306,6 +319,26 @@ p{
 .tag-header{
 	background: url(../img/tagImg.jpg);
 }
+
+button.facebook-share,
+button.twitter-share
+{
+	margin-top: 40px;
+	width: 136px;
+	height: 115px;
+	border:none;
+	background: url(../img/social-share.png) no-repeat;	
+	background-size:272px 115px;
+}
+
+button.twitter-share{
+	margin-left: 40px;
+	background-position: -136px 0;
+}
+
+
+/*545 230*/
+
 
 /*@media screen and (max-width: 640px) {
 	.tag-header{

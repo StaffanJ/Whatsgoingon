@@ -6,7 +6,7 @@
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
   </div> -->
 
- <img src="img/wgo-heading-text.png" class="wgo-heading"/>
+ <a class="home-link" href="#/"><img src="img/wgo-heading-text.png" class="wgo-heading"/></a>
   <!-- <div class="right-menu">
     <a href="#" class="open-menu-button menu-button">
     <span class="glyphicon glyphicon-align-justify"></span></a>
@@ -37,7 +37,7 @@
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-home" aria-hidden="true"></span>
-					<a href="{{event.event_page}}">Event webbplats</a>
+					<a target="_blank" href="{{event.event_page}}">Event webbplats</a>
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-time" aria-hidden="true"></span>
@@ -59,6 +59,18 @@
 				<li ng-repeat="tag in tags">
 				<a class="event-tag" href="#/{{routeParams.city}}/tags/{{tag.name}}">{{tag.name}}</a></li>
 			</ul>
+			<button
+				socialshare
+				socialshare-provider="facebook"
+				socialshare-url="http://localhost:8888/#/{{routeParams.city}}/{{routeParams.id}}"
+				class="facebook-share share">
+			</button>
+			<button
+				socialshare
+				socialshare-provider="twitter"
+				socialshare-url="http://localhost:8888/#/{{routeParams.city}}/{{routeParams.id}}"
+				class="twitter-share share">
+			</button>
 		</div>
 	</div>
 </div>

@@ -28,6 +28,7 @@
     <script src="js/angular/angular-route/angular-route.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!--bootstrap JS-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="js/node_modules/angular-socialshare/src/js/angular-socialshare.js"></script>
     
     <!-- ANGULAR -->
     <!-- all angular resources will be loaded from the /public folder -->
