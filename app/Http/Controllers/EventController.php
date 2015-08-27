@@ -124,7 +124,7 @@ class EventController extends Controller
 
         $current_tags = $event->tags->lists('id')->toArray();
 
-        $optional_categories = Optional_Pricing::get();
+        $optional_categories = Optional::get();
 
         return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities,  'optional_categories' => 
         $optional_categories, ]);
@@ -225,7 +225,7 @@ class EventController extends Controller
 
         $event->optional_price()->sync($optional, $price);
 
-        dd($event->optional_price());
+        dd($event->optional_price);
 
     }
 
@@ -237,8 +237,6 @@ class EventController extends Controller
         $this->syncTags($event, $request->input('tag_list'));
 
         $this->syncOptional($event, $request->input('optional_list'), $request->input('cost'));
-
-        dd($event->optional_price);
 
         return $event;
 
