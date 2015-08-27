@@ -10,7 +10,7 @@ use App\Flag;
 use App\City;
 use App\Image;
 use App\Event;
-use App\Optional_Pricing;
+use App\Optional;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Requests\EventsRequest;
@@ -51,7 +51,7 @@ class EventController extends Controller
 
         $images = Image::get();
 
-        $optional_categories = Optional_Pricing::get();
+        $optional_categories = Optional::get();
 
         return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images, 'optional_categories' => $optional_categories]);
 
@@ -210,8 +210,6 @@ class EventController extends Controller
         $city_image = $city->city_image;
 
         return response()->json(['events' => $events, 'cityImage' => $city_image, 'images' => $images]);
-
-        //return view('events.city', compact('events'));
     
     }
 
@@ -222,10 +220,10 @@ class EventController extends Controller
 
     }
 
-    private function syncOptional(Event $event, array $optional)
+    private function syncOptional(Event $event, array $optional, array $price)
     {
 
-        $event->optional_pricing()->sync($optional);
+        $event->optional_price()->sync($optional, $price);
 
     }
 
@@ -236,7 +234,7 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $this->syncOptional($event, $request->input('optional_list, optional_pricing'));
+        $this->syncOptional($event, $request->input('optional_list'), $request->input('optional_price'));
 
         return $event;
 

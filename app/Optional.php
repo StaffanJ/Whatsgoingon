@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Optional_Pricing extends Model
+class Optional extends Model
 {
     /**
      * The database table used by the model.
@@ -20,7 +20,7 @@ class Optional_Pricing extends Model
 
     public function events(){
 
-        return $this->belongsToMany('App\Event');
+        return $this->belongsToMany('App\Event')->withPivot('cost');
         
     }
 

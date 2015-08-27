@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
   </div> -->
 
- <img src="img/wgo-heading-text.png" class="wgo-heading"/>
+ <a class="home-link" href="#/"><img src="img/wgo-heading-text.png" class="wgo-heading"/></a>
   <!-- <div class="right-menu">
     <a href="#" class="open-menu-button menu-button">
     <span class="glyphicon glyphicon-align-justify"></span></a>
@@ -41,19 +41,11 @@
 	<label for="cost">Pris: </label>
 	<input min="0" class="form-control" name="cost" type="number" id="cost">
 
-	<label for="children_cost">Pris för barn: </label>
-	<input min="0" class="form-control" name="children_cost" type="number" id="children_cost">
-
-	<label for="elderly_cost">Pris för äldre: </label>
-	<input min="0" class="form-control" name="elderly_cost" type="number" id="elderly_cost">
-
-	<label for="optional_cost">Pris för andra grupper (t.ex medlemmar eller människor med handikapp): </label>
-	<input min="0" class="form-control" name="other_cost" type="number" id="optional_cost">
-
-	<label for="optional_selection">Vilken kategori innefaller priset för andra kategorier för? Välj under:</label>
-		<select id="optional_list" class="form-control" name="optional_id">
-		<option ng-repeat="optional_category in optional_categories" value="{{optional_category.id}}">{{optional_category.description}}</option>
-	</select>
+	<label for="cost">Pris för olika kategorier, markera dem som du vill skriva in pris för: </label>
+	<div id="optional-pricing" ng-repeat="optional_category in optional_categories">
+		<input type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" class="optional_checkbox" name="optional_list[]"><p id="{{optional_category.id}}">{{optional_category.description}}</p>
+		<div id="input-div{{optional_category.id}}"></div>
+	</div>
 
 	<label for="address">Addressen för eventet:</label>
 	<input class="form-control" name="address" type="text" id="address">
@@ -83,9 +75,29 @@
 </div>
 
 <script>
-  $('#tag_list, #city_list, #image_list, #optional_list').select2({
-  	placeholder: 'Choose a tag',
-  });
+	$('#tag_list, #city_list, #image_list').select2({
+	  	placeholder: 'Choose a tag',
+	});
+
+	$('body').on('click', '.optional_checkbox', function(){
+		
+		var id = $(this).attr('id');
+
+		if($(this).is(":checked")){
+
+
+			console.log(this);
+
+			$('#input-div' + id).append('<input type="text" id="optional-text"' + id + '" name="optional_price[]">');
+
+		}else{
+			console.log($('#input-div' + id))
+			$('#input-div' + id).empty();
+
+		}
+  	
+  	});
+
 </script>
 
 <style type="text/css">

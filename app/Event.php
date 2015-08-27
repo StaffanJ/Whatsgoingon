@@ -117,15 +117,14 @@ class Event extends Model
     }
 
     /**
-    * The connection between the event and optional pricing 
+    * The connection between the event and optional pricing
     *
     */
 
-    public function optional_pricing()
+    public function optional_price()
     {
         
-        return $this->belongsToMany('App\Optional_Pricing')->withTimestamps();
-
+        return $this->belongsToMany('App\Optional')->withTimestamps()->withPivot('cost');
     }
 
     /**
