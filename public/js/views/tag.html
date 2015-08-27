@@ -1,7 +1,9 @@
 <div class="main-menu">
-  <div class="back-button" ng-click="doTheBack()">  
+  <p>{{hej}}</p>
+  <p>hej</p>
+  <a href="#/{{city}}" class="back-button">  
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-  </div>
+  </a>
 
   <!-- <div class="left-menu">
     <a href="#/" class="back-button menu-button">
@@ -31,6 +33,7 @@
       </select>
   </div>
 <div class="events">
+
 
     <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
       <img ng-src="{{event.img}}.jpg"/>

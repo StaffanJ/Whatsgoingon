@@ -23,9 +23,7 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
                 $('body').append(data);
             });
         };
-        $scope.doTheBack = function() {
-      window.history.back();
-    };
+        
 
 }]);
 
@@ -44,9 +42,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
                 alert('Something went wrong, please try again!')
             });
     };
-    $scope.doTheBack = function() {
-      window.history.back();
-    };
+    
 
 }]);
 
@@ -54,9 +50,7 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 
     $scope.city = $routeParams.city;
 
-    $scope.doTheBack = function() {
-      window.history.back();
-    };
+    
 
 	Events.get($routeParams)
     .success(function(data) {
@@ -75,9 +69,9 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
 
     $scope.routeParams = $routeParams;
 
-    $scope.doTheBack = function() {
-      window.history.back();
-    };
+
+
+    
     
     Event.get($routeParams)
     .success(function(data) {
@@ -90,14 +84,20 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
 
 }]);
 
-wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', function($scope, $http, $routeParams, Tag){
+wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Event', function($scope, $http, $routeParams, Tag, Event){
 
     $scope.city = $routeParams.city;
     $scope.tag = $routeParams.tag;
+    $scope.hej = Event.routeParams;
 
-    $scope.doTheBack = function() {
-        window.history.back();
-    };
+   
+
+    // Event.get($routeParams)
+    //     .success(function(data){
+    //         $scope.test = data;
+    //     }).error(function(err){
+    //         console.log(err)
+    //     });
 
     Tag.get($routeParams)
     .success(function(data) {
@@ -127,9 +127,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         console.log(err)
     });
 
-    $scope.doTheBack = function() {
-      window.history.back();
-    };
+    
 
     // function to handle submitting the form
     // Save an Event ================
@@ -192,9 +190,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         console.log(err)
     });
 
-    $scope.doTheBack = function() {
-      window.history.back();
-    };
+    
 
     // function to handle submitting the form
     // Save an Event ================
