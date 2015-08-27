@@ -186,6 +186,15 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
             $scope.selectedValues.push({ id : a});
         });
 
+       
+
+         angular.forEach($scope.cities,function(value,index){
+            if($scope.event.city_id === value.id){
+                $scope.cityName = value.name;
+                return false;    
+            }
+            })
+
     }).error(function(err){
         console.log(err)
     });
