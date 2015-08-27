@@ -26,7 +26,7 @@ class Event extends Model
         'age',
         'start_time',
         'end_time',
-        'cost',
+        'price',
         'children_cost',
         'elderly_cost',
         'other_cost',
@@ -124,7 +124,7 @@ class Event extends Model
     public function optional_price()
     {
         
-        return $this->belongsToMany('App\Optional')->withTimestamps()->withPivot('cost');
+        return $this->belongsToMany('App\Optional')->withPivot('cost')->withTimestamps();
     }
 
     /**

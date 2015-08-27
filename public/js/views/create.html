@@ -1,7 +1,7 @@
 <div class="main-menu">
-  <div class="back-button" ng-click="doTheBack()">  
+  <a href="" class="back-button">  
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-  </div>
+  </a>
   <!-- <div class="left-menu">
     <a href="#/" class="back-button menu-button">
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
@@ -39,7 +39,7 @@
 	<input class="form-control" name="end_time" type="time" id="time">
 
 	<label for="cost">Pris: </label>
-	<input min="0" class="form-control" name="cost" type="number" id="cost">
+	<input min="0" class="form-control" name="price" type="number" id="price">
 
 	<label for="cost">Pris för olika kategorier, markera dem som du vill skriva in pris för: </label>
 	<div id="optional-pricing" ng-repeat="optional_category in optional_categories">
@@ -88,7 +88,7 @@
 
 			console.log(this);
 
-			$('#input-div' + id).append('<input type="text" id="optional-text"' + id + '" name="optional_price[]">');
+			$('#input-div' + id).append('<input type="text" id="optional-text"' + id + '" name="cost[]">');
 
 		}else{
 			console.log($('#input-div' + id))

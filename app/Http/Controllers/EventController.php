@@ -225,6 +225,8 @@ class EventController extends Controller
 
         $event->optional_price()->sync($optional, $price);
 
+        dd($event->optional_price());
+
     }
 
     private function createEvent(EventsRequest $request)
@@ -234,7 +236,9 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $this->syncOptional($event, $request->input('optional_list'), $request->input('optional_price'));
+        $this->syncOptional($event, $request->input('optional_list'), $request->input('cost'));
+
+        dd($event->optional_price);
 
         return $event;
 
