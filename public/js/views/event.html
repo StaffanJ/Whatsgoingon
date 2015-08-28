@@ -26,7 +26,10 @@
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-usd" aria-hidden="true"></span>
-					{{ event.cost | costFilter }}
+					{{ event.price | costFilter }}
+				</li>
+				<li ng-repeat="optional_information in optional_informations">
+					{{optional_information.description}}{{optional_information.pivot.cost}}
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-user" aria-hidden="true"></span>

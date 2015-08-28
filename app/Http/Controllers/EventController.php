@@ -75,7 +75,9 @@ class EventController extends Controller
 
         $city = $event->city;
 
-        return response()->json(['event' => $event, 'tags' => $tags, 'image' => $image, 'city' => $city]);
+        $optional_informations = $event->optional_price;
+
+        return response()->json(['event' => $event, 'tags' => $tags, 'image' => $image, 'city' => $city, 'optional_informations' => $optional_informations]);
 
 
         if($event->city_id === $city->id){

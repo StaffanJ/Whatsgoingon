@@ -4,7 +4,6 @@
 <meta charset="UTF-8"> 
 <meta name="fragment" content="!" /><!--Google search crawling-->
 
-
 <title>What's Going On!</title>
 
     <!-- CSS -->
@@ -15,8 +14,21 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css">
 
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="js/angular/angular.min.js"></script> <!-- load angular -->
     <script src="js/angular/angular-route/angular-route.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!--bootstrap JS-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="js/node_modules/angular-socialshare/src/js/angular-socialshare.js"></script>
+    
+    <!-- ANGULAR -->
+    <!-- all angular resources will be loaded from the /public folder -->
+    <script src="js/whatsgoingon.js"></script> <!-- load our application -->
+    <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
+    <script src="js/services/cityServices.js"></script> <!-- load our controller -->
+    <script src="js/module/filters.js"></script> <!-- load our controller -->
+    <script src="js/mainScript.js"></script>
     <!--Varför har vi detta?
     <style>
         body        { padding-top:30px; }
@@ -81,17 +93,4 @@
 </footer>
 
 </body>
-<!-- JS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!--bootstrap JS-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-    <script src="js/node_modules/angular-socialshare/src/js/angular-socialshare.js"></script>
-    
-    <!-- ANGULAR -->
-    <!-- all angular resources will be loaded from the /public folder -->
-    <script src="js/whatsgoingon.js"></script> <!-- load our application -->
-    <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
-    <script src="js/services/cityServices.js"></script> <!-- load our controller -->
-    <script src="js/module/filters.js"></script> <!-- load our controller -->
-<!--<script type="text/javascript" src="js/mainScript.js"></script>-->
 </html>

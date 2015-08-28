@@ -30,8 +30,8 @@
         <option value="date.date">Snarast</option>
         <option value="age">Yngst</option>
         <option value="-age">Äldst</option>
-        <option value="cost">Biligast</option>
-        <option value="-cost">Dyrast</option>
+        <option value="price">Biligast</option>
+        <option value="-price">Dyrast</option>
       </select>
   </div>
   <div class="events">
@@ -47,7 +47,7 @@
           </li>
           <li>
             <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-            {{ event.cost | costFilter }}
+            {{ event.price | costFilter }}
           </li>
           <li>
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
