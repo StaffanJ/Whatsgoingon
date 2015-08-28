@@ -220,12 +220,10 @@ class EventController extends Controller
 
     }
 
-    private function syncOptional(Event $event, array $optional, array $price)
+    private function syncOptional(Event $event, $optional)
     {
 
-        $event->optional_price()->sync($optional, $price);
-
-        dd($event->optional_price);
+        $event->optional_price()->sync($optional);
 
     }
 
@@ -236,7 +234,15 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $this->syncOptional($event, $request->input('optional_list'), $request->input('cost'));
+        $optional_id = $request->input('optional_list');
+        $cost = $request->input('cost');
+        $optional_cost = array();
+
+        foreach ($optional_id as $key => $value) {
+            $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+        }
+
+        $this->syncOptional($event, $optional_cost);
 
         return $event;
 
