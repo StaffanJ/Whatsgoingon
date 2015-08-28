@@ -124,7 +124,6 @@ p{
 }
 .back-button{
 	font-size: 2.5em;
-	background: #0e99a2;
 	margin: 0;
 	height: 70px;
 	width: 70px;
@@ -134,9 +133,12 @@ p{
 
 .back-button span{
 	margin-left: 13px;
+	color: #0e99a2;
+
 }
 
 .events-main-header{
+	position: relative;
 	height: 70vh;
 	margin-top: -20px;
 	text-align: center;
@@ -146,6 +148,20 @@ p{
   			-moz-background-size: cover;
   			  -o-background-size: cover;
   				 background-size: cover;
+}
+
+.events-main-header:after{
+	background: url(../img/header-bottom-border.png) center center no-repeat;
+	content: '';
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 87px;
+	-webkit-background-size: cover;
+		-moz-background-size: cover;
+		  -o-background-size: cover;
+			 background-size: cover;
 }
 
 .events-main-heading{
@@ -280,7 +296,7 @@ p{
 	text-align: center;
 	border-top: 1px solid black;
  	margin-bottom: 30px;	
-	background: no-repeat center center; 
+	background: no-repeat center center fixed; 
   		 -webkit-background-size: cover;
   			-moz-background-size: cover;
   			  -o-background-size: cover;
