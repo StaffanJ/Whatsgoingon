@@ -128,8 +128,10 @@ class EventController extends Controller
 
         $optional_categories = Optional::get();
 
+        $current_categories = $event->optional_price;
+
         return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities,  'optional_categories' => 
-        $optional_categories, ]);
+        $optional_categories, 'current_categories' => $current_categories]);
 
     }
 
@@ -146,6 +148,21 @@ class EventController extends Controller
         $event->update($request->all());
 
         $this->syncTags($event, $request->input('tag_list'));
+
+        $optional_id = $request->input('optional_list');
+        
+        if($optional_id != 0){
+
+        $optional_cost = array();
+        $cost = $request->input('cost');
+        
+            foreach ($optional_id as $key => $value) {
+                $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+            }
+
+            $this->syncOptional($event, $optional_cost);
+        
+        }
 
     }
 
@@ -236,11 +253,12 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $optional_cost = array();
         $optional_id = $request->input('optional_list');
-        $cost = $request->input('cost');
         
         if($optional_id != 0){
+
+        $optional_cost = array();
+        $cost = $request->input('cost');
 
             foreach ($optional_id as $key => $value) {
                 $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);

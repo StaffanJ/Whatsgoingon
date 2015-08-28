@@ -72,7 +72,6 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
     Event.get($routeParams)
     .success(function(data) {
         $scope.event = data.event;
-        $scope.optional_informations = data.optional_informations;
         $scope.tags = data.tags;
         console.log(data);
     }).error(function(err){
@@ -171,26 +170,31 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.current_tags = data.current_tags;
         $scope.optional_categories = data.optional_categories;
 
+        $scope.optional_informations = data.optional_informations;
+
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
-        $scope.selected_optional = { id : data.event.optional_id };
 
         $scope.selectedValues = [];
 
         $scope.selected_tags = data.current_tags;
 
-        angular.forEach($scope.selected_tags, function(a, b){
+        angular.forEach(data.current_categories, function(a, b){
             $scope.selectedValues.push({ id : a});
         });
-
-       
 
          angular.forEach($scope.cities,function(value,index){
             if($scope.event.city_id === value.id){
                 $scope.cityName = value.name;
                 return false;    
             }
-            })
+        });
+
+        $scope.selected_optional = [];
+        
+        angular.forEach(data.current_categories, function(a){
+            $scope.selected_optional.push({id : a.pivot.optional_id, 'checked:' : ' true'});
+        });
 
     }).error(function(err){
         console.log(err)
