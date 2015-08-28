@@ -236,15 +236,20 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
+        $optional_cost = array();
         $optional_id = $request->input('optional_list');
         $cost = $request->input('cost');
-        $optional_cost = array();
+        
+        if($optional_id != 0){
 
-        foreach ($optional_id as $key => $value) {
-            $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+            foreach ($optional_id as $key => $value) {
+                $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+            }
+
+            $this->syncOptional($event, $optional_cost);
+        
         }
 
-        $this->syncOptional($event, $optional_cost);
 
         return $event;
 
