@@ -41,8 +41,8 @@
 	<input min="0" class="form-control" name="cost" value="{{event.price}}" type="number" id="cost">
 
 	<label for="cost">Pris för olika kategorier, markera dem som du vill skriva in pris för: </label>
-	<div id="optional-pricing" ng-repeat="optional_category in optional_categories">
-		<input type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" ng-checked="selected_optional=='4'" class="optional_checkbox" name="optional_list[]"><p id="{{optional_category.id}}">{{optional_category.description}}</p>
+	<div id="optional-pricing" ng-repeat="optional_category in optional_categories track by $index">
+		<input ng-checked="optional.selected" type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" ng-model="selected_optional[$index]" class="optional_checkbox" name="optional_list[]"><p id="{{optional_category.id}}">{{optional_category.description}}</p>
 		<div id="input-div{{optional_category.id}}"></div>
 	</div>
 
@@ -66,7 +66,6 @@
 	</select>
 
 	<input class="btn btn-success form-control" type="submit" value="Add Event">
-{{selected_optional}}
 </div>
 
 </form>

@@ -169,6 +169,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.event = data.event;
         $scope.current_tags = data.current_tags;
         $scope.optional_categories = data.optional_categories;
+        $scope.selected_optional = data.current_categories;
 
         $scope.optional_informations = data.optional_informations;
 
@@ -179,7 +180,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
 
         $scope.selected_tags = data.current_tags;
 
-        angular.forEach(data.current_categories, function(a, b){
+        angular.forEach(data.current_tags, function(a, b){
             $scope.selectedValues.push({ id : a});
         });
 
@@ -190,12 +191,45 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
             }
         });
 
-        $scope.selected_optional = [];
-        
-        angular.forEach(data.current_categories, function(a){
-            $scope.selected_optional.push({id : a.pivot.optional_id, 'checked:' : ' true'});
+        //Making sure that the checked boxes are checked when editing the page.
+
+        $scope.optional = [];
+            
+        for(var i = 0; i < $scope.selected_optional.length; i++){
+
+            var hej = $scope.selected_optional[i].id;
+
+            $scope.optional.push({id: hej, selected: true})
+        }
+
+        $("#optional-pricing").delegate( ".optional_checkbox", "load", function(e) {
+           console.log('hej')
+            // angular.forEach($scope.optional, function(value, index){
+            //     console.log('hej')
+            // });       
         });
 
+        // angular.forEach(data.optional_categories, function(a, b){
+
+        //     // console.log($scope.selected_optional);
+
+        //     $scope.optional.push({id: a.id });
+
+        //     if($scope.selected_optional){
+        //         console.log('hej');
+        //     }
+
+
+        //     //console.log($scope.optional);
+            
+        //     // if($scope.optional.id == a.id){
+        //     //     $scope.optional.push({name : a.description, selected : true});
+        //     // }else{
+        //     //     $scope.optional.push({name : a.description, selected : false});
+        //     // }
+            
+        // });
+        // console.log($scope.selected_optional);
     }).error(function(err){
         console.log(err)
     });
