@@ -297,10 +297,10 @@ p{
 	border-top: 1px solid black;
  	margin-bottom: 30px;	
 	background: no-repeat center center fixed; 
-  		 -webkit-background-size: cover;
+  		 /*-webkit-background-size: cover;
   			-moz-background-size: cover;
   			  -o-background-size: cover;
-  				 background-size: cover;
+  				 background-size: cover;*/
 }
 
 .tag-heading{
@@ -315,7 +315,25 @@ p{
 }
 
 .event-header{
+	height: 600px;
 	position: relative;
+	background-attachment: scroll;
+	margin-bottom: 0px;
+}
+
+.event-heading-container{
+	margin-bottom: 40px;
+}
+
+.event-heading{
+	font-size: 3em;
+	line-height: 0px;
+}
+
+@media screen and (max-width: 750px){
+	.event-header{
+		height: 400px;
+	}
 }
 
 .event-header:after{
