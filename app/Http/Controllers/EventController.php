@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Mail;
 use App\Tag;
 use App\Flag;
 use App\City;
@@ -271,5 +272,12 @@ class EventController extends Controller
 
         return $event;
 
+    }
+
+    private function mailTo($data){
+        
+        Mail::send('index', $data, function($message){
+            $message->to('sjansson11@gmail.com', 'Staffan Smith')->subject('Welcome!');
+        });
     }
 }
