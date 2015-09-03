@@ -42,8 +42,11 @@
 
 	<label for="cost">Pris för olika kategorier, markera dem som du vill skriva in pris för: </label>
 	<div id="optional-pricing" ng-repeat="optional_category in optional_categories track by $index">
-		<input ng-checked="optional.selected" type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" ng-model="selected_optional[$index]" class="optional_checkbox" name="optional_list[]"><p id="{{optional_category.id}}">{{optional_category.description}}</p>
+		<input ng-checked="optional.indexOf(optional_category.id) != -1" type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" class="optional_checkbox" name="optional_list[]">
+		<p id="{{optional_category.id}}">{{optional_category.description}}</p>
 		<div id="input-div{{optional_category.id}}"></div>
+		<input ng-show="optional.indexOf(optional_category.id) != -1" type="text" id="optional-text{{optional_category.id}}" name="cost[]" value="{{optional_category.description}}">
+
 	</div>
 
 	<label for="address">Addressen för eventet:</label>
@@ -83,7 +86,7 @@
 
 		if($(this).is(":checked")){
 
-			$('#input-div' + id).append('<input type="text" id="optional-text"' + id + '" name="cost[]">');
+			$('#input-div' + id).append('<input ng-checked="master" type="text" id="optional-text"' + id + '" name="cost[]">');
 
 		}else{
 			$('#input-div' + id).empty();

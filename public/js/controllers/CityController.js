@@ -190,46 +190,14 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
                 return false;    
             }
         });
-
         //Making sure that the checked boxes are checked when editing the page.
-
         $scope.optional = [];
             
         for(var i = 0; i < $scope.selected_optional.length; i++){
-
-            var hej = $scope.selected_optional[i].id;
-
-            $scope.optional.push({id: hej, selected: true})
+            var indexVal = $scope.selected_optional[i].id;
+            $scope.optional.push(indexVal);
         }
 
-        $("#optional-pricing").delegate( ".optional_checkbox", "load", function(e) {
-           console.log('hej')
-            // angular.forEach($scope.optional, function(value, index){
-            //     console.log('hej')
-            // });       
-        });
-
-        // angular.forEach(data.optional_categories, function(a, b){
-
-        //     // console.log($scope.selected_optional);
-
-        //     $scope.optional.push({id: a.id });
-
-        //     if($scope.selected_optional){
-        //         console.log('hej');
-        //     }
-
-
-        //     //console.log($scope.optional);
-            
-        //     // if($scope.optional.id == a.id){
-        //     //     $scope.optional.push({name : a.description, selected : true});
-        //     // }else{
-        //     //     $scope.optional.push({name : a.description, selected : false});
-        //     // }
-            
-        // });
-        // console.log($scope.selected_optional);
     }).error(function(err){
         console.log(err)
     });
