@@ -14,6 +14,7 @@ use App\Event;
 use App\Optional;
 use Carbon\Carbon;
 use App\Http\Requests;
+use App\Http\Requests\MailRequest;
 use App\Http\Requests\EventsRequest;
 use App\Http\Requests\ReportRequest;
 use App\Http\Controllers\Controller;
@@ -56,6 +57,16 @@ class EventController extends Controller
 
         return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images, 'optional_categories' => $optional_categories]);
 
+    }
+
+    public function mailTip(MailRequest $request)
+    {
+
+        Mail::send('email.tip', ['request' => $request], function($message){
+
+            $message->to('sjansson11@gmail.com', 'Staffan Smith')->subject('Tack för tipset!');
+        
+        });
     }
 
     /**
@@ -272,12 +283,5 @@ class EventController extends Controller
 
         return $event;
 
-    }
-
-    private function mailTo($data){
-        
-        Mail::send('index', $data, function($message){
-            $message->to('sjansson11@gmail.com', 'Staffan Smith')->subject('Welcome!');
-        });
     }
 }

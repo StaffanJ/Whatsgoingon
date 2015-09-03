@@ -23,10 +23,10 @@ Route::get('/', function() {
 // API ROUTES ==================================  
 Route::group(array('prefix' => 'api'), function() {
 	
+	Route::post('mailtip', 'EventController@mailTip');
 	Route::get('/', 'EventController@index');
 	
 	Route::resource('events', 'EventController');
-
 
 	Route::get('{city}', 'EventController@city');
 	Route::get('{city}/tags/{tags}', 'TagsController@show');

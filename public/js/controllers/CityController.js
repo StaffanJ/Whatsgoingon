@@ -263,13 +263,15 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
 
 }]);
 
-wgo.controller('UserEvent', ['$scope', function ($scope){
+wgo.controller('UserEvent', ['$scope', '$http', 'MailTip', function($scope, $http, MailTip){
+    
     $scope.userSubmitEvent = function(newItem){
-        console.log(newItem);
-        var link = "mailto:"+ 'wallof.kristofer@gmail.com'
-             + "?subject=New%20email " + escape(newItem.title)
-             + "&body=" + escape(newItem.body); 
 
-    window.location.href = link;
+        MailTip.save(newItem)
+            .success(function(data) {
+
+            }).error(function(data) {
+                $('body').append(data);
+        });
     }
 }]);

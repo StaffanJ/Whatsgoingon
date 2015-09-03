@@ -49,6 +49,22 @@ wgo.factory('Events', ['$http', function($http) {
 
 }]);
 
+wgo.factory('MailTip', ['$http', function($http) {
+
+    return {
+        save : function(mailData) {
+            console.log(mailData);
+            return $http({
+                method: 'POST',
+                url: 'api/mailtip',
+                headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+                data: $.param(mailData)
+            });
+        }
+    }
+
+}]);
+
 wgo.factory('Event', ['$http', function($http) {
 
     return {
