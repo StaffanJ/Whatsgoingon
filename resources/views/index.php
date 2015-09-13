@@ -28,7 +28,6 @@
     <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
     <script src="js/services/cityServices.js"></script> <!-- load our controller -->
     <script src="js/module/filters.js"></script> <!-- load our controller -->
-    <script src="js/mainScript.js"></script>
     <!--Varför har vi detta?
     <style>
         body        { padding-top:30px; }
@@ -92,5 +91,6 @@
     </div>
 </footer>
 
+    <script src="js/mainScript.js"></script>
 </body>
 </html>

@@ -47,3 +47,10 @@ wgo.filter('dateToISO', function() {
     return Date.parse(input);
   };
 });
+
+
+
+$(document).on("click", ".show-event-info", function() {
+	console.log('ddsd');
+	$('.event-info-container').toggleClass('mobile-event-info-display');
+});

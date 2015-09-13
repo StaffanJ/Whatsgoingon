@@ -221,6 +221,7 @@ p{
 	display: inline-block;
 	position: relative;
 	font-family: TTChocolates;
+	position: relative;
 }
 
 @media screen and (max-width: 700px){
@@ -250,6 +251,11 @@ p{
     text-transform: uppercase;
 }
 
+.events-body{
+	min-height: 60px;
+	margin-right: 70px;
+}
+
 .events-card p{
 	margin-bottom: 25px;
 	padding: 0 10px;
@@ -275,10 +281,17 @@ p{
 	color:white;
 }
 
+.show-event-text{
+	color:white;
+	line-height: 40px;
+}
+
 .events-card-info{
 	display: inline;
-	margin: 0 0 30px 15px;
 	color:#9e9e9e;
+	position: absolute;
+	bottom: 0;
+	left: 10px;
 }
 
 /*.footer-top{
@@ -328,11 +341,13 @@ p{
 .event-heading{
 	font-size: 3em;
 	line-height: 0px;
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 750px){
 	.event-header{
 		height: 400px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -368,6 +383,13 @@ button.twitter-share
 button.twitter-share{
 	margin-left: 40px;
 	background-position: -136px 0;
+}
+
+@media screen and(max-width: 428px){
+	button.twitter-share,
+	button.share{
+		margin: 40px 0px 0px 0px;
+	}
 }
 
 
@@ -455,10 +477,11 @@ button.twitter-share{
 
 @media screen and (max-width: 767px){
 	.event-info-container{
-		margin-top: 30px;
-	}
-
-	.event-info-container{
+		margin: 0 0 20px 0;
+		width: 100%;
+		padding: 0;
+		height: 0;
+		overflow: hidden;
 		background: white;
 		position: static;
 	}
@@ -482,8 +505,19 @@ button.twitter-share{
 	font-size: 1.3em;
 }
 
+.show-event-info{
+	display: none;
+}
+
 .event-list{
 	margin-top: 10px;
+}
+.event-list:nth-last-child(1){
+	border-bottom: none;
+}
+
+.event-list-explenation{
+	display: none;
 }
 
 .event-span{
@@ -522,12 +556,25 @@ footer:before{
 
 
 @media screen and (max-width: 767px) {
-
+	.show-event-info{
+		width: 90%;
+		height: 40px;
+		display: block;
+		background:#095054;
+		margin: 70px auto 0 auto;
+		float: none;
+	}
 	.event-list{
-		display: inline-block;
+		border-bottom:1px solid #095054;
+	}
+
+	p.event-list-explenation{
+		display: block;
+		margin-left: 40px;
+		font-size: 1em;
+		color: #095054;
 	}
 	.event-span{
-		margin-right: 0;
 		margin-left: 10px;
 	}
 
@@ -542,6 +589,8 @@ footer:before{
  		float: none;
  		height: 50px;
  		border-radius: 6px;
+ 		font-size: 1.2em;
+ 		color:white;
 	}
 	.events-search{
 		width: 70%;
@@ -563,4 +612,8 @@ footer:before{
 	padding: 10px;
 	display: inline.block;
 	margin-top: 25px;
+}
+
+.mobile-event-info-display{
+	height: auto;
 }
