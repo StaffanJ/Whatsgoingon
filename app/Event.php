@@ -36,7 +36,6 @@ class Event extends Model
 	    'img_id',
         'city_id',
         'flag_id',
-        'optional_id'
 	];
 
     //Makes this row Carbon timestamp.
@@ -124,7 +123,7 @@ class Event extends Model
     public function optional_price()
     {
         
-        return $this->belongsToMany('App\Optional')->withPivot('cost')->withTimestamps();
+        return $this->hasMany('App\Optional');
     }
 
     /**

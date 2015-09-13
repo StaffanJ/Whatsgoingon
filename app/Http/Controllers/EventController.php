@@ -53,9 +53,7 @@ class EventController extends Controller
 
         $images = Image::get();
 
-        $optional_categories = Optional::get();
-
-        return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images, 'optional_categories' => $optional_categories]);
+        return response()->json(['tags' => $tags, 'cities' => $cities, 'images' => $images]);
 
     }
 
@@ -161,15 +159,15 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $optional_id = $request->input('optional_list');
+        $optional = $request->input('optional_list');
         
-        if($optional_id != 0){
+        if($optional != 0){
 
         $optional_cost = array();
         $cost = $request->input('cost');
         
-            foreach ($optional_id as $key => $value) {
-                $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+            foreach ($optional as $key => $value) {
+                $optional_cost[] = array('optional' => $value, 'cost' => $cost[$key]);
             }
 
             $this->syncOptional($event, $optional_cost);
@@ -254,7 +252,9 @@ class EventController extends Controller
     private function syncOptional(Event $event, $optional)
     {
 
-        $event->optional_price()->sync($optional);
+        foreach ($optional as $key => $value) {
+            $event->optional_price()->create($optional[$key]);
+        }
 
     }
 
@@ -265,21 +265,20 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $optional_id = $request->input('optional_list');
+        $optional = $request->input('desc_alternativ');
         
-        if($optional_id != 0){
+        if($optional != 0){
 
-        $optional_cost = array();
-        $cost = $request->input('cost');
+        $optional_cost = null;
+        $cost = $request->input('price_alternativ');
 
-            foreach ($optional_id as $key => $value) {
-                $optional_cost[] = array('optional_id' => $value, 'cost' => $cost[$key]);
+            foreach ($optional as $key => $value) {
+                $optional_cost[] = array('description' => $value, 'cost' => $cost[$key]);
             }
 
             $this->syncOptional($event, $optional_cost);
         
         }
-
 
         return $event;
 

@@ -11,7 +11,17 @@ class Optional extends Model
      *
      * @var string
      */
-    protected $table = 'optional_price';
+    protected $table = 'event_optional';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+	    'cost',
+        'description'
+	];
 
     /**
     * The connection between the event and optional pricing 
@@ -20,8 +30,7 @@ class Optional extends Model
 
     public function events(){
 
-        return $this->belongsToMany('App\Event')->withPivot('cost');
+        return $this->belongsTo('App\Event');
         
     }
-
 }

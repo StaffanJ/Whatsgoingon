@@ -12,20 +12,12 @@ class OptionalPrice extends Migration
      */
     public function up()
     {
-        Schema::create('optional_price', function(Blueprint $table)
-        {
-            $table->increments('id');
-            $table->string('description');
-        });
-
         Schema::create('event_optional', function(Blueprint $table)
         {
+            $table->increments('id');
             $table->integer('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-
-            $table->integer('optional_id')->unsigned()->index();
-            $table->foreign('optional_id')->references('id')->on('optional_price')->onDelete('cascade');
-
+            $table->string('description');
             $table->integer('cost');
 
             $table->timestamps();

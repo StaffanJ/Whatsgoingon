@@ -93,7 +93,6 @@ wgo.factory('Create', ['$http', function($http) {
         },
 
         save : function(eventData) {
-            console.log(eventData);
             return $http({
                 method: 'POST',
                 url: 'api/events',

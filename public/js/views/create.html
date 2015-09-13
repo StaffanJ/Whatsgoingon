@@ -41,11 +41,26 @@
 	<label for="cost">Pris: </label>
 	<input min="0" class="form-control" name="price" type="number" id="price">
 
-	<label for="cost">Pris för olika kategorier, markera dem som du vill skriva in pris för: </label>
-	<div id="optional-pricing" ng-repeat="optional_category in optional_categories">
-		<input type="checkbox" id="{{optional_category.id}}" value="{{optional_category.id}}" class="optional_checkbox" name="optional_list[]"><p id="{{optional_category.id}}">{{optional_category.description}}</p>
-		<div id="input-div{{optional_category.id}}"></div>
-	</div>
+	<label for="alternativ_cost">Alternativa priskostnader: </label>
+	<p>Alternativ 1</p>
+	<input class="form-control" type="text" name="desc_alternativ[]">
+	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+
+	<p>Alternativ 2</p>
+	<input class="form-control" type="text" name="desc_alternativ[]">
+	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+
+	<p>Alternativ 3</p>
+	<input class="form-control" type="text" name="desc_alternativ[]">
+	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+
+	<p>Alternativ 4</p>
+	<input class="form-control" type="text" name="desc_alternativ[]">
+	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+
+	<p>Alternativ 5</p>
+	<input class="form-control" type="text" name="desc_alternativ[]">
+	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
 
 	<label for="address">Addressen för eventet:</label>
 	<input class="form-control" name="address" type="text" id="address">

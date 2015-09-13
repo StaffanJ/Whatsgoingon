@@ -39,7 +39,6 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
             .success(function(data) {
                 console.log(data);
             }).error(function(data) {
-                alert('Something went wrong, please try again!')
             });
     };
     
@@ -114,12 +113,12 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
+        console.log(data);
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.date = new Date();
         $scope.images = data.images;
         $scope.selected = data.cities[0].id;
-        $scope.optional_categories = data.optional_categories;
 
     }).error(function(err){
         console.log(err)
@@ -138,27 +137,21 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         var email = new RegExp('^(http|https)://');
 
         if (!email.test(event_rage_regXp)) {
-            event_rage_regXp = 'http://' + event_rage_regXp;
-            console.log(event_rage_regXp);   
+            event_rage_regXp = 'http://' + event_rage_regXp;  
         }
 
         var formData = $('#createForm').serialize();
+
+        console.log(formData);
 
         // save the event. pass in event data from the form
         // use the function we created in our service
         Create.save(formData + '&event_page=' + event_rage_regXp)
             .success(function(data) {
-                console.log(data);
+
             }).error(function(data) {
-                $('body').append(data);
         });
-
- //
-  
-
-
     };
-
 }]);
 
 wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', function($scope, $http, $routeParams, Edit){
