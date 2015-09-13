@@ -28,6 +28,7 @@ class MailRequest extends Request
             'body' => 'required',
             'web' => 'required',
             'city' => 'required',
+            'recaptcha_response_field' => 'required|recaptcha',
         ];
     }
 }

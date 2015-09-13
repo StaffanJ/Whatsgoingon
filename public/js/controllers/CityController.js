@@ -46,7 +46,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
 
 }]);
 
-wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', 'City' , function($scope, $http, $routeParams, Events, City){
+wgo.controller('CityController', ['$scope', '$http', '$routeParams', '$location', 'Events', 'City' , function($scope, $http, $routeParams, $location, Events, City){
 
     $scope.city = $routeParams.city;
 
@@ -58,6 +58,8 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
     }).error(function(err){
+
+        $location.path('/hej');
         console.log(err);
     });
 

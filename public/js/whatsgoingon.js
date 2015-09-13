@@ -42,13 +42,6 @@ wgo.config(function($routeProvider, $locationProvider){
 });
 
 
-wgo.filter('dateToISO', function() {
-  return function(input) {
-    return Date.parse(input);
-  };
-});
-
-
 
 $(document).on("click", ".show-event-info", function() {
 	console.log('ddsd');

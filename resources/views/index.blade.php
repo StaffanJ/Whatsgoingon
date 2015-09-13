@@ -1,4 +1,4 @@
-<!doctype html> <html lang="sv" ng-app="wgo"> 
+<!DOCTYPE html> <html lang="sv" ng-app="wgo"> 
 <head> 
 <meta name="viewport" content="initial-scale=1">
 <meta charset="UTF-8"> 
@@ -70,7 +70,7 @@
                             <label for="city">Stad:</label>
 
                             <input class="form-control" name="city" ng-model="newUserEvent.city" type="text" id="city">
-               
+                            {!! Recaptcha::render() !!}
                             <input class="btn btn-success form-control" type="submit" value="Add Event">
 
                         </div>

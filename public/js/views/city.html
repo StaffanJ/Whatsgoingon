@@ -37,8 +37,8 @@
   <div class="events">
     <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
       <img ng-src="{{event.img.url}}Thumb.jpg"/>
-      <h2 class="events-header">{{event.title}}</h2>
-      <p class="events-body">{{event.body | limitTo : 120 }}{{event.body > 120 ? '' : '...'}}</p>
+      <h2 class="events-header">{{event.title |  cut:true:20:' ...'}}</h2>
+      <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p>
 
       <ul class="list-inline events-card-info">
           <li>
