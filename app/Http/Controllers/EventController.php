@@ -134,15 +134,12 @@ class EventController extends Controller
 
         $cities = City::get();
 
+        $images = Image::get();
+
         $current_tags = $event->tags->lists('id')->toArray();
+        $optional_categories = $event->optional_price;
 
-        $optional_categories = Optional::get();
-
-        $current_categories = $event->optional_price;
-
-        return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'cities' => $cities,  'optional_categories' => 
-        $optional_categories, 'current_categories' => $current_categories]);
-
+        return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'images' => $images, 'cities' => $cities,  'optional_categories' => $optional_categories]);
     }
 
     /**
@@ -159,18 +156,18 @@ class EventController extends Controller
 
         $this->syncTags($event, $request->input('tag_list'));
 
-        $optional = $request->input('optional_list');
+        $optional = $request->input('desc_alternativ');
         
         if($optional != 0){
 
-        $optional_cost = array();
-        $cost = $request->input('cost');
-        
+        $optional_cost = null;
+        $cost = $request->input('price_alternativ');
+
             foreach ($optional as $key => $value) {
-                $optional_cost[] = array('optional' => $value, 'cost' => $cost[$key]);
+                $optional_cost[] = array('description' => $value, 'cost' => $cost[$key]);
             }
 
-            $this->syncOptional($event, $optional_cost);
+        $this->updateOptional($event, $optional_cost);
         
         }
 
@@ -230,7 +227,9 @@ class EventController extends Controller
     public function city(City $city)
     {
 
-        $events = $city->event()->published()->get();
+        $events = $city->event()->get();
+
+        $images = null;
 
         $images = null;
 
@@ -251,7 +250,24 @@ class EventController extends Controller
 
     }
 
-    private function syncOptional(Event $event, $optional)
+     private function updateOptional(Event $event, $optional)
+    {
+
+        foreach ($optional as $key => $value) {
+
+            $id = $event->optional_price->lists('id')->splice(1);
+
+            //$event->optional_price()->where('id', '=', $event->optional_price->lists('id')->toArray([$key]))->update($optional[$key]);
+
+            $id->all();
+
+            echo $id;
+
+        }
+
+    }
+
+    private function createOptional(Event $event, $optional)
     {
 
         foreach ($optional as $key => $value) {
@@ -278,7 +294,7 @@ class EventController extends Controller
                 $optional_cost[] = array('description' => $value, 'cost' => $cost[$key]);
             }
 
-            $this->syncOptional($event, $optional_cost);
+            $this->createOptional($event, $optional_cost);
         
         }
 

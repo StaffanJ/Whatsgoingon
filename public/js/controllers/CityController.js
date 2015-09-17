@@ -156,15 +156,16 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
 
     Edit.get($routeParams)
     .success(function(data) {
-        console.log(data);
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.event = data.event;
         $scope.current_tags = data.current_tags;
         $scope.optional_categories = data.optional_categories;
         $scope.selected_optional = data.current_categories;
+        $scope.images = data.images;
+        $scope.currentImage = { id : data.event.img_id };
 
-        $scope.optional_informations = data.optional_informations;
+        console.log(data);
 
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
@@ -183,13 +184,6 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
                 return false;    
             }
         });
-        //Making sure that the checked boxes are checked when editing the page.
-        $scope.optional = [];
-            
-        for(var i = 0; i < $scope.selected_optional.length; i++){
-            var indexVal = $scope.selected_optional[i].id;
-            $scope.optional.push(indexVal);
-        }
 
     }).error(function(err){
         console.log(err)
