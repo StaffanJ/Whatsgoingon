@@ -356,6 +356,33 @@ p{
 	padding: 10px 40px 0 40px;
 }
 
+.if-optional-price-exists{
+	cursor: pointer;
+	background: #095054;
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.optional-price{
+	list-style: none;
+	padding-left: 20px;
+	border-bottom: 1px solid #095054;
+	max-height: 0;
+	overflow: hidden;
+    transition: max-height .5s ease-out;
+
+}
+.optional-price p.event-list-explenation{
+	margin-left: 20px;
+}
+
+.display-optional-price{
+	max-height: 500px;
+    transition: max-height .5s ease-out;
+}
+
 @media screen and (max-width: 750px){
 	.event-header{
 		height: 400px;
@@ -504,7 +531,7 @@ button.twitter-share{
 		background: #0e99a2;
 		width: 90%;
 		margin:0 auto;
-		padding: 20px;
+		padding: 20px 0;
 	}
 
 	.event-info-container:before,

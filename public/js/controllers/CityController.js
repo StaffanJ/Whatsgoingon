@@ -72,7 +72,7 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
     .success(function(data) {
         $scope.event = data.event;
         $scope.tags = data.tags;
-        console.log(data);
+        console.log(data.event);
     }).error(function(err){
         console.log(err)
     });

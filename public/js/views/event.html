@@ -33,6 +33,13 @@
 					<span class="event-span glyphicon glyphicon-usd" aria-hidden="true"></span>
 					{{ event.price | costFilter }}
 					<p class="event-list-explenation">Normal pris</p>
+					<p ng-hide="event.optional_price.length === 0" class="if-optional-price-exists">Fler prisalternativ</p>
+					<ul ng-hide="event.optional_price.length === 0" class="optional-price">
+						<li ng-repeat="op in event.optional_price">
+							{{op.cost}} kr
+							<p class="event-list-explenation">{{op.description}}</p>
+						</li>
+					</ul>
 				</li>
 				<li ng-repeat="optional_information in optional_informations">
 					{{optional_information.description}}{{optional_information.pivot.cost}}

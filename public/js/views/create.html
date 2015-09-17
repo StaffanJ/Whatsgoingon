@@ -13,80 +13,102 @@
     <span class="glyphicon glyphicon-align-justify"></span></a>
   </div> -->
 </div>
-<h1>Create a new event!</h1>
-<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
+<div class="container">
+	<div class="row event-row"><!--Row-->
+		<div class="col-xs-12 col-sm-10 col-md-10">
 
-	<div class="form-group">
+			<h1>Create a new event!</h1>
+			<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
 
-	<label for="title">Titel:</label>
-	<input class="form-control" name="title" type="text" id="title">
+				<div class="form-group">
 
-	<label for="body">Förklarande text om eventet:</label>
-	<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
+					<label for="title">Titel:</label>
+					<input class="form-control" name="title" type="text" id="title">
+				</div>
+					<label for="body">Förklarande text om eventet:</label>
+					<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
+				<div class="form-group">
+					<label for="image">Bild:</label>
+					<select id="image_list" class="form-control" name="img_id">
+						<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
+					</select>
+				</div>
+					<label for="age">Åldergräns:</label>
+					<input class="form-control" name="age" type="text" id="age">
+				<div class="form-group">
+					<label for="start_time">Tiden som eventet startar:</label>
+					<input class="form-control" name="start_time" type="time" id="time">
+				</div>
+					<label for="end_time">Tiden som eventet slutar:</label>
+					<input class="form-control" name="end_time" type="time" id="time">
+				<div class="form-group">
+					<label for="cost">Pris: </label>
+					<input min="0" class="form-control" name="price" type="number" id="price">
+				</div>
+				<div class="form-group">
+					<label for="alternativ_cost">Alternativa priskostnader: </label>
+					<p>Alternativ 1</p>
+					<span>Beskrivning</span>
+					<input class="form-control" type="text" name="desc_alternativ[]">
+					<span>Pris</span>
+					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
 
-	<label for="image">Bild:</label>
-		<select id="image_list" class="form-control" name="img_id">
-		<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
-	</select>
+					<p>Alternativ 2</p>
+					<span>Beskrivning</span>
+					<input class="form-control" type="text" name="desc_alternativ[]">
+					<span>Pris</span>
+					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
 
-	<label for="age">Åldergräns:</label>
-	<input class="form-control" name="age" type="text" id="age">
+					<p>Alternativ 3</p>
+					<span>Beskrivning</span>
+					<input class="form-control" type="text" name="desc_alternativ[]">
+					<span>Pris</span>
+					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
 
-	<label for="start_time">Tiden som eventet startar:</label>
-	<input class="form-control" name="start_time" type="time" id="time">
+					<p>Alternativ 4</p>
+					<span>Beskrivning</span>
+					<input class="form-control" type="text" name="desc_alternativ[]">
+					<span>Pris</span>
+					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
 
-	<label for="end_time">Tiden som eventet slutar:</label>
-	<input class="form-control" name="end_time" type="time" id="time">
+					<p>Alternativ 5</p>
+					<span>Beskrivning</span>
+					<input class="form-control" type="text" name="desc_alternativ[]">
+					<span>Pris</span>
+					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+				</div>
+				<div class="form-group">
+					<label for="address">Addressen för eventet:</label>
+					<input class="form-control" name="address" type="text" id="address">
+				</div>
+				<div class="form-group">
+					<label for="date">Datum:</label>
+					<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
+				</div>
+				<div class="form-group">
+					<label for="event_page">Evenemangets webbplats:</label>
+					<input class="form-control" type="text" id="event_page">
+				</div>
+				<div class="form-group">
+					<label for="city">Stad:</label>
+						<select id="city_list" class="form-control" name="city_id">
+						<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="tag_list">Tags:</label>
+						<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
+						<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
+					</select>
+				</div>
+					<input class="btn btn-success form-control" type="submit" value="Add Event">
 
-	<label for="cost">Pris: </label>
-	<input min="0" class="form-control" name="price" type="number" id="price">
+				</div>
 
-	<label for="alternativ_cost">Alternativa priskostnader: </label>
-	<p>Alternativ 1</p>
-	<input class="form-control" type="text" name="desc_alternativ[]">
-	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+			</form>
 
-	<p>Alternativ 2</p>
-	<input class="form-control" type="text" name="desc_alternativ[]">
-	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-	<p>Alternativ 3</p>
-	<input class="form-control" type="text" name="desc_alternativ[]">
-	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-	<p>Alternativ 4</p>
-	<input class="form-control" type="text" name="desc_alternativ[]">
-	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-	<p>Alternativ 5</p>
-	<input class="form-control" type="text" name="desc_alternativ[]">
-	<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-	<label for="address">Addressen för eventet:</label>
-	<input class="form-control" name="address" type="text" id="address">
-
-	<label for="date">Datum:</label>
-	<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
-
-	<label for="event_page">Evenemangets webbplats:</label>
-	<input class="form-control" type="text" id="event_page">
-
-	<label for="city">Stad:</label>
-		<select id="city_list" class="form-control" name="city_id">
-		<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
-	</select>
-
-	<label for="tag_list">Tags:</label>
-		<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
-		<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
-	</select>
-
-	<input class="btn btn-success form-control" type="submit" value="Add Event">
-
-</div>
-
-</form>
-
+		</div>
+	</div>
 </div>
 
 <script>
