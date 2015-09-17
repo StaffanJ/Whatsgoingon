@@ -251,7 +251,7 @@ class EventController extends Controller
 
     }
 
-    /*private function updateOptional(Event $event, $optional)
+    private function updateOptional(Event $event, $optional)
     {
 
         $id[] = null;
@@ -264,7 +264,7 @@ class EventController extends Controller
 
         }
 
-    }*/
+    }
 
     private function createOptional(Event $event, $optional)
     {
@@ -277,8 +277,13 @@ class EventController extends Controller
 
     private function createEvent(EventsRequest $request)
     {
+        preg_replace( "/\r|\n/", "", $lineBreaks );
 
-        $event = Auth::user()->events()->create($request->all());
+        dd($lineBreaks);
+    
+        $inputData = array_add($request->except('body'), 'body', $lineBreaks);
+
+        $event = Auth::user()->events()->create($inputData);
 
         $this->syncTags($event, $request->input('tag_list'));
 

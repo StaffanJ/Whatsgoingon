@@ -23,83 +23,57 @@
 				<div class="form-group">
 
 					<label for="title">Titel:</label>
-					<input class="form-control" name="title" type="text" id="title">
+					<input class="form-control" name="title" type="text" id="title" value="{{event.title}}">
 				</div>
 					<label for="body">Förklarande text om eventet:</label>
-					<textarea class="form-control" name="body" cols="50" rows="10" id="body"></textarea>
+					<textarea class="form-control" name="body" cols="50" rows="10" id="body">{{event.body}}</textarea>
 				<div class="form-group">
 					<label for="image">Bild:</label>
-					<select id="image_list" class="form-control" name="img_id">
-						<option ng-repeat="image in images" value="{{image.id}}" >{{image.name}}</option>
-					</select>
+					<select id="image_list" class="form-control" name="img_id" ng-options="image.name for image in images track by image.id" ng-model="currentImage">
+					<option></option>
 				</div>
 					<label for="age">Åldergräns:</label>
-					<input class="form-control" name="age" type="text" id="age">
+					<input class="form-control" name="age" type="text" id="age" value="{{event.age}}">
 				<div class="form-group">
 					<label for="start_time">Tiden som eventet startar:</label>
-					<input class="form-control" name="start_time" type="time" id="time">
+					<input class="form-control" name="start_time" type="time" id="time" value="{{event.start_time}}">
 				</div>
 					<label for="end_time">Tiden som eventet slutar:</label>
-					<input class="form-control" name="end_time" type="time" id="time">
+					<input class="form-control" name="end_time" type="time" id="time" value="{{event.end_time}}">
 				<div class="form-group">
 					<label for="cost">Pris: </label>
-					<input min="0" class="form-control" name="price" type="number" id="price">
+					<input min="0" class="form-control" name="price" type="number" id="price" value="{{event.price}}">
 				</div>
 				<div class="form-group">
 					<label for="alternativ_cost">Alternativa priskostnader: </label>
-					<p>Alternativ 1</p>
-					<span>Beskrivning</span>
-					<input class="form-control" type="text" name="desc_alternativ[]">
-					<span>Pris</span>
-					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-					<p>Alternativ 2</p>
-					<span>Beskrivning</span>
-					<input class="form-control" type="text" name="desc_alternativ[]">
-					<span>Pris</span>
-					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-					<p>Alternativ 3</p>
-					<span>Beskrivning</span>
-					<input class="form-control" type="text" name="desc_alternativ[]">
-					<span>Pris</span>
-					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-					<p>Alternativ 4</p>
-					<span>Beskrivning</span>
-					<input class="form-control" type="text" name="desc_alternativ[]">
-					<span>Pris</span>
-					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
-
-					<p>Alternativ 5</p>
-					<span>Beskrivning</span>
-					<input class="form-control" type="text" name="desc_alternativ[]">
-					<span>Pris</span>
-					<input min="0" class="form-control" name="price_alternativ[]" type="number" id="price">
+					<div ng-repeat="price in optional_categories">
+						<p>Alternativ {{$index+1}}</p>
+						<input class="form-control" type="text" value="{{price.description}}" name="desc_alternativ[]">
+						<input min="0" class="form-control" name="price_alternativ[]" value="{{price.cost}}" type="number" id="price">
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="address">Addressen för eventet:</label>
-					<input class="form-control" name="address" type="text" id="address">
+					<input class="form-control" name="address" type="text" id="address" value="{{event.address}}">
 				</div>
 				<div class="form-group">
 					<label for="date">Datum:</label>
-					<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
+					<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date" value="{{event.date.date | dateToISO | date:'yyyy-MM-dd'}}">
 				</div>
 				<div class="form-group">
 					<label for="event_page">Evenemangets webbplats:</label>
-					<input class="form-control" type="text" id="event_page">
+					<input class="form-control" type="text" id="event_page" value="{{event.event_page}}">
 				</div>
 				<div class="form-group">
 					<label for="city">Stad:</label>
-						<select id="city_list" class="form-control" name="city_id">
-						<option ng-repeat="city in cities" value="{{city.id}}">{{city.name}}</option>
+					<select id="city_list" class="form-control" name="city_id" ng-options="city.name for city in cities track by city.id" ng-model="selected">
 					</select>
+					<option></option>
 				</div>
 				<div class="form-group">
 					<label for="tag_list">Tags:</label>
-						<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]">
-						<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
-					</select>
+						<select id="tag_list" class="form-control" multiple="multiple" name="tag_list[]" ng-options="tag.name for tag in tags track by tag.id" ng-model="selectedValues"></select>
+						<option></option>
 				</div>
 					<input class="btn btn-success form-control" type="submit" value="Edit Event">
 

@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->bind('events', function($id){
             
-            return \App\Event::published()->findOrFail($id);
+            return \App\Event::findOrFail($id);
 
         });
 
