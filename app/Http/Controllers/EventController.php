@@ -277,9 +277,8 @@ class EventController extends Controller
 
     private function createEvent(EventsRequest $request)
     {
-        preg_replace( "/\r|\n/", "", $lineBreaks );
 
-        dd($lineBreaks);
+        $lineBreaks = nl2br($request->input('body'));
     
         $inputData = array_add($request->except('body'), 'body', $lineBreaks);
 

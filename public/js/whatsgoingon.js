@@ -1,4 +1,4 @@
-var wgo = angular.module('wgo', ['ngRoute', '720kb.socialshare']);
+var wgo = angular.module('wgo', ['ngRoute', '720kb.socialshare', 'ngSanitize']);
 
 wgo.config(function($routeProvider, $locationProvider){
 	

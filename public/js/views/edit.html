@@ -21,12 +21,11 @@
 			<form ng-submit="submitEvent()" accept-charset="UTF-8" id="editForm">
 
 				<div class="form-group">
-
 					<label for="title">Titel:</label>
 					<input class="form-control" name="title" type="text" id="title" value="{{event.title}}">
 				</div>
 					<label for="body">Förklarande text om eventet:</label>
-					<textarea class="form-control" name="body" cols="50" rows="10" id="body">{{event.body}}</textarea>
+					<textarea class="form-control" name="body" cols="50" rows="10" id="body" ng-bind-html="event.body"></textarea>
 				<div class="form-group">
 					<label for="image">Bild:</label>
 					<select id="image_list" class="form-control" name="img_id" ng-options="image.name for image in images track by image.id" ng-model="currentImage">
@@ -58,11 +57,11 @@
 				</div>
 				<div class="form-group">
 					<label for="date">Datum:</label>
-					<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date" value="{{event.date.date | dateToISO | date:'yyyy-MM-dd'}}">
+					<input class="form-control" name="date" value="{{event.date.date | dateToISO | date:'yyyy-MM-dd'}}" type="date" id="date">
 				</div>
 				<div class="form-group">
 					<label for="event_page">Evenemangets webbplats:</label>
-					<input class="form-control" type="text" id="event_page" value="{{event.event_page}}">
+					<input class="form-control" type="text" name="event_page" id="event_page" value="{{event.event_page}}">
 				</div>
 				<div class="form-group">
 					<label for="city">Stad:</label>
