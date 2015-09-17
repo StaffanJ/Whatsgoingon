@@ -356,6 +356,10 @@ p{
 	padding: 10px 40px 0 40px;
 }
 
+.event-body{
+	white-space: pre-wrap;
+}
+
 .if-optional-price-exists{
 	cursor: pointer;
 	background: #095054;
@@ -689,3 +693,4 @@ footer:before{
 .mobile-event-info-display{
 	height: auto;
 }
+
