@@ -137,6 +137,7 @@ class EventController extends Controller
         $images = Image::get();
 
         $current_tags = $event->tags->lists('id')->toArray();
+
         $optional_categories = $event->optional_price;
 
         return response()->json(['event' => $event, 'tags' => $tags, 'current_tags' => $current_tags, 'images' => $images, 'cities' => $cities,  'optional_categories' => $optional_categories]);
@@ -250,7 +251,7 @@ class EventController extends Controller
 
     }
 
-     private function updateOptional(Event $event, $optional)
+    /*private function updateOptional(Event $event, $optional)
     {
 
         $id[] = null;
@@ -263,7 +264,7 @@ class EventController extends Controller
 
         }
 
-    }
+    }*/
 
     private function createOptional(Event $event, $optional)
     {

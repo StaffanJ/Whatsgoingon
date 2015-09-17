@@ -53,9 +53,16 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 
 	Events.get($routeParams)
     .success(function(data) {
-        console.log(data);
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
+
+        $scope.currentPage = 0;
+        $scope.pageSize = 9;
+
+        $scope.numberOfPages=function(){
+            return Math.ceil($scope.events.length/$scope.pageSize);                
+        }
+
     }).error(function(err){
         console.log(err);
     });
@@ -73,6 +80,7 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
         $scope.event = data.event;
         $scope.tags = data.tags;
         console.log(data.event);
+
     }).error(function(err){
         console.log(err)
     });

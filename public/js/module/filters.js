@@ -45,3 +45,15 @@ wgo.filter('cut', function () {
             return value + (tail || ' …');
         };
     });
+
+//We already have a limitTo filter built-in to angular,
+//let's make a startFrom filter
+wgo.filter('startFrom', function() {
+    return function(input, start) {
+        if (!input || !input.length) { 
+        	return; 
+        }
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+});
