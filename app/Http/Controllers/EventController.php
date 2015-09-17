@@ -255,13 +255,15 @@ class EventController extends Controller
 
         foreach ($optional as $key => $value) {
 
-            $id = $event->optional_price->lists('id')->splice(1);
+            $id .= $event->optional_price->lists('id')->splice(1);
 
             //$event->optional_price()->where('id', '=', $event->optional_price->lists('id')->toArray([$key]))->update($optional[$key]);
 
             $id->all();
 
             echo $id;
+
+            echo 'Key ' . $key . '<br>';
 
         }
 
