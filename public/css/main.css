@@ -279,6 +279,12 @@ p{
 	border-radius: 50%;
 	background: #0e99a2;
 	color:white;
+    outline: 0;
+    transition:all .25s ease-in-out;
+}
+
+.events-card-button:hover{
+	background: #095054;
 }
 
 .show-event-text{
@@ -375,9 +381,22 @@ p{
 	background: url(../img/tagImg.jpg);
 }
 
+.flex{
+	display: -webkit-flex;
+   	display: flex;
+   	-webkit-flex-direction: row /* works with row or column */
+   	flex-direction: row;
+   	-webkit-align-items: center;
+   	align-items: center;
+   	-webkit-justify-content: center;
+   	justify-content: center;
+}
+
 button.facebook-share,
 button.twitter-share
-{
+{	    
+	outline: 0;
+	border:1px solid red;
 	margin-top: 40px;
 	width: 136px;
 	height: 115px;
@@ -398,15 +417,6 @@ button.twitter-share{
 	}
 }
 
-
-/*545 230*/
-
-
-/*@media screen and (max-width: 640px) {
-	.tag-header{
-	background: url(../img/tagImg-small.jpg);
-	}
-}*/
 @media screen and (max-width: 980px) {
 	.tag-header{
 	background: url(../img/tagImgMedium.jpg);
@@ -521,6 +531,10 @@ button.twitter-share{
 	border-bottom: none;
 }
 
+.event-list-link:hover{
+	color:#404040;
+}
+
 p.event-list-explenation{
 	white-space: nowrap; 
 	overflow:hidden;
@@ -533,8 +547,15 @@ p.event-list-explenation{
 }
 
 
+.event-tag{
+	color: #095054;
+}
+.event-tag:hover{
+	color: #0e99a2;
+}
 .event-span{
 	margin-right: 10px;
+	color: #095054;
 }
 
 footer{

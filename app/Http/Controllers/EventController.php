@@ -232,6 +232,8 @@ class EventController extends Controller
 
         $events = $city->event()->published()->get();
 
+        $images = null;
+
         foreach ($events as $event) {
             $images[] = $event->img;
         }
