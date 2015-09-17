@@ -253,17 +253,13 @@ class EventController extends Controller
      private function updateOptional(Event $event, $optional)
     {
 
+        $id[] = null;
+
         foreach ($optional as $key => $value) {
 
-            $id .= $event->optional_price->lists('id')->splice(1);
+            $id = $event->optional_price->lists('id');
 
-            //$event->optional_price()->where('id', '=', $event->optional_price->lists('id')->toArray([$key]))->update($optional[$key]);
-
-            $id->all();
-
-            echo $id;
-
-            echo 'Key ' . $key . '<br>';
+            $event->optional_price()->where('id', '=', $id[$key])->update($optional[$key]);
 
         }
 
