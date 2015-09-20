@@ -45,7 +45,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
 
 }]);
 
-wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', 'City' , function($scope, $http, $routeParams, Events, City){
+wgo.controller('CityController', ['$scope', '$http', '$routeParams', '$location', 'Events', 'City' , function($scope, $http, $routeParams, $location, Events, City){
 
     $scope.city = $routeParams.city;
 
@@ -64,14 +64,14 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
         }
 
     }).error(function(err){
-        console.log(err);
+        $location.path("/");
     });
 
     $scope.orderProp = 'date.date';
 
 }]);
 
-wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', function($scope, $http, $routeParams, Event){
+wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', '$location', 'Event', function($scope, $http, $routeParams, $location, Event){
 
     $scope.routeParams = $routeParams;
 
@@ -79,10 +79,8 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
     .success(function(data) {
         $scope.event = data.event;
         $scope.tags = data.tags;
-        console.log(data.event);
-
     }).error(function(err){
-        console.log(err)
+        $location.path("/");
     });
 
 }]);
@@ -93,19 +91,9 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
     $scope.tag = $routeParams.tag;
     $scope.hej = Event.routeParams;
 
-   
-
-    // Event.get($routeParams)
-    //     .success(function(data){
-    //         $scope.test = data;
-    //     }).error(function(err){
-    //         console.log(err)
-    //     });
-
     Tag.get($routeParams)
     .success(function(data) {
         $scope.events = data;
-        console.log(data);
     }).error(function(err){
         console.log(err)
     });
@@ -119,7 +107,6 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
-        console.log(data);
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.date = new Date();
@@ -148,8 +135,6 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
         var formData = $('#createForm').serialize();
 
-        console.log(formData);
-
         // save the event. pass in event data from the form
         // use the function we created in our service
         Create.save(formData + '&event_page=' + event_rage_regXp)
@@ -172,8 +157,6 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.selected_optional = data.current_categories;
         $scope.images = data.images;
         $scope.currentImage = { id : data.event.img_id };
-
-        console.log(data);
 
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
@@ -218,7 +201,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         // use the function we created in our service
         Edit.save(formData, $routeParams)
             .success(function(data) {
-                console.log(data);
+
             }).error(function(data) {
                 $('body').append(data);
         });
