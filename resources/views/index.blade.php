@@ -3,8 +3,12 @@
 <meta name="viewport" content="initial-scale=1">
 <meta charset="UTF-8"> 
 <meta name="fragment" content="!" /><!--Google search crawling-->
-
-<title>What's Going On!</title>
+<meta name="description" content="@{{meta}}">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:image" content="@{{metaImg}}" />
+<meta property="og:description" content="@{{metaDesc}}"/>
+{{-- <title>What's Going On!</title> --}}
+<title ng-bind="'Whats going on ' + $root.title">Whats going on!</title>
 
     <!-- CSS -->
 <!--     <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5-dist/css/bootstrap.css">

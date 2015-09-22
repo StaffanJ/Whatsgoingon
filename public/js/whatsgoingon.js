@@ -1,6 +1,6 @@
-var wgo = angular.module('wgo', ['ngRoute', '720kb.socialshare', 'ngSanitize']);
+var wgo = angular.module('wgo', ['ngRoute', '720kb.socialshare']);
 
-wgo.config(function($routeProvider, $locationProvider){
+wgo.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 	
 
 	$routeProvider
@@ -39,8 +39,21 @@ wgo.config(function($routeProvider, $locationProvider){
 		.otherwise({
 			redirectTo:'/'
 		});
-});
+}]);
 
+// wgo.run(['$routeParams', '$rootScope',function($routeParams, $rootScope){
+// 	$rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
+// 		console.log($routeParams);
+// 		if($routeParams.city){
+// 		    $rootScope.title = $routeParams.city + '!';
+// 		}else{
+// 			$rootScope.title = 'no city';
+// 		}
+
+//     //Change page title, based on Route information
+//    // $scope.routeParams = $routeParams;
+//   });
+// }]);
 
 
 $(document).on("click", ".show-event-info", function() {

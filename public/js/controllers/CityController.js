@@ -1,5 +1,6 @@
- wgo.controller('IndexController', ['$scope', '$http', 'City', function($scope, $http, City){
-
+ wgo.controller('IndexController', ['$scope', '$rootScope', '$http', 'City', function($scope, $rootScope, $http, City){
+    $rootScope.meta = "Välkommen till What's going on! Här kan du finna event, händelser och aktiviteter i din närhet som passar stora så som små. Det finns alltid något att göra!";
+        console.log($scope.meta)
     City.get()
     .success(function(data) {
         $scope.cities = data;
@@ -45,23 +46,20 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
 
 }]);
 
-wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', 'City' , function($scope, $http, $routeParams, Events, City){
+wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams', 'Events', 'City' , function($scope, $rootScope, $http, $routeParams, Events, City){
 
     $scope.city = $routeParams.city;
-
-    
+    $rootScope.title = $routeParams.city + '!';
+    $rootScope.meta = "Ta reda på vad som händer i " + $routeParams.city + "! Sök bland konserter, yoga events, agilitytävlingar eller vad du än söker. Allt som händer i " + $routeParams.city + " finner du här!";  
 
 	Events.get($routeParams)
     .success(function(data) {
+        console.log(data);
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
-
-        $scope.currentPage = 0;
-        $scope.pageSize = 9;
-
-        $scope.numberOfPages=function(){
-            return Math.ceil($scope.events.length/$scope.pageSize);                
-        }
+        // $scope.meta = data.
+        console.log(data);
+        console.log('hej');
 
     }).error(function(err){
         console.log(err);
@@ -71,7 +69,7 @@ wgo.controller('CityController', ['$scope', '$http', '$routeParams', 'Events', '
 
 }]);
 
-wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', function($scope, $http, $routeParams, Event){
+wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'Event', function($scope, $rootScope, $http, $routeParams, Event){
 
     $scope.routeParams = $routeParams;
 
@@ -80,6 +78,11 @@ wgo.controller('CityEvent', ['$scope', '$http', '$routeParams', 'Event', functio
         $scope.event = data.event;
         $scope.tags = data.tags;
         console.log(data.event);
+
+        $rootScope.metaDesc = "Upplev " + data.event.title + " själv den " + data.event.date.date;
+
+        $rootScope.metaImg = "http://www.whatsgoingon.se/" + data.event.img.url + ".jpg";
+        $rootScope.title = data.event.title + '!';
 
     }).error(function(err){
         console.log(err)
