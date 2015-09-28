@@ -15,14 +15,14 @@
 </div>
 
 
-<div class="events-main-header display-not-hahahah">
+<div ng-if="status == true" class="events-main-header">
 
   <h2 class="events-main-heading">{{city}}</h2>
   <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
 
 </div>
 
-<div class="container display-not-hahahah">
+<div ng-if="status == true" class="container">
   <div class="sortering">
     <span class="sorterings-span">Sortera:</span>
       <select class="filter-select" ng-model="orderProp">
@@ -59,7 +59,7 @@
   </div>
 </div>
 
-<div class="error-city">
+<div ng-if="status != true" class="error-city">
   <div class="error-exp">
   <h1>Ahh crap</h1>
     <p>Vi lyckades tyvärr inte finna det du sökte efter, men vi letar vidare under tiden är du välkommen att gå vidare till din önskade stad</p>
