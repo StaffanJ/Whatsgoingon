@@ -17,8 +17,6 @@ class TagsController extends Controller {
         $events = $events->where('city_id', $city->id);
 
         return response()->json($events);
-
-        //return view('events.tags', compact('events'));
     }
 
 }

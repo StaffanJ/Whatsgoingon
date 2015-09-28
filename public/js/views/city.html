@@ -14,47 +14,59 @@
   </div> -->
 </div>
 
+<div ng-if="status == true" class="wrapper">
+  <div class="events-main-header">
 
-<div ng-if="status == true" class="events-main-header">
+    <h2 class="events-main-heading">{{city}}</h2>
+    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
 
-  <h2 class="events-main-heading">{{city}}</h2>
-  <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
-
-</div>
-
-<div ng-if="status == true" class="container">
-  <div class="sortering">
-    <span class="sorterings-span">Sortera:</span>
-      <select class="filter-select" ng-model="orderProp">
-        <option value="title">Bokstavsordning</option>
-        <option value="date.date">Snarast</option>
-        <option value="age">Yngst</option>
-        <option value="-age">Äldst</option>
-        <option value="price">Biligast</option>
-        <option value="-price">Dyrast</option>
-      </select>
   </div>
-  <div class="events">
-    <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
-      <img ng-src="{{event.img.url}}Thumb.jpg"/>
-      <h2 class="events-header">{{event.title |  cut:true:20:' ...'}}</h2>
-      <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p>
 
-      <ul class="list-inline events-card-info">
-          <li>
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            {{ event.date.date | dateToISO | date:'shortDate'}}
-          </li>
-          <li>
-            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-            {{ event.price | costFilter }}
-          </li>
-          <li>
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            {{ event.age | ageFilter }}
-          </li>
-        </ul>
-        <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
+  <div class="container">
+    <div class="sortering">
+      <span class="sorterings-span">Sortera:</span>
+        <select class="filter-select" ng-model="orderProp">
+          <option value="title">Bokstavsordning</option>
+          <option value="date.date">Snarast</option>
+          <option value="age">Yngst</option>
+          <option value="-age">Äldst</option>
+          <option value="price">Biligast</option>
+          <option value="-price">Dyrast</option>
+        </select>
+    </div>
+    <div class="events">
+      <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <img ng-src="{{event.img.url}}Thumb.jpg"/>
+        <h2 class="events-header">{{event.title |  cut:true:20:' ...'}}</h2>
+        <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p>
+
+        <ul class="list-inline events-card-info">
+            <li>
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              {{ event.date.date | dateToISO | date:'shortDate'}}
+            </li>
+            <li>
+              <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+              {{ event.price | costFilter }}
+            </li>
+            <li>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              {{ event.age | ageFilter }}
+            </li>
+            <li ng-repeat="tag in event.tags">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              {{tag.name}}
+            </li>
+          </ul>
+          <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
+      </div>
+      <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+          Previous
+      </button>
+      {{currentPage+1}}/{{numberOfPages()}}
+      <button ng-disabled="currentPage >= events.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+          Next
+      </button>
     </div>
   </div>
 </div>

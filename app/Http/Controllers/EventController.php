@@ -221,7 +221,7 @@ class EventController extends Controller
         }
 
         foreach ($events as $event) {
-            $eventTags[] = $event->img;
+            $eventTags[] = $event->tags;
         }
 
         $city_image = $city->city_image;

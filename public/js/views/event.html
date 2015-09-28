@@ -64,14 +64,10 @@
 					{{ event.start_time }} - {{ event.end_time }}
 					<p class="event-list-explenation">Start/slut på eventet</p>
 				</li>
-				<li class="event-list">
-					<span class="event-span glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					<a href="#/{{event.id}}/edit">Edit</a>
-				</li>
 			</ul>
 		</div>
 		<div class="event-main col-xs-12 col-sm-8 col-md-7">
-			<p class="event-body">{{ event.body }}</p>
+			<p class="event-body" ng-bind-html="event.body"></p>
 			<ul ng-hide="!tags.length" class="list-inline event-tags">
 				<li>
 					<span class="event-span glyphicon glyphicon-tags" aria-hidden="true"></span>

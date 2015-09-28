@@ -8,7 +8,7 @@
 
 }]);
 
-wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($scope, $http, Register){
+wgo.controller('RegisterController', ['$scope', '$http', '$location', 'Register', function($scope, $http, $location, Register){
 
     // function to handle submitting the form
     // Save an Event ================
@@ -18,9 +18,8 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
     // use the function we created in our service
         Register.post($scope.registerData)
             .success(function(data) {
-                
+                $location.path('/');
             }).error(function(data) {
-                
                 
             });
         };
@@ -28,7 +27,7 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
 
 }]);
 
-wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, $http, Login){
+wgo.controller('LoginController', ['$scope', '$http', '$location', 'Login', function($scope, $http, $location, Login){
 
     // function to handle submitting the form
     // Save an Event ================
@@ -38,7 +37,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
         // use the function we created in our service
         Login.post($scope.loginData)
             .success(function(data) {
-                
+                $location.path('/');
             }).error(function(data) {
             });
     };
@@ -106,8 +105,8 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
 
     Tag.get($routeParams)
     .success(function(data) {
+        console.log(data);
         $scope.events = data;
-        
     }).error(function(err){
         
     });
