@@ -689,3 +689,36 @@ footer:before{
 .mobile-event-info-display{
 	height: auto;
 }
+
+
+.display-not-hahahah{
+		display: none;
+
+}
+
+.error-city{
+	width: 100%;
+	height: calc(100vh);
+	margin-bottom: -150px;
+	background: url(../img/error-page.jpg) no-repeat center center;
+	 -webkit-background-size: cover;
+		-moz-background-size: cover;
+		  -o-background-size: cover;
+			 background-size: cover;
+	overflow: auto;
+}
+.error-exp{
+	width: 40%;
+	background: rgba(255,255,255,.8);
+	margin: 10% auto 0 auto;
+	padding: 10px;
+}
+
+@media screen and(max-width: 660px){
+	.error-city{
+		background: url(../img/error-page-mobile.jpg) no-repeat center center;
+	}
+	.error-city .error-exp{
+		width: auto;
+	}
+}

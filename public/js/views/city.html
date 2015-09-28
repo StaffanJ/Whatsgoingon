@@ -15,14 +15,14 @@
 </div>
 
 
-<div class="events-main-header">
+<div class="events-main-header display-not-hahahah">
 
   <h2 class="events-main-heading">{{city}}</h2>
   <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
 
 </div>
 
-<div class="container">
+<div class="container display-not-hahahah">
   <div class="sortering">
     <span class="sorterings-span">Sortera:</span>
       <select class="filter-select" ng-model="orderProp">
@@ -57,6 +57,17 @@
         <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
     </div>
   </div>
+</div>
+
+<div class="error-city">
+  <div class="error-exp">
+  <h1>Ahh crap</h1>
+    <p>Vi lyckades tyvärr inte finna det du sökte efter, men vi letar vidare under tiden är du välkommen att gå vidare till din önskade stad</p>
+    <div class="city-container" ng-repeat="city in cities">
+      <a class="city-link" href="/#/{{city.name}}">{{city.name}}</a>
+    </div>
+  </div>
+
 </div>
 
 <style>
