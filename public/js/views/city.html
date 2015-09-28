@@ -1,3 +1,16 @@
+
+<style>
+  .events-main-header{
+    background-image: url('{{cityImage.url}}.jpg');
+    width: 100%;
+  }
+
+  @media screen and (max-width: 980px){
+    .events-main-header{
+      background-image: url('{{cityImage.url}}Medium.jpg');
+    }
+  }
+</style>
 <div class="main-menu">
   <a href="#/" class="back-button">  
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
@@ -60,12 +73,14 @@
           </ul>
           <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
       </div>
-      <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-          Previous
+    </div>
+    <div class="pag-button-container">
+      <button class="page-button prev" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
       </button>
-      {{currentPage+1}}/{{numberOfPages()}}
-      <button ng-disabled="currentPage >= events.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-          Next
+      <p class="pag-numb">{{currentPage+1}}/{{numberOfPages()}}</p>
+      <button class="page-button next" ng-disabled="currentPage >= events.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
       </button>
     </div>
   </div>
@@ -81,16 +96,3 @@
   </div>
 
 </div>
-
-<style>
-  .events-main-header{
-    background-image: url('{{cityImage.url}}.jpg');
-    width: 100%;
-  }
-
-  @media screen and (max-width: 980px){
-    .events-main-header{
-      background-image: url('{{cityImage.url}}Medium.jpg');
-    }
-  }
-</style>
