@@ -690,12 +690,6 @@ footer:before{
 	height: auto;
 }
 
-
-.display-not-hahahah{
-		display: none;
-
-}
-
 .error-city{
 	width: 100%;
 	height: calc(100vh);
@@ -710,9 +704,10 @@ footer:before{
 .error-exp{
 	min-width: 400px;
 	width: 40%;
-	background: rgba(255,255,255,.8);
+	background: rgba(255,255,255,.9);
 	margin: 10% auto 0 auto;
 	padding: 10px;
+	height: 230px;
 }
 
 @media screen and (max-width: 660px){
@@ -723,5 +718,19 @@ footer:before{
 		min-width: auto;
 		width: 90%;
 		margin: 10% auto 0 auto;
+	}
+
+	.city-container{
+		margin: 0;
+	}
+}
+@media screen and (max-width: 600px){
+	.error-city .error-exp{
+		height: 400px;
+	}
+	.error-city .city-link{
+		clear: both;
+		width: 100%;
+		margin:20px auto 0 auto;
 	}
 }
