@@ -1,6 +1,6 @@
  wgo.controller('IndexController', ['$scope', '$rootScope', '$http', 'City', function($scope, $rootScope, $http, City){
     $rootScope.meta = "Välkommen till What's going on! Här kan du finna event, händelser och aktiviteter i din närhet som passar stora så som små. Det finns alltid något att göra!";
-        console.log($scope.meta)
+        
     City.get()
     .success(function(data) {
         $scope.cities = data;
@@ -13,15 +13,15 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
     // function to handle submitting the form
     // Save an Event ================
     $scope.register = function() {
-        console.log($scope.registerData);
+        
     // save the event. pass in event data from the form
     // use the function we created in our service
         Register.post($scope.registerData)
             .success(function(data) {
-                console.log(data);
+                
             }).error(function(data) {
-                console.log(data);
-                $('body').append(data);
+                
+                
             });
         };
         
@@ -38,7 +38,7 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
         // use the function we created in our service
         Login.post($scope.loginData)
             .success(function(data) {
-                console.log(data);
+                
             }).error(function(data) {
             });
     };
@@ -49,20 +49,29 @@ wgo.controller('LoginController', ['$scope', '$http', 'Login', function($scope, 
 wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams', 'Events', 'City' , function($scope, $rootScope, $http, $routeParams, Events, City){
 
     $scope.city = $routeParams.city;
+    $scope.status = true;
     $rootScope.title = $routeParams.city + '!';
     $rootScope.meta = "Ta reda på vad som händer i " + $routeParams.city + "! Sök bland konserter, yoga events, agilitytävlingar eller vad du än söker. Allt som händer i " + $routeParams.city + " finner du här!";  
 
 	Events.get($routeParams)
     .success(function(data) {
-        console.log(data);
+        $scope.status = true;
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
-        // $scope.meta = data.
-        console.log(data);
-        console.log('hej');
 
+        $scope.currentPage = 0;
+        $scope.pageSize = 9;
+
+        $scope.numberOfPages=function(){
+            return Math.ceil($scope.events.length/$scope.pageSize);                
+        }
+    
     }).error(function(err){
-        console.log(err);
+        City.get()
+        .success(function(data) {
+            $scope.cities = data;
+        });
+        $scope.status = false;
     });
 
     $scope.orderProp = 'date.date';
@@ -72,20 +81,19 @@ wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams
 wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'Event', function($scope, $rootScope, $http, $routeParams, Event){
 
     $scope.routeParams = $routeParams;
+    $scope.status = true;
 
     Event.get($routeParams)
     .success(function(data) {
         $scope.event = data.event;
         $scope.tags = data.tags;
-        console.log(data.event);
-
         $rootScope.metaDesc = "Upplev " + data.event.title + " själv den " + data.event.date.date;
-
         $rootScope.metaImg = "http://www.whatsgoingon.se/" + data.event.img.url + ".jpg";
         $rootScope.title = data.event.title + '!';
+        $scope.status = true;
 
     }).error(function(err){
-        console.log(err)
+        $scope.status = false;
     });
 
 }]);
@@ -96,21 +104,12 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
     $scope.tag = $routeParams.tag;
     $scope.hej = Event.routeParams;
 
-   
-
-    // Event.get($routeParams)
-    //     .success(function(data){
-    //         $scope.test = data;
-    //     }).error(function(err){
-    //         console.log(err)
-    //     });
-
     Tag.get($routeParams)
     .success(function(data) {
         $scope.events = data;
-        console.log(data);
+        
     }).error(function(err){
-        console.log(err)
+        
     });
 
     $scope.orderProp = 'date.date';
@@ -122,7 +121,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
     Create.get()
     .success(function(data) {
-        console.log(data);
+        
         $scope.tags = data.tags;
         $scope.cities = data.cities;
         $scope.date = new Date();
@@ -130,7 +129,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
         $scope.selected = data.cities[0].id;
 
     }).error(function(err){
-        console.log(err)
+        
     });
 
     
@@ -151,7 +150,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
         var formData = $('#createForm').serialize();
 
-        console.log(formData);
+        
 
         // save the event. pass in event data from the form
         // use the function we created in our service
@@ -176,7 +175,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.images = data.images;
         $scope.currentImage = { id : data.event.img_id };
 
-        console.log(data);
+        
 
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
@@ -197,7 +196,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         });
 
     }).error(function(err){
-        console.log(err)
+        
     });
 
 
@@ -213,7 +212,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
 
         var formData = $('#editForm').serialize();
 
-        console.log(formData);
+        
 
         //eventData['time'].toLocaleString();
 
@@ -221,9 +220,9 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         // use the function we created in our service
         Edit.save(formData, $routeParams)
             .success(function(data) {
-                console.log(data);
+                
             }).error(function(data) {
-                $('body').append(data);
+                
         });
     };
 

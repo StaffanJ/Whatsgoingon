@@ -89,20 +89,6 @@ class EventController extends Controller
 
         return response()->json(['event' => $event, 'tags' => $tags, 'image' => $image, 'city' => $city, 'optional_informations' => $optional_informations]);
 
-
-        if($event->city_id === $city->id){
-    
-            return response()->json($event, $tags);
-
-            return view('events.show', compact('event'));
-
-        }else{
-
-            $url = action('EventController@show', [$event->city['name'], $event->id]);
-
-            return redirect($url);
-        }
-
     }
 
     /**
@@ -230,17 +216,17 @@ class EventController extends Controller
 
         $events = $city->event()->get();
 
-        $images = null;
-
-        $images = null;
-
         foreach ($events as $event) {
             $images[] = $event->img;
         }
 
+        foreach ($events as $event) {
+            $eventTags[] = $event->img;
+        }
+
         $city_image = $city->city_image;
 
-        return response()->json(['events' => $events, 'cityImage' => $city_image, 'images' => $images]);
+        return response()->json(['events' => $events, 'cityImage' => $city_image, 'images' => $images, 'eventTags' => $eventTags]);
     
     }
 
