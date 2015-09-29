@@ -12,7 +12,6 @@ wgo.factory('Register', ['$http', function($http) {
 
     return {
         post : function(registerCredentials) {
-            console.log(registerCredentials);
             return $http({
                 method: 'POST',
                 url: 'api/auth/register',
@@ -53,7 +52,6 @@ wgo.factory('MailTip', ['$http', function($http) {
 
     return {
         save : function(mailData) {
-            console.log(mailData);
             return $http({
                 method: 'POST',
                 url: 'api/mailtip',
@@ -76,7 +74,6 @@ wgo.factory('Event', ['$http', function($http) {
 }]);
 
 wgo.factory('Tag', ['$http', function($http) {
-
     return {
         get : function(route) {
             return $http.get('api/' + route.city + '/tags/' + route.tag);
@@ -112,7 +109,6 @@ wgo.factory('Edit', ['$http', function($http) {
         },
 
         save : function(eventData, route) {
-            console.log(eventData);
             return $http({
                 method: 'PUT',
                 url: 'api/events/' + route.id,

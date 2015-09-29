@@ -19,24 +19,12 @@
 <h1 class="tag-heading">Tag - <span>{{tag}}</span></h1>
 </div>
 <div class="container">
-  <div class="sortering">
-    <span class="sorterings-span">Sortera:</span>
-      <select class="filter-select" ng-model="orderProp">
-        <option value="title">Bokstavsordning</option>
-        <option value="date.date">Snarast</option>
-        <option value="age">Yngst</option>
-        <option value="-age">Äldst</option>
-        <option value="cost">Biligast</option>
-        <option value="-cost">Dyrast</option>
-      </select>
-  </div>
 <div class="events">
 
-
-    <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp">
-      <img ng-src="{{event.img}}.jpg"/>
+    <div class="events-card" ng-repeat="event in events">
+      <img ng-src="{{event.img.url}}.jpg"/>
       <h2 class="events-header">{{event.title}}</h2>
-      <p class="events-body">{{event.body | limitTo : 120 }}{{event.body > 120 ? '' : '...'}}</p>
+      <p class="event-body" ng-bind-html="event.body | limitTo : 20"></p>
 
       <ul class="list-inline events-card-info">
           <li>
@@ -45,7 +33,7 @@
           </li>
           <li>
             <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-            {{ event.cost | costFilter }}
+            {{ event.price | costFilter }}
           </li>
           <li>
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>

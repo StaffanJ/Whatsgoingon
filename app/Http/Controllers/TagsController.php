@@ -16,7 +16,11 @@ class TagsController extends Controller {
 
         $events = $events->where('city_id', $city->id);
 
-        return response()->json($events);
+        foreach ($events as $event) {
+            $images[] = $event->img;
+        }
+
+        return response()->json(['events' => $events, 'images' => $images]);
     }
 
 }
