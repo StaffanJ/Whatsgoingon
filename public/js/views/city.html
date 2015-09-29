@@ -20,7 +20,7 @@
     <span class="glyphicon glyphicon-arrow-left"></span></a> 
   </div> -->
 
- <a class="home-link" href="#/"><img src="img/wgo-heading-text.png" class="wgo-heading"/></a>
+ <h1 class="home-link" href="#/">Whats Goint on</h1>
   <!-- <div class="right-menu">
     <a href="#" class="open-menu-button menu-button">
     <span class="glyphicon glyphicon-align-justify"></span></a>
@@ -67,9 +67,7 @@
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               {{ event.age | ageFilter }}
             </li>
-            <li ng-repeat="tag in event.tags">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              {{tag.name}}
+            <li ng-hide="true" ng-repeat="tag in event.tags">
             </li>
           </ul>
           <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
