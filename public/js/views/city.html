@@ -39,8 +39,7 @@
         <img ng-src="{{event.img.url}}Thumb.jpg"/>
         <h2 class="events-header" ng-bind-html="event.title | limitTo : 14"></h2>
         <!-- <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p> -->
-        <p class="event-body" ng-bind-html="event.body | limitTo : 100"></p>
-
+        <p class="event-body" ng-bind-html="event.body | limitTo : 150"></p>
         <ul class="list-inline events-card-info">
             <li>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
