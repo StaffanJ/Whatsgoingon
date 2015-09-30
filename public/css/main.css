@@ -116,6 +116,7 @@ p{
 	background: url(../img/wgo-heading-text.png) center center no-repeat;
 	text-indent: -99999px;
 	line-height: 70px;
+	background-size: 100%;
 }
 @media screen and (max-width: 400px){
 	.home-link{
