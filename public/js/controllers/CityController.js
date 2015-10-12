@@ -99,6 +99,10 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
     });
 
 }]);
+wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$routeParams', 'Event', function($scope, $rootScope, $http, $routeParams, Event){
+
+
+}]);
 
 wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Event', function($scope, $http, $routeParams, Tag, Event){
 
@@ -115,7 +119,6 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
     });
 
     $scope.orderProp = 'date.date';
-
 
 }]);
 
