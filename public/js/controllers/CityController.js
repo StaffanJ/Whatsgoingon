@@ -83,6 +83,8 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
     $scope.routeParams = $routeParams;
     $scope.status = true;
 
+    console.log(12);
+
     Event.get($routeParams)
     .success(function(data) {
         $scope.event = data.event;

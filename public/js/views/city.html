@@ -30,20 +30,25 @@
           <option value="date.date">Snarast</option>
           <option value="age">Yngst</option>
           <option value="-age">Äldst</option>
-          <option value="price">Biligast</option>
+          <option value="price">Billigast</option>
           <option value="-price">Dyrast</option>
-        </select>
+        </select>  
     </div>
     <div class="events">
       <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="{{event.img.url}}Thumb.jpg"/>
-        <h2 class="events-header" ng-bind-html="event.title | limitTo : 14"></h2>
+        <ul class="tag-ul">
+          <li class="tag-li" ng-hide="false" ng-repeat="tag in event.tags">
+              #{{tag.name}}
+          </li>
+        </ul>
+        <h2 class="events-header" ng-bind-html="event.title"></h2>
         <!-- <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p> -->
-        <p class="event-body" ng-bind-html="event.body | limitTo : 150"></p>
+        <p class="event-body" ng-bind-html="event.body | limitTo : 200"></p>
         <ul class="list-inline events-card-info">
             <li>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-              {{ event.date.date | dateToISO | date:'shortDate'}}
+              {{ event.date.date | dateToISO | date:'dd-MM-yyyy'}}
             </li>
             <li>
               <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
@@ -52,8 +57,6 @@
             <li>
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               {{ event.age | ageFilter }}
-            </li>
-            <li ng-hide="true" ng-repeat="tag in event.tags">
             </li>
           </ul>
           <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
