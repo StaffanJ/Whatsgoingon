@@ -22,11 +22,8 @@ class MakeEvents extends Migration
             $table->string('title');
             $table->string('body', 4000);
             $table->integer('age');
-            $table->string('start_time');
-            $table->string('end_time');
             $table->integer('price');
             $table->string('event_page');
-            $table->timestamp('date');
             $table->string('address');
             $table->integer('visitors');
             $table->timestamps();

@@ -18,7 +18,7 @@
 		<div class="col-xs-12 col-sm-10 col-md-10">
 
 			<h1>Create a new event!</h1>
-			<form ng-submit="submitEvent()" accept-charset="UTF-8" id="createForm">
+			<form accept-charset="UTF-8" id="createForm">
 
 				<div class="form-group">
 
@@ -35,12 +35,19 @@
 				</div>
 					<label for="age">Åldergräns:</label>
 					<input class="form-control" name="age" type="text" id="age">
-				<div class="form-group">
-					<label for="start_time">Tiden som eventet startar:</label>
-					<input class="form-control" name="start_time" type="time" id="time">
+				<div class="date-group">
+					<div class="form-group">
+						<label for="date">Datum:</label>
+						<input class="form-control" name="date[]" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
+					</div>
+					<div class="form-group">
+						<label for="start_time">Tiden som eventet startar:</label>
+						<input class="form-control" name="start_time[]" type="time" id="time">
+					</div>
+						<label for="end_time">Tiden som eventet slutar:</label>
+						<input class="form-control" name="end_time[]" type="time" id="time">
 				</div>
-					<label for="end_time">Tiden som eventet slutar:</label>
-					<input class="form-control" name="end_time" type="time" id="time">
+				<button id="add-date" ng-click="addDate()">Press me!</button>
 				<div class="form-group">
 					<label for="cost">Pris: </label>
 					<input min="0" class="form-control" name="price" type="number" id="price">
@@ -82,10 +89,6 @@
 					<input class="form-control" name="address" type="text" id="address">
 				</div>
 				<div class="form-group">
-					<label for="date">Datum:</label>
-					<input class="form-control" name="date" value="{{date | date:'yyyy-MM-dd'}}" type="date" id="date">
-				</div>
-				<div class="form-group">
 					<label for="event_page">Evenemangets webbplats:</label>
 					<input class="form-control" type="text" id="event_page">
 				</div>
@@ -101,10 +104,9 @@
 						<option ng-repeat="tag in tags" value="{{tag.id}}" >{{tag.name}}</option>
 					</select>
 				</div>
-					<input class="btn btn-success form-control" type="submit" value="Add Event">
+					<input ng-click="submitEvent()" class="btn btn-success form-control" type="submit" value="Add Event">
 
 				</div>
-
 			</form>
 
 		</div>
@@ -115,23 +117,7 @@
 	$('#tag_list, #city_list, #image_list').select2({
 	  	placeholder: 'Choose a tag',
 	});
-
-	$('body').on('click', '.optional_checkbox', function(){
-		
-		var id = $(this).attr('id');
-
-		if($(this).is(":checked")){
-
-			$('#input-div' + id).append('<input type="text" id="optional-text"' + id + '" name="cost[]">');
-
-		}else{
-			console.log($('#input-div' + id))
-			$('#input-div' + id).empty();
-
-		}
-  	
-  	});
-
+	angular.element('<new-date></new-date>');
 </script>
 
 <style type="text/css">

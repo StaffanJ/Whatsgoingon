@@ -26,8 +26,8 @@ class EventsRequest extends Request
         return [
             'title' => 'required|min:3',
             'body' => 'required',
-            'start_time' => 'required|min:4',
-            'end_time' => 'required|min:4',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'age' => 'required',
             'price' => 'required',
             'address' => 'required',

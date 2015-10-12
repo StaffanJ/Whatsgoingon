@@ -22,16 +22,12 @@ class Event extends Model
     protected $fillable = [
 	    'title', 
 	    'body', 
-	    'published_at',
         'age',
-        'start_time',
-        'end_time',
         'price',
         'children_cost',
         'elderly_cost',
         'other_cost',
         'address',
-        'date',
         'event_page',
 	    'img_id',
         'city_id',
@@ -124,6 +120,17 @@ class Event extends Model
     {
         
         return $this->hasMany('App\Optional');
+    }
+
+    /**
+    * The connection between the event and optional pricing
+    *
+    */
+
+    public function date()
+    {
+        
+        return $this->hasMany('App\Date_Event');
     }
 
     /**

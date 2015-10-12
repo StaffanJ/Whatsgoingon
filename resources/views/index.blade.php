@@ -78,7 +78,11 @@
     <script src="js/node_modules/angular-socialshare/src/js/angular-socialshare.js"></script>
     
     <!-- ANGULAR -->
-    <script src="js/wgo.min.js"></script>
+    <script src="js/whatsgoingon.js"></script> <!-- load our application -->
+    <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
+    <script src="js/services/cityServices.js"></script> <!-- load our controller -->
+    <script src="js/module/filters.js"></script> <!-- load our controller -->
+    
     <script src="js/mainScript.js"></script>
 </body>
 </html>

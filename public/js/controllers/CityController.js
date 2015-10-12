@@ -117,7 +117,7 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
 
 }]);
 
-wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope, $http, Create){
+wgo.controller('CreateController', ['$scope', '$http', '$compile', 'Create', function($scope, $http, $compile, Create){
 
     Create.get()
     .success(function(data) {
@@ -131,9 +131,10 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
     }).error(function(err){
         
     });
-
+    $scope.addDate = function(){
+        $('.date-group').append($compile('<new-date></new-date>')($scope));
+    }
     
-
     // function to handle submitting the form
     // Save an Event ================
     $scope.submitEvent = function() {
@@ -150,6 +151,8 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
 
         var formData = $('#createForm').serialize();
 
+        console.log(formData);
+
         
 
         // save the event. pass in event data from the form
@@ -158,6 +161,7 @@ wgo.controller('CreateController', ['$scope', '$http', 'Create', function($scope
             .success(function(data) {
 
             }).error(function(data) {
+
         });
     };
 }]);
@@ -240,3 +244,11 @@ wgo.controller('UserEvent', ['$scope', '$http', 'MailTip', function($scope, $htt
         });
     }
 }]);
+
+
+wgo.directive('newDate', function(){
+  return {
+    restrict: 'E',
+    templateUrl: 'js/views/newdate.html'
+  };
+});

@@ -102,8 +102,6 @@ class EventController extends Controller
     {
 
         $this->createEvent($request);
-
-        return redirect('/');
     }
 
     /**
@@ -264,7 +262,17 @@ class EventController extends Controller
     private function createEvent(EventsRequest $request)
     {
 
-        $lineBreaks = nl2br($request->input('body'));
+        $newDate = $request->input('date');
+
+        $newDates = [];
+
+        foreach ($newDate as $key => $value) {
+            $newDates = $value;
+        }
+
+        dd($newDates);
+
+        /*$lineBreaks = nl2br($request->input('body'));
     
         $inputData = array_add($request->except('body'), 'body', $lineBreaks);
 
@@ -287,7 +295,7 @@ class EventController extends Controller
         
         }
 
-        return $event;
+        return $event;*/
 
     }
 }
