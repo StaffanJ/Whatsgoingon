@@ -1,46 +1,77 @@
-<div class="main-menu">
-  <a href="#/{{city}}" class="back-button">  
-    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-  </a>
+  <div class="main-menu">
+    <a href="#/{{city}}" class="back-button">  
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </a>
 
-  <!-- <div class="left-menu">
-    <a href="#/" class="back-button menu-button">
-    <span class="glyphicon glyphicon-arrow-left"></span></a> 
-  </div> -->
+    <!-- <div class="left-menu">
+      <a href="#/" class="back-button menu-button">
+      <span class="glyphicon glyphicon-arrow-left"></span></a> 
+    </div> -->
 
- <a class="home-link" href="#/"><img src="img/wgo-heading-text.png" class="wgo-heading"/></a>
-  <!-- <div class="right-menu">
-    <a href="#" class="open-menu-button menu-button">
-    <span class="glyphicon glyphicon-align-justify"></span></a>
-  </div> -->
-</div>
-<div class="tag-header">
+   <a class="home-link" href="#/"><img ng-src="img/wgo-heading-text.png" class="wgo-heading"/></a>
+    <!-- <div class="right-menu">
+      <a href="#" class="open-menu-button menu-button">
+      <span class="glyphicon glyphicon-align-justify"></span></a>
+    </div> -->
+  </div>
 
-<h1 class="tag-heading">Tag - <span>{{tag}}</span></h1>
-</div>
-<div class="container">
-<div class="events">
+   <div class="events-main-header">
+    <h1 class="tag-heading">{{tag}}</h1>
+    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
+  </div>
 
-    <div class="events-card" ng-repeat="event in events">
-      <img ng-src="{{event.img.url}}.jpg"/>
-      <h2 class="events-header">{{event.title}}</h2>
-      <p class="event-body" ng-bind-html="event.body | limitTo : 20"></p>
-
-      <ul class="list-inline events-card-info">
-          <li>
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            {{ event.date.date | dateToISO | date:'shortDate'}}
-          </li>
-          <li>
-            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-            {{ event.price | costFilter }}
-          </li>
-          <li>
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            {{ event.age | ageFilter }}
-          </li>
-        </ul>
-        <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
+  <div class="container">
+    <div class="events">
+      <div class="container">
+        <div class="sortering">
+          <span class="sorterings-span">Sortera:</span>
+            <select class="filter-select" ng-model="orderProp">
+              <option value="title">Bokstavsordning</option>
+              <option value="date.date">Snarast</option>
+              <option value="age">Yngst</option>
+              <option value="-age">Äldst</option>
+              <option value="price">Billigast</option>
+              <option value="-price">Dyrast</option>
+            </select>  
+        </div>
+        <div class="events">
+          <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp | startFrom:currentPage*pageSize | limitTo:pageSize">
+            <img ng-src="{{event.img.url}}Thumb.jpg"/>
+            <ul class="tag-ul">
+              <li class="tag-li" ng-hide="false" ng-repeat="tag in event.tags">
+                  #{{tag.name}}
+              </li>
+            </ul>
+            <h2 class="events-header" ng-bind-html="event.title"></h2>
+            <!-- <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p> -->
+            <p class="event-body" ng-bind-html="event.body | limitTo : 200"></p>
+            <ul class="list-inline events-card-info">
+                <li>
+                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                  {{ event.date.date | dateToISO | date:'dd-MM-yyyy'}}
+                  <span class="extra-dates">+30 tillfällen</span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                  {{ event.price | costFilter }}
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  {{ event.age | ageFilter }}
+                </li>
+              </ul>
+              <a href="#/{{ city }}/{{ event.id }}"><button class="events-card-button">Läs mer</button></a>
+          </div>
+        </div>
+        <div class="pag-button-container">
+          <button class="page-button prev" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+            Previous
+          </button>
+          <p class="pag-numb">{{currentPage+1}}/{{numberOfPages()}}</p>
+          <button class="page-button next" ng-disabled="currentPage >= events.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
