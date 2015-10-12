@@ -262,21 +262,8 @@ class EventController extends Controller
     private function createEvent(EventsRequest $request)
     {
 
-        $newDate = $request->input('date');
 
-        $newDates = null;
-
-        $start_time = $request->input('start_time');
-        $end_time = $request->input('end_time');
-
-
-        foreach ($newDate as $key => $value) {
-            $newDates[] = array('date' => $value, 'start_time' => $start_time[$key], );
-        }
-
-        dd($newDates);
-
-        /*$lineBreaks = nl2br($request->input('body'));
+        $lineBreaks = nl2br($request->input('body'));
     
         $inputData = array_add($request->except('body'), 'body', $lineBreaks);
 
@@ -299,7 +286,19 @@ class EventController extends Controller
         
         }
 
-        return $event;*/
+        $newDate = $request->input('date');
+
+        $newDates = null;
+
+        $start_time = $request->input('start_time');
+        $end_time = $request->input('end_time');
+
+        foreach ($newDate as $key => $value) {
+            $newDates[] = array('date' => $value, 'start_time' => $start_time[$key], 'end_time' => $end_time[$key]);
+            $event->date()->create($newDates[$key]);
+        }
+        
+        return $event;
 
     }
 }

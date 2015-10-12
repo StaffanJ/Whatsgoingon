@@ -83,8 +83,6 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
     $scope.routeParams = $routeParams;
     $scope.status = true;
 
-    console.log(12);
-
     Event.get($routeParams)
     .success(function(data) {
         $scope.event = data.event;
@@ -99,8 +97,14 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
     });
 
 }]);
-wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$routeParams', 'Event', function($scope, $rootScope, $http, $routeParams, Event){
+wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$routeParams', 'Categories', function($scope, $rootScope, $http, $routeParams, Categories){
 
+    Categories.get($routeParams)
+    .success(function(data){
+        console.log(data);
+    }).error(function(err){
+
+    });
 
 }]);
 

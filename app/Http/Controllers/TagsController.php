@@ -12,7 +12,7 @@ class TagsController extends Controller {
 
     public function show($city, Tag $tag){
 
-        $events = $tag->events()->published()->get();
+        $events = $tag->events()->get();
 
         $events = $events->where('city_id', $city->id);
 
@@ -29,6 +29,27 @@ class TagsController extends Controller {
         }
 
         return response()->json(['events' => $events, 'images' => $images, 'eventTags' => $eventTags, 'imageTag' => $imageTag]);
+    }
+
+    /**
+    * Comment
+    *
+    * @return void
+    * @param  array  
+    */
+    
+    public function showCategories()
+    {
+        $tags = Tag::get();
+
+        $imageTags = null;
+
+        foreach ($tags as $key => $value) {
+            $imageTags[] = $value->img;
+        }
+
+        return response()->json(['imageTags' => $imageTags, 'tags' => $tags]);
+
     }
 
 }

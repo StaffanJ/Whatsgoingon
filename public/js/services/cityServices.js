@@ -82,6 +82,15 @@ wgo.factory('Tag', ['$http', function($http) {
 
 }]);
 
+wgo.factory('Categories', ['$http', function($http) {
+    return {
+        get : function(route) {
+            return $http.get('api/' + route.city + '/categories/');
+        }
+    }
+
+}]);
+
 wgo.factory('Create', ['$http', function($http) {
 
     return {

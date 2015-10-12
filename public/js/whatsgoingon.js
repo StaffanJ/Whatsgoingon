@@ -28,13 +28,13 @@ wgo.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			controller: 'CityController',
 			templateUrl: 'js/views/city.html'
 		})
-		.when('/:city/:id', {
-			controller: 'CityEvent',
-			templateUrl: 'js/views/event.html'
-		})
 		.when('/:city/categories', {
 			controller: 'CategoriesController',
 			templateUrl: 'js/views/categories.html'
+		})
+		.when('/:city/:id', {
+			controller: 'CityEvent',
+			templateUrl: 'js/views/event.html'
 		})
 		.when('/:city/tags/:tag', {
 			controller: 'TagController',
