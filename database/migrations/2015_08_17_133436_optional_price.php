@@ -31,6 +31,6 @@ class OptionalPrice extends Migration
      */
     public function down()
     {
-        Schema::drop('optional_price');
+        Schema::drop('event_optional');
     }
 }

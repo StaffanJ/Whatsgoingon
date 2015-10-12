@@ -264,10 +264,14 @@ class EventController extends Controller
 
         $newDate = $request->input('date');
 
-        $newDates = [];
+        $newDates = null;
+
+        $start_time = $request->input('start_time');
+        $end_time = $request->input('end_time');
+
 
         foreach ($newDate as $key => $value) {
-            $newDates = $value;
+            $newDates[] = array('date' => $value, 'start_time' => $start_time[$key], );
         }
 
         dd($newDates);

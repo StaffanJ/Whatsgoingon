@@ -35,4 +35,10 @@ class Tag extends Model
 		return $this->belongsToMany('App\Event');
 		
 	}
+
+	public function image(){
+
+		return $this->belongsTo('App\Event');
+		
+	}
 }

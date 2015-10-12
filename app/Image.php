@@ -25,4 +25,11 @@ class Image extends Model
         return $this->hasMany('App\Event');
 
     }
+
+    public function tag()
+    {
+        
+        return $this->belongsTo('App\Tag');
+
+    }
 }

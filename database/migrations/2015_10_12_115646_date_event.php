@@ -30,6 +30,6 @@ class DateEvent extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('date_event');
     }
 }
