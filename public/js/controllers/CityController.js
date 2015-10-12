@@ -108,7 +108,8 @@ wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Even
     Tag.get($routeParams)
     .success(function(data) {
         $scope.events = data.events;
-        console.log($scope.events);
+        $scope.categoryImage = data.imageTag.name; 
+        console.log($scope.categoryImage);
     }).error(function(err){
         
     });

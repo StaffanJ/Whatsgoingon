@@ -16,7 +16,7 @@ class TagsController extends Controller {
 
         $events = $events->where('city_id', $city->id);
 
-        $imageTag = $tag->image();
+        $imageTag = $tag->img;
 
         foreach ($events as $event) {
             $eventTags[] = $event->tags;

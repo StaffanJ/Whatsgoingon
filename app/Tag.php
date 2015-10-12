@@ -36,9 +36,9 @@ class Tag extends Model
 		
 	}
 
-	public function image(){
+	public function img(){
 
-		return $this->belongsTo('App\Event');
+		return $this->belongsTo('App\Image');
 		
 	}
 }
