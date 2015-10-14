@@ -19,18 +19,12 @@ class TagsController extends Controller {
         $imageTag = $tag->img;
 
         foreach ($events as $event) {
-            $eventDates[] = $event->date->published->get();
-        }
-
-        foreach ($events as $event) {
+            $eventDates[] = $event->date;
             $eventTags[] = $event->tags;
-        }
-
-        foreach ($events as $event) {
             $images[] = $event->img;
         }
 
-        return response()->json(['events' => $events, 'images' => $images, 'eventDates' => $eventDates, 'eventTags' => $eventTags, 'imageTag' => $imageTag]);
+        return response()->json(['events' => $events, 'imageTag' => $imageTag]);
     }
 
     /**

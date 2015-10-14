@@ -21,7 +21,6 @@ wgo.controller('RegisterController', ['$scope', '$http', 'Register', function($s
                 
             }).error(function(data) {
                 
-                
             });
         };
         
@@ -85,6 +84,7 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
 
     Event.get($routeParams)
     .success(function(data) {
+        console.log(data);
         $scope.event = data.event;
         $scope.tags = data.tags;
         $rootScope.metaDesc = "Upplev " + data.event.title + " själv den " + data.event.date.date;
@@ -116,8 +116,8 @@ wgo.controller('CategoryController', ['$scope', '$http', '$routeParams', 'Tag', 
     Tag.get($routeParams)
     .success(function(data) {
         $scope.events = data.events;
-        $scope.categoryImage = data.imageTag.url; 
-        console.log($scope.categoryImage);
+        $scope.categoryImage = data.imageTag.url;
+        console.log($scope.numberOfEvents);
     }).error(function(err){
         
     });
@@ -155,14 +155,12 @@ wgo.controller('CreateController', ['$scope', '$http', '$compile', 'Create', fun
         var email = new RegExp('^(http|https)://');
 
         if (!email.test(event_rage_regXp)) {
-            event_rage_regXp = 'http://' + event_rage_regXp;  
+            event_rage_regXp = 'http://' + event_rage_regXp;
         }
 
         var formData = $('#createForm').serialize();
 
         console.log(formData);
-
-        
 
         // save the event. pass in event data from the form
         // use the function we created in our service
@@ -186,9 +184,7 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         $scope.optional_categories = data.optional_categories;
         $scope.selected_optional = data.current_categories;
         $scope.images = data.images;
-        $scope.currentImage = { id : data.event.img_id };
-
-        
+        $scope.currentImage = { id : data.event.img_id };        
 
         //Selected elements in the <select> tags.
         $scope.selected = { id : data.event.city_id };
@@ -212,20 +208,11 @@ wgo.controller('EditController', ['$scope', '$http', '$routeParams', 'Edit', fun
         
     });
 
-
-    
-
     // function to handle submitting the form
     // Save an Event ================
     $scope.submitEvent = function() {
 
-        /*--------------------------------------------------------------------------
-        Identifiera varför det blir ett number i de olika selects.
-        ----------------------------------------------------------------------------*/
-
         var formData = $('#editForm').serialize();
-
-        
 
         //eventData['time'].toLocaleString();
 

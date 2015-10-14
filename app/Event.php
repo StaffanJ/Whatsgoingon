@@ -98,7 +98,7 @@ class Event extends Model
     public function date()
     {
         
-        return $this->hasMany('App\Date_Event');
+        return $this->hasMany('App\Date_Event')->published();
     }
 
     /**

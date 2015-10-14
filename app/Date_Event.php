@@ -54,7 +54,8 @@ class Date_Event extends Model
     */
 
     public function scopePublished($query){
-        $query->where('date', '<=', Carbon::now());
+        $query->where('date', '>=', Carbon::now())
+              ->orderBy('date', 'ASC');
     }
 
 	public function event()

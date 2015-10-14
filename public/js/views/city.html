@@ -48,7 +48,7 @@
         <ul class="list-inline events-card-info">
             <li>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-              {{ event.date.date | dateToISO | date:'dd-MM-yyyy'}}
+              {{ event.date[0].date.date | dateToISO | date:'dd-MM-yyyy'}}
             </li>
             <li>
               <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
