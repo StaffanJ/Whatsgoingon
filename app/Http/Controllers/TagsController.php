@@ -12,23 +12,25 @@ class TagsController extends Controller {
 
     public function show($city, Tag $tag){
 
-        $events = $tag->events()->get();
+        $events = $tag->events;
 
         $events = $events->where('city_id', $city->id);
 
         $imageTag = $tag->img;
 
         foreach ($events as $event) {
+            $eventDates[] = $event->date->published->get();
+        }
+
+        foreach ($events as $event) {
             $eventTags[] = $event->tags;
         }
 
-        $images = [];
-
         foreach ($events as $event) {
-            $images = $event->img;
+            $images[] = $event->img;
         }
 
-        return response()->json(['events' => $events, 'images' => $images, 'eventTags' => $eventTags, 'imageTag' => $imageTag]);
+        return response()->json(['events' => $events, 'images' => $images, 'eventDates' => $eventDates, 'eventTags' => $eventTags, 'imageTag' => $imageTag]);
     }
 
     /**

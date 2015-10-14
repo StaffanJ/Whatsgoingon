@@ -91,7 +91,7 @@ class Event extends Model
     }
 
     /**
-    * The connection between the event and optional pricing
+    * The connection between the event and dates
     *
     */
 

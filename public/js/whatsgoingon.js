@@ -36,8 +36,8 @@ wgo.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			controller: 'CityEvent',
 			templateUrl: 'js/views/event.html'
 		})
-		.when('/:city/tags/:tag', {
-			controller: 'TagController',
+		.when('/:city/category/:tag', {
+			controller: 'CategoryController',
 			templateUrl: 'js/views/tag.html'
 		})
 		.otherwise({

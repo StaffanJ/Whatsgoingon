@@ -108,7 +108,7 @@ wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$route
 
 }]);
 
-wgo.controller('TagController', ['$scope', '$http', '$routeParams', 'Tag', 'Event', function($scope, $http, $routeParams, Tag, Event){
+wgo.controller('CategoryController', ['$scope', '$http', '$routeParams', 'Tag', 'Event', function($scope, $http, $routeParams, Tag, Event){
 
     $scope.city = $routeParams.city;
     $scope.tag = $routeParams.tag;

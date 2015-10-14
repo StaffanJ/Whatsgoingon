@@ -76,7 +76,7 @@ wgo.factory('Event', ['$http', function($http) {
 wgo.factory('Tag', ['$http', function($http) {
     return {
         get : function(route) {
-            return $http.get('api/' + route.city + '/tags/' + route.tag);
+            return $http.get('api/' + route.city + '/category/' + route.tag);
         }
     }
 
