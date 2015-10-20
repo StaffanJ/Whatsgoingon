@@ -35,7 +35,6 @@ class EventController extends Controller
 
     	return response()->json($cities);
 
-        //return view('events.index', compact('cities'));
     }
 
     /**
@@ -83,11 +82,13 @@ class EventController extends Controller
 
         $image = $event->img;
 
+        $eventDates = $event->date;
+
         $city = $event->city;
 
         $optional_informations = $event->optional_price;
 
-        return response()->json(['event' => $event, 'tags' => $tags, 'image' => $image, 'city' => $city, 'optional_informations' => $optional_informations]);
+        return response()->json(['event' => $event]);
 
     }
 
@@ -216,15 +217,12 @@ class EventController extends Controller
 
         foreach ($events as $event) {
             $images[] = $event->img;
-        }
-
-        foreach ($events as $event) {
             $eventTags[] = $event->tags;
         }
 
         $city_image = $city->city_image;
 
-        return response()->json(['events' => $events, 'cityImage' => $city_image, 'images' => $images, 'eventTags' => $eventTags]);
+        return response()->json(['events' => $events, 'cityImage' => $city_image]);
     
     }
 

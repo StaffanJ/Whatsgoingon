@@ -91,14 +91,14 @@ class Event extends Model
     }
 
     /**
-    * The connection between the event and optional pricing
+    * The connection between the event and dates
     *
     */
 
     public function date()
     {
         
-        return $this->hasMany('App\Date_Event');
+        return $this->hasMany('App\Date_Event')->published();
     }
 
     /**

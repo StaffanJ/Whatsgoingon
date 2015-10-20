@@ -32,7 +32,7 @@ Route::group(array('prefix' => 'api'), function() {
 	//Routes for the cities
 	Route::get('{city}', 'EventController@city');
 	Route::get('{city}/categories', 'TagsController@showCategories');
-	Route::get('{city}/tags/{tags}', 'TagsController@show');
+	Route::get('{city}/category/{tags}', 'TagsController@show');
 
 	// Authentication routes
 	Route::get('auth/login', 'Auth\AuthController@getLogin');

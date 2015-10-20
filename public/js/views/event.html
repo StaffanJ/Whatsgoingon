@@ -28,7 +28,7 @@
 			<ul class="event-info">
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-calendar" aria-hidden="true"></span>
-					{{ event.date.date | dateToISO | date:'dd-MM-yyyy'}}
+					{{ event.date[0].date.date | dateToISO | date:'dd-MM-yyyy'}}
 					<p class="event-list-explenation">Eventets datum</p>
 				</li>
 				<li class="event-list">
@@ -63,19 +63,19 @@
 				</li>
 				<li class="event-list">
 					<span class="event-span glyphicon glyphicon-time" aria-hidden="true"></span>
-					{{ event.start_time }} - {{ event.end_time }}
+					{{ event.date[0].start_time }} - {{ event.date[0].end_time }}
 					<p class="event-list-explenation">Start/slut på eventet</p>
 				</li>
 			</ul>
 		</div>
 		<div class="event-main col-xs-12 col-sm-8 col-md-7">
 			<p class="event-body" ng-bind-html="event.body"></p>
-			<ul ng-hide="!tags.length" class="list-inline event-tags">
+			<ul ng-hide="!event.tags.length" class="list-inline event-tags">
 				<li>
 					<span class="event-span glyphicon glyphicon-tags" aria-hidden="true"></span>
 				</li>
-				<li ng-repeat="tag in tags">
-				<a class="event-tag" href="#/{{ routeParams.city }}/tags/{{ tag.name }}">{{ tag.name }}</a></li>
+				<li ng-repeat="tag in event.tags">
+				<a class="event-tag" href="#/{{ routeParams.city }}/category/{{ tag.name }}">{{ tag.name }}</a></li>
 			</ul>
 		</div>
 		<div class="flex col-xs-12 col-sm-8 col-md-7">

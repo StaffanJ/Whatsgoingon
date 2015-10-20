@@ -48,8 +48,12 @@
         <ul class="list-inline events-card-info">
             <li>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+<<<<<<< HEAD
               {{ event.date.date | dateToISO | date:'dd-MM-yyyy'}}
               <span class="extra-dates">+3 tillfällen</span>
+=======
+              {{ event.date[0].date.date | dateToISO | date:'dd-MM-yyyy'}}
+>>>>>>> origin/master
             </li>
             <li>
               <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
