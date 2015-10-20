@@ -38,8 +38,6 @@ class TagsController extends Controller {
     {
         $tags = Tag::get();
 
-        $imageTags = null;
-
         foreach ($tags as $key => $value) {
             $imageTags[] = $value->img;
         }

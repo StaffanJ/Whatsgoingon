@@ -216,6 +216,7 @@ class EventController extends Controller
         $events = $city->event()->get();
 
         foreach ($events as $event) {
+            $dates[] = $event->date;
             $images[] = $event->img;
             $eventTags[] = $event->tags;
         }

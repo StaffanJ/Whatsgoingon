@@ -10,11 +10,10 @@
     <h1 class="tag-heading">Vad letar du efter?</h1>
   </div>
   <div class="events">
-
-	  	<div class="category-card" ng-repeat="category in categories">
-	  		<img class="category-img" ng-src="{{category.img.url}}Thumb.jpg">
-	  		<h2 class="category-heading">{{category.name}}</h2>
-		</div>
+    <div class="category-card" ng-repeat="category in categories">
+  		<a href="#/{{ city }}/category/{{ category.name }}"><img class="category-img" ng-src="{{category.img.url}}Thumb.jpg">
+  		<h2 class="category-heading">{{category.name}}</h2></a>
+	  </div>  
 	</div>
 
 <style type="text/css">

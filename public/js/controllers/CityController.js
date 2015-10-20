@@ -99,6 +99,9 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
 }]);
 wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$routeParams', 'Categories', function($scope, $rootScope, $http, $routeParams, Categories){
 
+    $scope.city = $routeParams.city;
+    $scope.tag = $routeParams.tag;
+
     Categories.get($routeParams)
     .success(function(data){
         $scope.categories = data.tags;
@@ -118,7 +121,12 @@ wgo.controller('CategoryController', ['$scope', '$http', '$routeParams', 'Tag', 
     .success(function(data) {
         $scope.events = data.events;
         $scope.categoryImage = data.imageTag.url;
-        console.log($scope.numberOfEvents);
+        $scope.currentPage = 0;
+        $scope.pageSize = 9;
+
+        $scope.numberOfPages=function(){
+            return Math.ceil($scope.events.length/$scope.pageSize);                
+        }
     }).error(function(err){
         
     });

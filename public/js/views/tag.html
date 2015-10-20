@@ -35,7 +35,7 @@
             </select>  
         </div>
         <div class="events">
-          <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp | startFrom:currentPage*pageSize | limitTo:pageSize">
+          <div class="events-card" ng-repeat="event in events | orderBy:orderProp">
             <img ng-src="{{event.img.url}}Thumb.jpg"/>
             <ul class="tag-ul">
               <li class="tag-li" ng-hide="false" ng-repeat="tag in event.tags">
