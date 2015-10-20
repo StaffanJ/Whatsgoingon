@@ -1,0 +1,44 @@
+  <div class="main-menu">
+    <a href="#/{{city}}" class="back-button">  
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </a>
+   <a class="home-link" href="#/"><img ng-src="img/wgo-heading-text.png" class="wgo-heading"/></a>
+  
+  </div>
+
+   <div class="events-main-header">
+    <h1 class="tag-heading">Vad letar du efter?</h1>
+  </div>
+  <div class="events">
+
+	  	<div class="category-card" ng-repeat="category in categories">
+	  		<img class="category-img" ng-src="{{category.img.url}}Thumb.jpg">
+	  		<h2 class="category-heading">{{category.name}}</h2>
+		</div>
+	</div>
+
+<style type="text/css">
+  .events-main-header{
+    background-image: url('{{ categoryImage }}.jpg');
+      -webkit-background-size: cover;
+         -moz-background-size: cover;
+         -o-background-size: cover;
+          background-size: cover;
+    background-position: bottom center;
+  }
+  /*@media screen and (max-width: 640px) {
+  .tag-header{
+  background: url(../img/tagImg-small.jpg);
+  }
+}*/
+@media screen and (max-width: 980px) {
+  .events-main-header{
+    background-image: url('{{ categoryImage }}Medium.jpg');
+    height: 300px;
+    background-attachment: local;
+  }
+  .events-main-header:after{
+    bottom:-20px;
+  }
+}
+</style>

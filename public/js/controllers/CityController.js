@@ -101,7 +101,8 @@ wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$route
 
     Categories.get($routeParams)
     .success(function(data){
-        console.log(data);
+        $scope.categories = data.tags;
+        console.log($scope.categories);
     }).error(function(err){
 
     });
