@@ -25,19 +25,15 @@
           background-size: cover;
     background-position: bottom center;
   }
-  /*@media screen and (max-width: 640px) {
-  .tag-header{
-  background: url(../img/tagImg-small.jpg);
+ 
+  @media screen and (max-width: 980px) {
+    .events-main-header{
+      background-image: url('{{ categoryImage }}Medium.jpg');
+      height: 300px;
+      background-attachment: local;
+    }
+    .events-main-header:after{
+      bottom:-20px;
+    }
   }
-}*/
-@media screen and (max-width: 980px) {
-  .events-main-header{
-    background-image: url('{{ categoryImage }}Medium.jpg');
-    height: 300px;
-    background-attachment: local;
-  }
-  .events-main-header:after{
-    bottom:-20px;
-  }
-}
 </style>

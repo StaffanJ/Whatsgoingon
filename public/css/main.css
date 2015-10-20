@@ -14,7 +14,8 @@ p,
 a, /*Kan strula med span a från bootstrap*/
 span,
 ul,
-li{
+li,
+button{
 	font-family: TTChocolates;
 }
 
@@ -26,6 +27,16 @@ a:hover{
 	text-decoration: none;
 }
 
+.main-btn{
+	height: 40px;
+	font-size: 1.3em;
+	border:none;
+	color:white;
+	background: #421763;
+	padding: 5px 10px;
+	border-radius: 3px;
+	outline-color: #2A0F40;
+}
 
 
 .index-header{
@@ -166,10 +177,10 @@ a:hover{
 }
 
 .category-img{
-	   -webkit-filter: blur(1px);
-  			-moz-filter: blur(1px);
-  			  -o-filter: blur(1px);
-  			  filter: blur(1px)
+	-webkit-filter: blur(1px);
+  	   -moz-filter: blur(1px);
+  	     -o-filter: blur(1px);
+  		    filter: blur(1px);
 }
 
 .category-heading{
@@ -230,13 +241,21 @@ a:hover{
 	padding: 20px;
 	color:#000;
 }
+.event-search-btn{
+	margin-left: 10px;
+	padding:0 30px; 
+}
+.event-search-btn .glyphicon{
+	color:white;
+	margin-right: 10px;
+}
 
 .sortering{
 	display: block;
-	margin:0 auto;
+	margin:0 auto 30px auto;
 	line-height: 30px;
 	font-family: TTChocolates;
-	width: 300px;
+	width: 480px;
 }
 .sortering span{
 	font-size: 1.4em; 
@@ -244,9 +263,11 @@ a:hover{
 }
 .filter-select{
 	width: 200px;
-	height: 30px;
+	height: 40px;
 	font-size: 1.3em;
-  	margin-bottom: 30px;	
+}
+.categories-btn{
+	float: right;	
 }
 
 .events{
@@ -362,7 +383,7 @@ a:hover{
 .extra-dates:after{
 	position: absolute;
 	content: '';
-	left: -10px;
+	left: -9px;
 	width: 0; 
 	height: 0; 
 	border-top: 10px solid transparent;

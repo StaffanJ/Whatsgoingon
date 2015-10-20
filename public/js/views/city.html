@@ -2,38 +2,35 @@
   <a href="#/" class="back-button">  
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
   </a>
-  <!-- <div class="left-menu">
-    <a href="#/" class="back-button menu-button">
-    <span class="glyphicon glyphicon-arrow-left"></span></a> 
-  </div> -->
 
- <h1 class="home-link" href="#/">Whats Goint on</h1>
-  <!-- <div class="right-menu">
-    <a href="#" class="open-menu-button menu-button">
-    <span class="glyphicon glyphicon-align-justify"></span></a>
-  </div> -->
+  <h1 class="home-link" href="#/">Whats Goint on</h1>
+
 </div>
 
 <div ng-if="status == true" class="wrapper">
   <div class="events-main-header">
 
     <h2 class="events-main-heading">{{city}}</h2>
-    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
+    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event"><button class="event-search-btn main-btn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Sök</button>
 
   </div>
 
   <div class="container">
     <div class="sortering">
       <span class="sorterings-span">Sortera:</span>
-        <select class="filter-select" ng-model="orderProp">
-          <option value="title">Bokstavsordning</option>
-          <option value="date.date">Snarast</option>
-          <option value="age">Yngst</option>
-          <option value="-age">Äldst</option>
-          <option value="price">Billigast</option>
-          <option value="-price">Dyrast</option>
-        </select>  
+      
+      <select class="filter-select" ng-model="orderProp">
+        <option value="title">Bokstavsordning</option>
+        <option value="date.date">Snarast</option>
+        <option value="age">Yngst</option>
+        <option value="-age">Äldst</option>
+        <option value="price">Billigast</option>
+        <option value="-price">Dyrast</option>
+      </select>  
+
+      <a href="#/{{city}}/categories"><button class="categories-btn main-btn">Sök genom kategori</button></a>
     </div>
+    
     <div class="events">
       <div class="events-card" ng-repeat="event in events | filter:query | orderBy:orderProp | startFrom:currentPage*pageSize | limitTo:pageSize">
         <img ng-src="{{event.img.url}}Thumb.jpg"/>
@@ -43,7 +40,6 @@
           </li>
         </ul>
         <h2 class="events-header" ng-bind-html="event.title"></h2>
-        <!-- <p class="events-body">{{event.body |  cut:true:100:' ...'}}</p> -->
         <p class="event-body" ng-bind-html="event.body | limitTo : 200"></p>
         <ul class="list-inline events-card-info">
             <li>

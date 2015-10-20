@@ -45,10 +45,24 @@ wgo.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		});
 }]);
 
+
 $(document).on("click", ".show-event-info", function() {
 	console.log('ddsd');
 	$('.event-info-container').toggleClass('mobile-event-info-display');
 });
 $(document).on("click", ".if-optional-price-exists", function() {
 	$('.optional-price').toggleClass('display-optional-price');
+});
+$(document).on("click", ".event-search-btn", function() {
+	$('html, body').animate({
+       	scrollTop: ($(".events-card").offset().top) - 100
+    }, 200);
+});
+
+$(document).on('keyup', '.events-search',function (e) {
+    if (e.keyCode == 13) {
+    	$('html, body').animate({
+        	scrollTop: ($(".events-card").offset().top) - 100
+    	}, 200);
+    }
 });
