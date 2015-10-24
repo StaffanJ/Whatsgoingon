@@ -74,7 +74,7 @@ wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams
         $scope.status = false;
     });
 
-    $scope.orderProp = 'date.date';
+    $scope.orderProp = 'date[0].date.date';
 
 }]);
 
