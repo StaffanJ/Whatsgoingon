@@ -43,8 +43,6 @@ class Date_Event extends Model
 
     public function setDateAttribute($date){
 
-        //Carbon::parse($date); //Remove the time and change it to 00:00:00
-
         $this->attributes['date'] = Carbon::parse($date);
     }
 
@@ -54,7 +52,7 @@ class Date_Event extends Model
     */
 
     public function scopePublished($query){
-        $query->where('date', '>=', Carbon::now())
+        $query->where('date', '>', Carbon::now())
               ->orderBy('date', 'ASC');
     }
 

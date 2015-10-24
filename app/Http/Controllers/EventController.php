@@ -215,15 +215,22 @@ class EventController extends Controller
 
         $events = $city->event()->get();
 
-        foreach ($events as $event) {
+        $city_image = $city->city_image;
+
+        foreach ($events as $key => $event) { 
+            if(!$event->date->count()){
+                $events->forget($key);
+            }
             $dates[] = $event->date;
             $images[] = $event->img;
             $eventTags[] = $event->tags;
         }
 
-        $city_image = $city->city_image;
+        $newbe = $events->toArray();
 
-        return response()->json(['events' => $events, 'cityImage' => $city_image]);
+        $newbe = array_values($newbe);
+        
+        return response()->json(['events' => $newbe, 'cityImage' => $city_image]);
     
     }
 
@@ -237,11 +244,9 @@ class EventController extends Controller
     private function updateOptional(Event $event, $optional)
     {
 
-        $id[] = null;
-
         foreach ($optional as $key => $value) {
 
-            $id = $event->optional_price->lists('id');
+            $id[] = $event->optional_price->lists('id');
 
             $event->optional_price()->where('id', '=', $id[$key])->update($optional[$key]);
 

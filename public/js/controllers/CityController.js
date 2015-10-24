@@ -52,8 +52,9 @@ wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams
     $rootScope.title = $routeParams.city + '!';
     $rootScope.meta = "Ta reda på vad som händer i " + $routeParams.city + "! Sök bland konserter, yoga events, agilitytävlingar eller vad du än söker. Allt som händer i " + $routeParams.city + " finner du här!";  
 
-	Events.get($routeParams)
+    Events.get($routeParams)
     .success(function(data) {
+        console.log(data);
         $scope.status = true;
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
