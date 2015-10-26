@@ -134,12 +134,7 @@ a:hover{
 	line-height: 70px;
 	background-size: 100%;
 }
-@media screen and (max-width: 400px){
-	.home-link{
-		width: 90px;
-		background: url(../img/wgo-heading-text-mini.png);
-	}
-}
+
 .right-menu{
 	color:#421763;
 	margin-right: 20px;
@@ -255,7 +250,7 @@ a:hover{
 	margin:0 auto 30px auto;
 	line-height: 30px;
 	font-family: TTChocolates;
-	width: 480px;
+	width: 300px;
 }
 .sortering span{
 	font-size: 1.4em; 
@@ -267,7 +262,8 @@ a:hover{
 	font-size: 1.3em;
 }
 .categories-btn{
-	float: right;	
+	float: right;
+	display: none;	
 }
 
 .events{
@@ -283,16 +279,16 @@ a:hover{
     -webkit-justify-content: space-around;
     -ms-flex-pack: start;
     justify-content: space-around;
-   	width: 1120px;
+   	width: 100%;
    	margin: 0 auto;
 }
 
 
 .events-card{
 	background: white;
-  	width: 350px;
-  	min-width: 350px;
-  	height: 475px;
+  	width: 370px;
+  	min-width: 370px;
+  	/*height: 475px;*/
 	border: thin #9e9e9e solid;
 	padding: 10px;
 	margin-bottom: 40px;
@@ -318,7 +314,7 @@ a:hover{
 .events-header{
 	position: relative;
 	text-overflow: ellipsis; 
-    width: 255px;
+    width: 310px;
     height: 30px;
     display: block;
     white-space: nowrap;
@@ -339,8 +335,13 @@ a:hover{
     text-transform: uppercase;
 }
 .event-body{
-	height: 140px;
+	height: 160px;
 	white-space: normal;
+	position: relative;
+}
+.event-body:after{
+	position: absolute;
+	content:'...';
 }
 
 .events-card-info{
@@ -359,7 +360,7 @@ a:hover{
 	width: 90%;
 	height: 50px;
 	border:none;
-	margin: 13px auto 0 auto;
+	margin: 20px auto 10px auto;
 	border-radius: 3px;
 	background: #421763;
 	color:white;
@@ -396,6 +397,7 @@ a:hover{
 	height: 90px;
 	margin: 30px auto 0 auto;
 	position: relative;
+	display: none;
 }
 
 .page-button{
@@ -428,16 +430,6 @@ a:hover{
 	text-align: center;
 }
 
-@media screen and (max-width: 700px){
-	.events{
-		display: block;
-	}
-	.events-card{
-		display: block;
-		margin: 40px auto 0 auto;
-	}
-}
-
 .events-body{
 	min-height: 60px;
 	margin-right: 70px;
@@ -466,7 +458,7 @@ a:hover{
 .event-header,
 .tag-header{
 	width: 100%;
-	height: 400px;
+	height: 430px;
 	text-align: center;
 	border-top: 1px solid black;
  	margin-bottom: 30px;	
@@ -510,9 +502,13 @@ a:hover{
 
 .event-main{
 	margin-top: 70px;
+	height: auto;
 	padding: 10px 40px 0 40px;
 }
-
+.tag-container{
+	margin-top: 80px;
+	float: right !important;
+}
 .if-optional-price-exists{
 	cursor: pointer;
 	background: #220C33;
@@ -540,12 +536,6 @@ a:hover{
     transition: max-height .5s ease-out;
 }
 
-@media screen and (max-width: 750px){
-	.event-header{
-		height: 400px;
-		margin-bottom: 30px;
-	}
-}
 
 .event-header:after{
 	background: url(../img/header-bottom-border.png) center center no-repeat;
@@ -597,31 +587,6 @@ button.twitter-share{
 	background-position: -136px 0;
 }
 
-@media screen and(max-width: 428px){
-	button.twitter-share,
-	button.share{
-		margin: 40px 0px 0px 0px;
-	}
-}
-
-@media screen and (max-width: 980px) {
-	.tag-header{
-	background: url(../img/tagImgMedium.jpg);
-	}
-	.events-main-header{
-    	background-image: url(../img/main-city-image-medium.jpg);
-    	height: 400px;
-    }
-
-    .events-main-heading{
-    	line-height: 30vh;
-    }
-
-    .pag-button-container{
-		width: 70%;
-	}
-}
-
 .events-info-container{
 	border: thin #9e9e9e solid;
 }
@@ -671,7 +636,6 @@ button.twitter-share{
 }
 
 .event-info-container:before{
-	//transform:skew(3deg);
 	top: -29px;
 	left: 0px;
 	background: url(../img/event-container-top.png) no-repeat;
@@ -680,37 +644,9 @@ button.twitter-share{
 }
 
 .event-info-container:after{
-	//transform:skew(3deg);
 	left: 0px;
 	background: url(../img/event-container-bottom.png) no-repeat;
 	background-size: 100% 29px;
-}
-
-@media screen and (max-width: 767px){
-	.event-main{
-		margin-top: 10px;
-	}
-	.event-info-container{
-		margin: 0 0 20px 0;
-		width: 100%;
-		padding: 0;
-		height: 0;
-		overflow: hidden;
-		background: white;
-		position: static;
-	}
-	.event-info{
-		background: #421763;
-		width: 90%;
-		margin:0 auto;
-		padding: 20px 0;
-	}
-
-	.event-info-container:before,
-	.event-info-container:after{
-		content:'';
-		display: none;
-	}
 }
 
 .event-info{
@@ -744,7 +680,6 @@ p.event-list-explenation{
     text-overflow: ellipsis; 
     width: 195px;
 }
-
 
 .event-tag{
 	color: #220C33;
@@ -781,65 +716,6 @@ footer:before{
 	display: inline-block;
 }
 
-@media screen and (max-width:2000px){
-	.event-info{
-		padding-left: 0;
-	}
-	p.event-list-explenation{
-	    width: 190px;
-	}
-}
-@media screen and (max-width: 1200px) {
-	.events{
-		width: 100%;
-	}
-}
-
-
-@media screen and (max-width: 767px) {
-	.show-event-info{
-		width: 90%;
-		height: 40px;
-		display: block;
-		background:#220C33;
-		margin: 70px auto 0 auto;
-		float: left;
-	}
-	.event-list{
-		border-bottom:1px solid #220C33;
-	}
-
-	p.event-list-explenation{
-	    width: 90%;
-	}
-	.event-span{
-		margin-left: 10px;
-	}
-
-}
-@media screen and (max-width: 646px) {
-
-	.events-search{
-		width: 90%;
-	}
-	.events-body{
-		margin-bottom: 0;
-	}
-
-}
-
-@media screen and (max-width: 600px) {
-	.city-link{
-		width: 100%;
-		margin-bottom: 10px;
-	}
-	.index-header h1{
-		width: 345px;
-		height: 60px;
-		background-size: 100%;
-	}
-}
-
 .module-btn{
 	background: #f1665d;
 	border: 1px solid #220C33;
@@ -874,7 +750,130 @@ footer:before{
 	height: 230px;
 }
 
-@media screen and (max-width: 660px){
+@media screen and (max-width:2000px){
+	.event-info{
+		padding-left: 0;
+	}
+	p.event-list-explenation{
+	    width: 190px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.events{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	.tag-header{
+	background: url(../img/tagImgMedium.jpg);
+	}
+	.event-search-btn{
+		margin-top: 20px;
+		/*padding: 10px 60px;*/
+	}
+	.events-main-header{
+    	background-image: url(../img/main-city-image-medium.jpg);
+    	height: 440px;
+    }
+
+    .events-main-heading{
+    	line-height: 30vh;
+    }
+
+    .pag-button-container{
+		width: 70%;
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px){
+	.event-main{
+		margin-top: 10px;
+	}
+	.event-info-container{
+		margin: 0 0 20px 0;
+		width: 100%;
+		padding: 0;
+		height: 0;
+		overflow: hidden;
+		background: white;
+		position: static;
+	}
+	.event-info{
+		background: #421763;
+		width: 90%;
+		margin:0 auto;
+		padding: 20px 0;
+	}
+
+	.event-info-container:before,
+	.event-info-container:after{
+		content:'';
+		display: none;
+	}
+	.show-event-info{
+		width: 100%;
+		text-align: center;
+		display: block;
+		background:#220C33;
+		margin: 70px auto 0 auto;
+		float: left;
+	}
+	.event-list{
+		border-bottom:1px solid #220C33;
+	}
+
+	p.event-list-explenation{
+	    width: 90%;
+	}
+	.event-span{
+		margin-left: 20px;
+	}
+}
+
+@media screen and (max-width: 760px){
+	.events{
+		display: block;
+	}
+	.events-card{
+		display: block;
+		margin: 40px auto 0 auto;
+	}
+}
+
+@media screen and (max-width: 750px){
+	.event-header{
+		height: 400px;
+		margin-bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 646px) {
+
+	.events-search{
+		width: 90%;
+	}
+
+	.event-search-btn{
+		padding: 10px 60px;
+	}
+	.events-body{
+		margin-bottom: 0;
+	}
+}	
+
+@media screen and (max-width: 600px){
+	.city-link{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.index-header h1{
+		width: 345px;
+		height: 60px;
+		background-size: 100%;
+	}
 	.error-city{
 		background: url(../img/error-page-mobile.jpg) no-repeat center center;
 	}
@@ -882,19 +881,46 @@ footer:before{
 		min-width: auto;
 		width: 90%;
 		margin: 10% auto 0 auto;
-	}
-
-	.city-container{
-		margin: 0;
-	}
-}
-@media screen and (max-width: 600px){
-	.error-city .error-exp{
 		height: 400px;
 	}
 	.error-city .city-link{
 		clear: both;
 		width: 100%;
 		margin:20px auto 0 auto;
+	}
+}
+
+@media screen and(max-width: 428px){
+	button.twitter-share,
+	button.share{
+		margin: 40px 0px 0px 0px;
+	}
+}
+@media screen and (max-width: 400px){
+	.container{
+		padding: 0;
+	}
+	.events-card{
+		min-width: 100%;
+		width: 100%;
+	}
+	.event-body{
+		height: 120px;
+		overflow: hidden;
+	}
+	.home-link{
+		width: 90px;
+		background: url(../img/wgo-heading-text-mini.png);
+	}
+}
+
+
+/*Bootstrap overwrite*/
+.container {
+    width: 1500px;
+}
+@media screen and (max-width: 1500px){
+	.container {
+	    width: 100%;
 	}
 }

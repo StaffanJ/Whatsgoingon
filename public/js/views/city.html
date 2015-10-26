@@ -36,11 +36,11 @@
         <img ng-src="{{event.img.url}}Thumb.jpg"/>
         <ul class="tag-ul">
           <li class="tag-li" ng-hide="false" ng-repeat="tag in event.tags">
-              #{{tag.name}}
+            {{tag.name}} /
           </li>
         </ul>
         <h2 class="events-header" ng-bind-html="event.title"></h2>
-        <p class="event-body" ng-bind-html="event.body | limitTo : 200"></p>
+        <p class="event-body three-dots" ng-bind-html="event.body | limitTo : 200"></p>
         <ul class="list-inline events-card-info">
             <li>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>

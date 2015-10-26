@@ -16,8 +16,9 @@
   </div>
 
    <div class="events-main-header">
-    <h1 class="tag-heading">{{tag}}</h1>
-    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">
+      <h2 class="events-main-heading">{{tag}}</h2>
+    <input type="text" ng-model="query" class="events-search" placeholder="Sök efter event">   
+    <button class="event-search-btn main-btn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Sök</button>
   </div>
 
   <div class="container">
@@ -35,7 +36,7 @@
             </select>  
         </div>
         <div class="events">
-          <div class="events-card" ng-repeat="event in events | orderBy:orderProp">
+          <div class="events-card" ng-repeat="event in events | orderBy:orderProp | filter:query">
             <img ng-src="{{event.img.url}}Thumb.jpg"/>
             <ul class="tag-ul">
               <li class="tag-li" ng-hide="false" ng-repeat="tag in event.tags">
@@ -92,7 +93,7 @@
 @media screen and (max-width: 980px) {
   .events-main-header{
     background-image: url('{{ categoryImage }}Medium.jpg');
-    height: 300px;
+    height: 430px;
     background-attachment: local;
   }
   .events-main-header:after{
