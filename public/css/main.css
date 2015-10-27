@@ -3,6 +3,9 @@
    src: url(../fonts/ttchocolates-regular-webfont.ttf),
    url(../fonts/ttchocolates-regular-webfont.eot); /* IE */
 }
+body{
+	overflow-x: hidden;
+}
 
 h1,
 h2,
@@ -727,7 +730,7 @@ footer:before{
 }
 
 .mobile-event-info-display{
-	height: auto;
+	height: auto !important;
 }
 
 .error-city{
@@ -818,7 +821,7 @@ footer:before{
 		text-align: center;
 		display: block;
 		background:#220C33;
-		margin: 70px auto 0 auto;
+		margin: 30px auto 0 auto;
 		float: left;
 	}
 	.event-list{
@@ -858,6 +861,9 @@ footer:before{
 
 	.event-search-btn{
 		padding: 10px 60px;
+	}
+	.event-heading{
+		font-size: 2em;
 	}
 	.events-body{
 		margin-bottom: 0;

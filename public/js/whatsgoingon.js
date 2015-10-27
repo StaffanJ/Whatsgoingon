@@ -47,7 +47,6 @@ wgo.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 
 $(document).on("click", ".show-event-info", function() {
-	console.log('ddsd');
 	$('.event-info-container').toggleClass('mobile-event-info-display');
 });
 $(document).on("click", ".if-optional-price-exists", function() {
