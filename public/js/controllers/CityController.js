@@ -54,7 +54,6 @@ wgo.controller('CityController', ['$scope', '$rootScope', '$http', '$routeParams
 
     Events.get($routeParams)
     .success(function(data) {
-        console.log(data);
         $scope.status = true;
         $scope.events = data.events;
         $scope.cityImage = data.cityImage;
@@ -85,7 +84,6 @@ wgo.controller('CityEvent', ['$scope', '$rootScope', '$http', '$routeParams', 'E
 
     Event.get($routeParams)
     .success(function(data) {
-        console.log(data);
         $scope.event = data.event;
         $scope.tags = data.tags;
         $rootScope.metaDesc = "Upplev " + data.event.title + " själv den " + data.event.date.date;
@@ -106,7 +104,6 @@ wgo.controller('CategoriesController', ['$scope', '$rootScope', '$http', '$route
     Categories.get($routeParams)
     .success(function(data){
         $scope.categories = data.tags;
-        console.log($scope.categories);
     }).error(function(err){
 
     });
@@ -170,7 +167,6 @@ wgo.controller('CreateController', ['$scope', '$http', '$compile', 'Create', fun
 
         var formData = $('#createForm').serialize();
 
-        console.log(formData);
 
         // save the event. pass in event data from the form
         // use the function we created in our service

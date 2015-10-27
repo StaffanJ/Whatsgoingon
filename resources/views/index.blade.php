@@ -63,7 +63,6 @@
     <ul class="footer-ul">
         <li>Kontakta oss</li>
         <li>070-111 11 11</li>
-        <li>Random li</li>
     </ul>
         <button type="button" class="module-btn" data-toggle="modal" data-target="#myModal">Föreslå ett event</button>
     </div>
@@ -78,10 +77,10 @@
     <script src="js/node_modules/angular-socialshare/src/js/angular-socialshare.js"></script>
     
     <!-- ANGULAR -->
-    <script src="js/whatsgoingon.js"></script> <!-- load our application -->
-    <script src="js/controllers/CityController.js"></script> <!-- load our controller -->
-    <script src="js/services/cityServices.js"></script> <!-- load our controller -->
-    <script src="js/module/filters.js"></script> <!-- load our controller -->
+    <script src="js/wgo.min.js"></script> <!-- load our application -->
+    <!--<script src="js/controllers/CityController.js"></script>  load our controller -->
+    <!--<script src="js/services/cityServices.js"></script> load our services -->
+    <!--<script src="js/module/filters.js"></script> load our filters -->
     
     <script src="js/mainScript.js"></script>
 </body>
